@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Discover my Island">
+        <meta name="Author" content="Astrid JONATHAN & Léna Broisseron">
+        <meta name="copuright" content="DGitalQueen">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{% block title %}Discovery My Island | Visite Mon Ile {% endblock %}</title>
+        {% block stylesheets %}
+            <!-- Bootstrap Stylesheet -->
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            <!-- Core Stylesheet -->
+            <link href="assets/css/style.css" rel="stylesheet">
+            <!-- Responsive CSS -->
+            <link href="assets/css/responsive/responsive.css" rel="stylesheet">
+        {% endblock %}
+    </head>
+    <body>
+        {{ include('components/_nav.html.twig') }}
+        {% block content %}{% endblock %}
+        {{ include('components/footer.html.twig') }}
+        {% block javascripts %}
+            <!-- jQuery-2.2.4 js -->
+            <script src="assets/js/jquery/jquery-2.2.4.min.js"></script>
+            <!-- Popper js -->
+            <script src="assets/js/bootstrap/popper.min.js"></script>
+            <!-- Bootstrap-4 js -->
+            <script src="assets/js/bootstrap/bootstrap.min.js"></script>
+            <!-- All Plugins js -->
+            <script src="assets/js/others/plugins.js"></script>
+            <!-- Active JS -->
+            <script src="assets/js/active.js"></script>
+        {% endblock %}
+    </body>
+</html>
