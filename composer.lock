@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0dbc9aca1f8b4525f513888e590fe643",
+    "content-hash": "b92cc2f990901b3abdeacf981f5c9de2",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1141,6 +1141,54 @@
             "time": "2018-06-14T14:45:07+00:00"
         },
         {
+            "name": "drupol/phposinfo",
+            "version": "1.6.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/drupol/phposinfo.git",
+                "reference": "ff28651bfed83cb788a893854eaaab8976d0af1e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/drupol/phposinfo/zipball/ff28651bfed83cb788a893854eaaab8976d0af1e",
+                "reference": "ff28651bfed83cb788a893854eaaab8976d0af1e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">= 7.1.3"
+            },
+            "require-dev": {
+                "drupol/php-conventions": "^1",
+                "drupol/phpspec-annotation": "^1",
+                "drupol/phpspec-code-coverage": "^5",
+                "infection/infection": "^0.13",
+                "phpspec/phpspec": "^5",
+                "phptaskman/changelog": "^1.0",
+                "scrutinizer/ocular": "^1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "drupol\\phposinfo\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pol Dellaiera",
+                    "email": "pol.dellaiera@protonmail.com"
+                }
+            ],
+            "description": "Try to guess the host operating system.",
+            "keywords": [
+                "operating system detection"
+            ],
+            "time": "2019-09-11T08:29:38+00:00"
+        },
+        {
             "name": "easycorp/easy-log-handler",
             "version": "v1.0.9",
             "source": {
@@ -1681,6 +1729,55 @@
                 "psr-3"
             ],
             "time": "2019-11-01T11:05:21+00:00"
+        },
+        {
+            "name": "seld/jsonlint",
+            "version": "1.7.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Seldaek/jsonlint.git",
+                "reference": "e2e5d290e4d2a4f0eb449f510071392e00e10d19"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/e2e5d290e4d2a4f0eb449f510071392e00e10d19",
+                "reference": "e2e5d290e4d2a4f0eb449f510071392e00e10d19",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3 || ^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0"
+            },
+            "bin": [
+                "bin/jsonlint"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Seld\\JsonLint\\": "src/Seld/JsonLint/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be",
+                    "homepage": "http://seld.be"
+                }
+            ],
+            "description": "JSON Linter",
+            "keywords": [
+                "json",
+                "linter",
+                "parser",
+                "validator"
+            ],
+            "time": "2019-10-24T14:27:39+00:00"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -5376,6 +5473,157 @@
                 "templating"
             ],
             "time": "2019-11-15T20:38:32+00:00"
+        },
+        {
+            "name": "vaimo/composer-patches",
+            "version": "4.20.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vaimo/composer-patches.git",
+                "reference": "a7a037214d71e8fbd836892db96b3c35763715b1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vaimo/composer-patches/zipball/a7a037214d71e8fbd836892db96b3c35763715b1",
+                "reference": "a7a037214d71e8fbd836892db96b3c35763715b1",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0",
+                "drupol/phposinfo": "^1.6",
+                "ext-json": "*",
+                "php": ">=5.3.0",
+                "seld/jsonlint": "^1.7.1",
+                "vaimo/topological-sort": "^1.0"
+            },
+            "require-dev": {
+                "composer/composer": "^1.0.0",
+                "phpcompatibility/php-compatibility": "^9.1.1",
+                "phpmd/phpmd": "^2.6.0",
+                "sebastian/phpcpd": "^1.4.3",
+                "squizlabs/php_codesniffer": "^2.9.2",
+                "vaimo/composer-changelogs": "^0.15.1"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Vaimo\\ComposerPatches\\Plugin",
+                "changelog": {
+                    "source": "changelog.json",
+                    "output": {
+                        "md": "CHANGELOG.md"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Vaimo\\ComposerPatches\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Allan Paiste",
+                    "email": "allan.paiste@vaimo.com"
+                }
+            ],
+            "description": "Applies a patch from a local or remote file to any package that is part of a given composer project. Patches can be defined both on project and on package level. Optional support for patch versioning, sequencing, custom patch applier configuration and patch command for testing/troubleshooting added patches.",
+            "keywords": [
+                "Fixes",
+                "back-ports",
+                "backports",
+                "bulk patches",
+                "bundled patches",
+                "composer command",
+                "composer plugin",
+                "configurable patch applier",
+                "development patches",
+                "downloaded patches",
+                "environment flags",
+                "hot-fixes",
+                "hotfixes",
+                "indirect restrictions",
+                "maintenance",
+                "maintenance tools",
+                "multi-version patches",
+                "multiple formats",
+                "os-specific config",
+                "package bug-fix",
+                "package patches",
+                "patch branching",
+                "patch command",
+                "patch description",
+                "patch exclusion",
+                "patch header",
+                "patch meta-data",
+                "patch resolve",
+                "patch search",
+                "patch skipping",
+                "patcher",
+                "patching",
+                "plugin",
+                "remote patch files",
+                "resolve patches",
+                "skipped packages",
+                "tools",
+                "utilities",
+                "utility",
+                "utils",
+                "version restriction"
+            ],
+            "time": "2019-09-24T23:26:00+00:00"
+        },
+        {
+            "name": "vaimo/topological-sort",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vaimo/topological-sort.git",
+                "reference": "e19b93df2bac0e995ecd4b982ec4ea2fb1131e64"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vaimo/topological-sort/zipball/e19b93df2bac0e995ecd4b982ec4ea2fb1131e64",
+                "reference": "e19b93df2bac0e995ecd4b982ec4ea2fb1131e64",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "phpcompatibility/php-compatibility": "^9.1.1",
+                "phpmd/phpmd": "^2.6.0",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "^2.9.2",
+                "symfony/console": "~2.5 || ~3.0 || ~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Vaimo\\TopSort\\": "src/",
+                    "Vaimo\\TopSort\\Tests\\": "tests/Tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marc J. Schmidt",
+                    "email": "marc@marcjschmidt.de"
+                }
+            ],
+            "description": "High-Performance TopSort/Dependency resolving algorithm (compatibility version to work with 5.3)",
+            "keywords": [
+                "dependency resolving",
+                "topological sort",
+                "topsort"
+            ],
+            "time": "2019-04-13T14:15:06+00:00"
         },
         {
             "name": "zendframework/zend-code",
