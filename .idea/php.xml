@@ -87,6 +87,10 @@
       <path value="$PROJECT_DIR$/vendor/zendframework/zend-code" />
       <path value="$PROJECT_DIR$/vendor/ocramius/proxy-manager" />
       <path value="$PROJECT_DIR$/vendor/ocramius/package-versions" />
+      <path value="$PROJECT_DIR$/vendor/drupol/phposinfo" />
+      <path value="$PROJECT_DIR$/vendor/vaimo/topological-sort" />
+      <path value="$PROJECT_DIR$/vendor/vaimo/composer-patches" />
+      <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
