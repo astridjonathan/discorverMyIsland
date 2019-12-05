@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -24,19 +22,9 @@ class Comment
     private $content;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="comments")
+     * @ORM\Column(type="datetime", nullable=true)
      */
-    private $user;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Site", inversedBy="comments")
-     */
-    private $site;
-
-    public function __construct()
-    {
-        $this->user = new ArrayCollection();
-    }
+    private $createdDate;
 
     public function getId(): ?int
     {
@@ -55,40 +43,14 @@ class Comment
         return $this;
     }
 
-    /**
-     * @return Collection|User[]
-     */
-    public function getUser(): Collection
+    public function getCreatedDate(): ?\DateTimeInterface
     {
-        return $this->user;
+        return $this->createdDate;
     }
 
-    public function addUser(User $user): self
+    public function setCreatedDate(?\DateTimeInterface $createdDate): self
     {
-        if (!$this->user->contains($user)) {
-            $this->user[] = $user;
-        }
-
-        return $this;
-    }
-
-    public function removeUser(User $user): self
-    {
-        if ($this->user->contains($user)) {
-            $this->user->removeElement($user);
-        }
-
-        return $this;
-    }
-
-    public function getSite(): ?Site
-    {
-        return $this->site;
-    }
-
-    public function setSite(?Site $site): self
-    {
-        $this->site = $site;
+        $this->createdDate = $createdDate;
 
         return $this;
     }

@@ -38,17 +38,6 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
      */
     private $password;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Comment", mappedBy="user")
-     */
-    private $comments;
-
-
-
-    public function __construct()
-    {
-        $this->comments = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -127,33 +116,9 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
         // TODO: Implement eraseCredentials() method.
     }
 
-    /**
-     * @return Collection|Comment[]
-     */
-    public function getComments(): Collection
-    {
-        return $this->comments;
-    }
 
-    public function addComment(Comment $comment): self
-    {
-        if (!$this->comments->contains($comment)) {
-            $this->comments[] = $comment;
-            $comment->addUser($this);
-        }
 
-        return $this;
-    }
 
-    public function removeComment(Comment $comment): self
-    {
-        if ($this->comments->contains($comment)) {
-            $this->comments->removeElement($comment);
-            $comment->removeUser($this);
-        }
-
-        return $this;
-    }
 
 
 }

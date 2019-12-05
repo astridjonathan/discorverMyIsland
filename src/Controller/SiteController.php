@@ -12,7 +12,7 @@ class SiteController extends AbstractController
 {
     /**
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/{alias}_{id}")
+     * @Route("/{alias}_{id}", name="site")
      */
     public function sites(Site $sites)
     {

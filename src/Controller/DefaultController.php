@@ -60,4 +60,17 @@ class DefaultController extends AbstractController
     }
 
 
+    public function menu()
+    {
+        #Récupération des categories
+        $categories = $this->getDoctrine()
+            ->getRepository(Category::class)
+            ->findAll();
+        #transmission à la vue
+        return $this->render('components/_nav.html.twig', [
+            'categories' => $categories
+        ]);
+    }
+
+
 }

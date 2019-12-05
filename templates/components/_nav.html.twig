@@ -14,11 +14,10 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Explore <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="index.php">Accueil</a>
-                                    <a class="dropdown-item" href="explore.html">Explore</a>
-                                    <a class="dropdown-item" href="listing.html">Rallye</a>
-                                    <a class="dropdown-item" href="single-listing.html">Single Listing</a>
-                                    <a class="dropdown-item" href="contact.html">Contact</a>
+                                    {% for category in categories %}
+                                        <a class="dropdown-item" href="#">{{category.name}}</a>
+                                    {% endfor%}
+
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
