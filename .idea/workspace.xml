@@ -2,119 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb490f8f-437a-4c4d-8f75-5f5e7bde55a6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/img/bg-img/breadcumb.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/bg-img/editor-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/bg-img/editor-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/bg-img/editor-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/bg-img/event-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/bg-img/event-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/bg-img/event-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/bg-img/event-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/bg-img/event-5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/bg-img/event-6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/bg-img/feature-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/bg-img/feature-10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/bg-img/feature-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/bg-img/feature-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/bg-img/feature-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/bg-img/feature-5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/bg-img/feature-6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/bg-img/feature-7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/bg-img/feature-8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/bg-img/feature-9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/bg-img/hero-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/bg-img/hero-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/bg-img/hero-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/clients-img/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/clients-img/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/clients-img/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/clients-img/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/clients-img/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/clients-img/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/clients-img/star-fill.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/clients-img/star-unfill.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/core-img/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/core-img/icon-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/core-img/icon-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/core-img/icon-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/core-img/icon-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/core-img/icon-5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/core-img/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/core-img/map.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/sites-img/musse_saint_john_perse.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/SiteController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Category.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Site.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20191204144323.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20191204144547.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20191204144706.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20191204152749.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/CategoryRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/SiteRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/default/category.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/default/indexcomplet.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/default/site.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Pe-icon-7-stroke.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Pe-icon-7-stroke.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Pe-icon-7-stroke.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Pe-icon-7-stroke.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/bg-img/hero-1ass.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/sites-img/mActe.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20191205043803.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/bootstrap/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/others/animate.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/others/animate.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/others/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/others/font-awesome.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/others/magnific-popup.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/others/magnific-popup.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/others/owl.carousel.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/others/owl.carousel.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/others/pe-icon-7-stroke.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/others/pe-icon-7-stroke.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/responsive/responsive.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/responsive/responsive.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/bg-img/breadcumb.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/bg-img/editor-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/bg-img/editor-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/bg-img/editor-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/bg-img/event-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/bg-img/event-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/bg-img/event-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/bg-img/event-4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/bg-img/event-5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/bg-img/event-6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/bg-img/feature-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/bg-img/feature-10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/bg-img/feature-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/bg-img/feature-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/bg-img/feature-4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/bg-img/feature-5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/bg-img/feature-6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/bg-img/feature-7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/bg-img/feature-8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/bg-img/feature-9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/bg-img/hero-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/bg-img/hero-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/bg-img/hero-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/clients-img/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/clients-img/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/clients-img/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/clients-img/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/clients-img/4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/clients-img/5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/clients-img/star-fill.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/clients-img/star-unfill.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/core-img/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/core-img/icon-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/core-img/icon-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/core-img/icon-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/core-img/icon-4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/core-img/icon-5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/core-img/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/core-img/map.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/active.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/active.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/bootstrap/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/bootstrap/bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/bootstrap/popper.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/bootstrap/popper.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/google-map/explore-map-active.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/google-map/explore-map-active.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/google-map/location-map-active.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/google-map/location-map-active.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/google-map/map-active.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/google-map/map-active.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/jquery/jquery-2.2.4.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/jquery/jquery-2.2.4.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/others/plugins.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/others/plugins.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/bg-img/hero-1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/bg-img/hero-1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/core-img/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/core-img/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/sites-img/musse_saint_john_perse.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Category.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/_nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/_nav.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/default/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -232,31 +144,32 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\discorverMyIsland\public" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="C:\xampp\htdocs\discorverMyIsland\public" />
       <recent name="C:\xampp\htdocs\discorverMyIsland\templates\default" />
       <recent name="C:\xampp\htdocs\discorverMyIsland\templates\components" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\discorverMyIsland\public" />
+    </key>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
+  <component name="RunDashboard">
+    <option name="ruleStates">
       <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
       </list>
     </option>
   </component>

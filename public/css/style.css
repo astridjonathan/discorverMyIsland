@@ -26,17 +26,6 @@
     padding: 0;
 }
 
-#preloader {
-    overflow: hidden;
-    background-color: rgba(204,102,0, 0.8);
-    height: 100%;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 99999;
-}
-
 .dorne-load {
     width: 60px;
     height: 60px;
@@ -639,12 +628,12 @@ li {
 
 /* Catagory Area CSS */
 
-.dorne-catagory-area {
+.dorne-category-area {
     position: relative;
     z-index: 9;
 }
 
-.single-catagory-area {
+.single-category-area {
     background-color: #FF9900;
     text-align: center;
     padding: 60px 15px;
@@ -652,21 +641,21 @@ li {
             transition-duration: 500ms;
 }
 
-.single-catagory-area:hover {
+.single-category-area:hover {
     box-shadow: 5px 20px 30px rgba(0, 0, 0, 0.3);
 }
 
-.all-catagories {
+.all-categories {
     position: relative;
     top: -50%;
     z-index: 15;
 }
 
-.single-catagory-area .catagory-content img {
+.single-category-area .category-content img {
     margin-bottom: 15px;
 }
 
-.single-catagory-area .catagory-content h6 {
+.single-category-area .category-content h6 {
     margin-bottom: 0;
     color: #fff;
 }

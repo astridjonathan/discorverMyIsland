@@ -78,7 +78,7 @@ class UserController extends AbstractController
             $this->addFlash('notice', 'Félicitations votre inscription est prise en compte !');
 
             #7. Redirection sur la page de connexion
-            return $this->redirectToRoute('/',[
+            return $this->redirectToRoute('default_index',[
                 'id'=>$user->getId()
             ]);
         }

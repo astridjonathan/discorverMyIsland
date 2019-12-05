@@ -33,6 +33,11 @@ class Category
      */
     private $sites;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $icon;
+
     public function __construct()
     {
         $this->sites = new ArrayCollection();
@@ -93,6 +98,18 @@ class Category
                 $site->setCategory(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getIcon(): ?string
+    {
+        return $this->icon;
+    }
+
+    public function setIcon(string $icon): self
+    {
+        $this->icon = $icon;
 
         return $this;
     }
