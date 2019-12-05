@@ -14,8 +14,8 @@ class SiteController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/{alias}_{id}")
      */
-    public function site(Site $site)
+    public function sites(Site $sites)
     {
-        return $this->render('site/site.html.twig',  ['site' => $site]);
+        return $this->render('default/site.html.twig',  ['sites' => $sites]);
     }
 }

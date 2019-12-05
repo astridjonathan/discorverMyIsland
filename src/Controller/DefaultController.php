@@ -19,6 +19,7 @@ class DefaultController extends AbstractController
      */
     public function index()
     {
+
         $sites = $this->getDoctrine()
             ->getRepository(Site::class)
             ->findAll();
@@ -51,7 +52,7 @@ class DefaultController extends AbstractController
     /**
      * @param Site $site
      * @return Response
-     * @Route("/{category}/{alias}_{id}", name="default_site", methods={"GET"})
+     * @Route("/{alias}_{id}", name="default_site", methods={"GET"})
      */
     public function site(Site $site)
     {
