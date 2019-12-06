@@ -40,7 +40,7 @@ class DefaultController extends AbstractController
      */
     public function explore()
     {
-        #Récupération de tous les sites
+        #Récupération de tous les sites et des catégories
         $sites = $this->getDoctrine()
             ->getRepository(Site::class)
             ->findAll();

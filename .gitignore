@@ -17,3 +17,9 @@ yarn-error.log
 *.xml
 *.iml
 *.xml
+public/.DS_Store
+*.xml
+public/img/.DS_Store
+*.xml
+*.iml
+templates/.DS_Store
