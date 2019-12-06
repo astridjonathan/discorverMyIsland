@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use App\Entity\User;
+use http\Env\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -13,6 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class UserController extends AbstractController
 {
@@ -78,13 +80,40 @@ class UserController extends AbstractController
             $this->addFlash('notice', 'Félicitations votre inscription est prise en compte !');
 
             #7. Redirection sur la page de connexion
-            return $this->redirectToRoute('default_index',[
+
+            return $this->redirectToRoute('app_login', [
                 'id'=>$user->getId()
             ]);
         }
         #Transmission du formulaire à la vue
-        return $this->render('user/register.html.twig',[
+        return $this->render('user/register.html.twig', [
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @param AuthenticationUtils $authenticationUtils
+     * @return Response
+     * @Route("/connexion.html", name="app_login")
+     */
+    public function login(AuthenticationUtils $authenticationUtils): \Symfony\Component\HttpFoundation\Response
+    {
+        if ($this->getUser()) {
+            return $this->redirectToRoute('default_index');
+        }
+        $error = $authenticationUtils->getLastAuthenticationError();
+        $lastUsername = $authenticationUtils->getLastUsername();
+
+
+        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+
+    }
+
+    /**
+     * @Route("/deconnexion.html", name="app_logout")
+     */
+    public function logout()
+    {
+        throw new \Exception('This method can be blank - it will be intercepted by the logout key on your firewall');
     }
 }
