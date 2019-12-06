@@ -4,11 +4,6 @@
 
 {% block content %}
 
-    <!-- ***** Header Area Start ***** -->
-
-
-    <!-- ***** Header Area End ***** -->
-
     <!-- ***** Welcome Area Start ***** -->
     <section class="dorne-welcome-area bg-img bg-overlay"
              style="background-image: url( {{ asset('img/bg-img/hero-1.jpg') }});">
@@ -24,7 +19,7 @@
                         <!-- Tabs -->
                         <div class="nav nav-tabs" id="heroTab" role="tablist">
                             <a class="nav-item nav-link active" id="nav-places-tab" data-toggle="tab" href="#nav-places"
-                               role="tab" aria-controls="nav-places" aria-selected="true">Places</a>
+                               role="tab" aria-controls="nav-places" aria-selected="true">Sites</a>
                             <a class="nav-item nav-link" id="nav-events-tab" data-toggle="tab" href="#nav-events"
                                role="tab" aria-controls="nav-events" aria-selected="false">Events</a>
                         </div>
@@ -43,10 +38,10 @@
                                         <option value="5">London</option>
                                     </select>
                                     <select class="custom-select">
-                                        <option selected>All Categories</option>
-                                        <option value="1">Categories 1</option>
-                                        <option value="2">Categories 2</option>
-                                        <option value="3">Categories 3</option>
+                                        <option selected>Toutes les catégories</option>
+                                        {% for category in categories %}
+                                        <option value="{{category.id}}">{{category.name}}</option>
+                                        {% endfor %}
                                     </select>
                                     <button type="submit" class="btn dorne-btn"><i class="fa fa-search pr-2"
                                                                                    aria-hidden="true"></i> Rechercher
@@ -83,20 +78,18 @@
                     <div class="all-categories">
                         <div class="row">
                             {% for category in categories %}
-
                                 <!-- Single Category Area -->
                                 <div class="col-12 col-sm-6 col-md">
                                     <div class="single-category-area wow fadeInUpBig" data-wow-delay="0.2s">
                                         <div class="category-content">
+                                            <a href="{{ path('default_category', {alias : category.alias}) }}">
                                             <img src="{{ asset('img/core-img/' ~ category.icon) }}"
                                                  alt="{{ category.name }}">
-                                            <a href="#">
                                                 <h6>{{ category.name }}</h6>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-
                             {% endfor %}
 
 
@@ -147,9 +140,9 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    {% for site in sites %}
                         <div class="features-slides owl-carousel">
                             <!-- Single Site Area -->
+                            {% for site in sites %}
                             <div class="single-features-area">
                                 <img src="{{ asset('img/sites-img/' ~ site.image) }}" alt="{{ site.name }}">
                                 <!-- Rating & Map Area -->
@@ -162,12 +155,16 @@
                                         <h5>{{ site.name }}</h5>
                                     </div>
                                     <div class="feature-favourite">
-                                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                                        <a href="{{ path('default_site', {
+                                            alias : site.alias,
+                                            id : site.id,
+                                            category : site.category.alias}
+                                        )}}"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                             </div>
+                            {% endfor %}
                         </div>
-                    {% endfor %}
                 </div>
             </div>
         </div>
