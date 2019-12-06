@@ -19,6 +19,7 @@ class DefaultController extends AbstractController
      */
     public function index()
     {
+
         $sites = $this->getDoctrine()
             ->getRepository(Site::class)
             ->findAll();
@@ -32,6 +33,29 @@ class DefaultController extends AbstractController
 
     }
 
+    /**
+     * @param $alias
+     * @return Response
+     * @Route("/explore.html", name="default_explore", methods={"GET"})
+     */
+    public function explore()
+    {
+        #Récupération de tous les sites et des catégories
+        $sites = $this->getDoctrine()
+            ->getRepository(Site::class)
+            ->findAll();
+        $categories= $this->getDoctrine()
+            ->getRepository(Category::class)
+            ->findAll();
+
+
+        return $this->render('default/explore.html.twig', [
+            'sites' => $sites,
+            'categories' => $categories,
+
+        ]);
+
+    }
     /**
      * @param Category $category
      * @return Response
@@ -51,12 +75,27 @@ class DefaultController extends AbstractController
     /**
      * @param Site $site
      * @return Response
-     * @Route("/{category}/{alias}_{id}", name="default_site", methods={"GET"})
+     * @Route("/{category}/{alias}_{id}.html", name="default_site", methods={"GET"})
      */
     public function site(Site $site)
     {
-        return $this->render('default/site.html.twig', ['site' => $site]);
+        return $this->render('default/single-site.html.twig', ['site' => $site]);
     }
+
+
+    public function menu()
+    {
+        #Récupération des categories
+        $categories = $this->getDoctrine()
+            ->getRepository(Category::class)
+            ->findAll();
+        #transmission à la vue
+        return $this->render('components/_nav.html.twig', [
+            'categories' => $categories
+        ]);
+    }
+
+
 
 
 }

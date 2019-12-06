@@ -4,178 +4,189 @@
 
 {% block content %}
 
-<!-- ***** Header Area Start ***** -->
-
-
-<!-- ***** Header Area End ***** -->
-
-<!-- ***** Welcome Area Start ***** -->
-<section class="dorne-welcome-area bg-img bg-overlay" style="background-image: url( {{ asset('img/bg-img/hero-1.jpg') }});">
-    <div class="container h-100">
-        <div class="row h-100 align-items-center justify-content-center">
-            <div class="col-12 col-md-10">
-                <div class="hero-content">
-                    <h2>Visiter Autrement</h2>
-                    <h4>A pied ou en voiture, like you want !</h4>
-                </div>
-                <!-- Hero Search Form -->
-                <div class="hero-search-form">
-                    <!-- Tabs -->
-                    <div class="nav nav-tabs" id="heroTab" role="tablist">
-                        <a class="nav-item nav-link active" id="nav-places-tab" data-toggle="tab" href="#nav-places" role="tab" aria-controls="nav-places" aria-selected="true">Places</a>
-                        <a class="nav-item nav-link" id="nav-events-tab" data-toggle="tab" href="#nav-events" role="tab" aria-controls="nav-events" aria-selected="false">Events</a>
+    <!-- ***** Welcome Area Start ***** -->
+    <section class="dorne-welcome-area bg-img bg-overlay"
+             style="background-image: url( {{ asset('img/bg-img/hero-1.jpg') }});">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-md-10">
+                    <div class="hero-content">
+                        <h2>Visiter Autrement</h2>
+                        <h4>A pied ou en voiture, like you want !</h4>
                     </div>
-                    <!-- Tabs Content -->
-                    <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
-                            <h6>Que recherchez-vous?</h6>
-                            <form action="#" method="get">
-                                <select class="custom-select">
-                                    <option selected>Your Destinations</option>
-                                    <option value="1">New York</option>
-                                    <option value="2">Latvia</option>
-                                    <option value="3">Dhaka</option>
-                                    <option value="4">Melbourne</option>
-                                    <option value="5">London</option>
-                                </select>
-                                <select class="custom-select">
-                                    <option selected>All Catagories</option>
-                                    <option value="1">Catagories 1</option>
-                                    <option value="2">Catagories 2</option>
-                                    <option value="3">Catagories 3</option>
-                                </select>
-                                <button type="submit" class="btn dorne-btn"><i class="fa fa-search pr-2" aria-hidden="true"></i> Rechercher</button>
-                            </form>
+                    <!-- Hero Search Form -->
+                    <div class="hero-search-form">
+                        <!-- Tabs -->
+                        <div class="nav nav-tabs" id="heroTab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-places-tab" data-toggle="tab" href="#nav-places"
+                               role="tab" aria-controls="nav-places" aria-selected="true">Sites</a>
+                            <a class="nav-item nav-link" id="nav-events-tab" data-toggle="tab" href="#nav-events"
+                               role="tab" aria-controls="nav-events" aria-selected="false">Events</a>
+                        </div>
+                        <!-- Tabs Content -->
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-places" role="tabpanel"
+                                 aria-labelledby="nav-places-tab">
+                                <h6>Que recherchez-vous?</h6>
+                                <form action="#" method="get">
+                                    <select class="custom-select">
+                                        <option selected>Your Destinations</option>
+                                        <option value="1">New York</option>
+                                        <option value="2">Latvia</option>
+                                        <option value="3">Dhaka</option>
+                                        <option value="4">Melbourne</option>
+                                        <option value="5">London</option>
+                                    </select>
+                                    <select class="custom-select">
+                                        <option selected>Toutes les catégories</option>
+                                        {% for category in categories %}
+                                        <option value="{{category.id}}">{{category.name}}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <button type="submit" class="btn dorne-btn"><i class="fa fa-search pr-2"
+                                                                                   aria-hidden="true"></i> Rechercher
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Hero Social Btn -->
-    <div class="hero-social-btn">
-        <div class="social-title d-flex align-items-center">
-            <h6>Suivez-nous</h6>
-            <span>Every where, every time</span>
+        <!-- Hero Social Btn -->
+        <div class="hero-social-btn">
+            <div class="social-title d-flex align-items-center">
+                <h6>Suivez-nous</h6>
+                <span>Every where, every time</span>
+            </div>
+            <div class="social-btns">
+                <a href="#"><i class="fa fa-linkedin" aria-haspopup="true"></i></a>
+                <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-twitter" aria-haspopup="true"></i></a>
+                <a href="#"><i class="fa fa-facebook" aria-haspopup="true"></i></a>
+            </div>
         </div>
-        <div class="social-btns">
-            <a href="#"><i class="fa fa-linkedin" aria-haspopup="true"></i></a>
-            <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
-            <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-            <a href="#"><i class="fa fa-twitter" aria-haspopup="true"></i></a>
-            <a href="#"><i class="fa fa-facebook" aria-haspopup="true"></i></a>
-        </div>
-    </div>
-</section>
-<!-- ***** Welcome Area End ***** -->
+    </section>
+    <!-- ***** Welcome Area End ***** -->
 
-<!-- ***** Category Area Start ***** -->
-<section class="dorne-category-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="all-categories">
+    <!-- ***** Category Area Start ***** -->
+    <section class="dorne-category-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="all-categories">
+                        <div class="row">
+                            {% for category in categories %}
+                                <!-- Single Category Area -->
+                                <div class="col-12 col-sm-6 col-md">
+                                    <div class="single-category-area wow fadeInUpBig" data-wow-delay="0.2s">
+                                        <div class="category-content">
+                                            <a href="{{ path('default_category', {alias : category.alias}) }}">
+                                            <img src="{{ asset('img/core-img/' ~ category.icon) }}"
+                                                 alt="{{ category.name }}">
+                                                <h6>{{ category.name }}</h6>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Category Area End ***** -->
+
+    <!-- ***** About Area Start ***** -->
+    <section class="dorne-about-area section-padding-0-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="about-content text-center">
+                        <h2>Découvre la Guadeloupe avec <br><span>DiscoverMyIsland</span></h2>
+                        <p>s tempus elit. Sed efficitur tortor neque, vitae aliquet urna varius sit amet. Ut rhoncus,
+                            nunc nec tincidunt volutpat, ex libero.</p>
+                    </div>
                     <div class="row">
-                        {% for category in categories %}
-                        <!-- Single Category Area -->
-                        <div class="col-12 col-sm-6 col-md">
-                            <div class="single-category-area wow fadeInUpBig" data-wow-delay="0.2s">
-                                <div class="category-content">
-                                    <img src="{{ asset('img/core-img/' ~ category.icon) }}" alt="{{  category.name }}">
-                                    <a href="#">
-                                        <h6>{{category.name}}</h6>
-                                    </a>
+                        <div id="donwloadApp"class="col-12 text-center mt-2">
+                               <div>
+                                   <span> Télécharger  notre application</span>
+                                    <a href="#" class="btn btn-dark">GoogleStore</a>
+                                    <a href="#" class="btn btn-dark">AppleStore</a>
+                               </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** About Area End ***** -->
+
+
+    <!-- ***** POPULAR SITE ***** -->
+    <section class="dorne-features-restaurant-area bg-default">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading text-center">
+                        <span></span>
+                        <h4>Les Sites Populaires</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                        <div class="features-slides owl-carousel">
+                            <!-- Single Site Area -->
+                            {% for site in sites %}
+                            <div class="single-features-area">
+                                <img src="{{ asset('img/sites-img/' ~ site.image) }}" alt="{{ site.name }}">
+                                <!-- Rating & Map Area -->
+                                <div class="ratings-map-area d-flex">
+                                    <a href="#">8.5</a>
+                                    <a href="#"><img src="{{ asset('img/core-img/map.png') }}" alt=""></a>
+                                </div>
+                                <div class="feature-content d-flex align-items-center justify-content-between">
+                                    <div class="feature-title">
+                                        <h5>{{ site.name }}</h5>
+                                    </div>
+                                    <div class="feature-favourite">
+                                        <a href="{{ path('default_site', {
+                                            alias : site.alias,
+                                            id : site.id,
+                                            category : site.category.alias}
+                                        )}}"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                                    </div>
                                 </div>
                             </div>
+                            {% endfor %}
                         </div>
-                            
-                        {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Popular Site End ***** -->
 
 
+    <!-- ***** Clients Area Start ***** -->
+    <div class="dorne-clients-area section-padding-100">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="clients-logo d-md-flex align-items-center justify-content-around">
+                        <img src="{{ asset('img/clients-img/1.png') }}" alt="">
+                        <img src="{{ asset('img/clients-img/2.png') }}" alt="">
+                        <img src="{{ asset('img/clients-img/3.png"') }}" alt="">
+                        <img src="{{ asset('img/clients-img/4.png') }}" alt="">
+                        <img src="{{ asset('img/clients-img/5.png') }}" alt="">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
-<!-- ***** Category Area End ***** -->
-
-<!-- ***** About Area Start ***** -->
-<section class="dorne-about-area section-padding-0-100">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="about-content text-center">
-                    <h2>Découvre la Guadeloupe avec <br><span>DiscoverMyIsland</span></h2>
-                    <p>s tempus elit. Sed efficitur tortor neque, vitae aliquet urna varius sit amet. Ut rhoncus, nunc nec tincidunt volutpat, ex libero.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- ***** About Area End ***** -->
-
-
-<!-- ***** TEST SITE ***** -->
-<section class="dorne-features-restaurant-area bg-default">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <div class="section-heading text-center">
-                    <span></span>
-                    <h4>Les Sites Populaires</h4>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12">
-
-                {% for site in sites %}
-                <div class="features-slides owl-carousel">
-                    <!-- Single Site Area -->
-                    <div class="single-features-area">
-                        <img src="{{ asset('img/sites-img/' ~ site.image) }}" alt="{{ site.name }}">
-                        <!-- Rating & Map Area -->
-                        <div class="ratings-map-area d-flex">
-                            <a href="#">8.5</a>
-                            <a href="#"><img src="{{ asset('img/core-img/map.png') }}" alt=""></a>
-                        </div>
-                        <div class="feature-content d-flex align-items-center justify-content-between">
-                            <div class="feature-title">
-                                <h5>{{ site.name }}</h5>
-                            </div>
-
-                            <div class="feature-favourite">
-                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-            </div>
-    </div>
-</section>
-
-<!-- ***** TEST SITE Area End ***** -->
-
-
-<!-- ***** Clients Area Start ***** -->
-<div class="dorne-clients-area section-padding-100">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <div class="clients-logo d-md-flex align-items-center justify-content-around">
-                    <img src="assets/img/clients-img/1.png" alt="">
-                    <img src="assets/img/clients-img/2.png" alt="">
-                    <img src="assets/img/clients-img/3.png" alt="">
-                    <img src="assets/img/clients-img/4.png" alt="">
-                    <img src="assets/img/clients-img/5.png" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- ***** Clients Area End ***** -->
+    <!-- ***** Clients Area End ***** -->
 {% endblock %}

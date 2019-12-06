@@ -28,6 +28,7 @@ class Category
      */
     private $alias;
 
+
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Site", mappedBy="category")
      */
@@ -37,6 +38,7 @@ class Category
      * @ORM\Column(type="string", length=255)
      */
     private $icon;
+
 
     public function __construct()
     {
@@ -113,4 +115,6 @@ class Category
 
         return $this;
     }
+
+
 }

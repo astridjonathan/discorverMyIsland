@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,6 +43,33 @@ class Site
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $adress;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $siteWeb;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $tel;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $openHour;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $visiteType;
+
+
 
 
 
@@ -108,6 +137,70 @@ class Site
 
         return $this;
     }
+
+    public function getAdress(): ?string
+    {
+        return $this->adress;
+    }
+
+    public function setAdress(string $adress): self
+    {
+        $this->adress = $adress;
+
+        return $this;
+    }
+
+    public function getSiteWeb(): ?string
+    {
+        return $this->siteWeb;
+    }
+
+    public function setSiteWeb(?string $siteWeb): self
+    {
+        $this->siteWeb = $siteWeb;
+
+        return $this;
+    }
+
+    public function getTel(): ?int
+    {
+        return $this->tel;
+    }
+
+    public function setTel(?int $tel): self
+    {
+        $this->tel = $tel;
+
+        return $this;
+    }
+
+    public function getOpenHour(): ?string
+    {
+        return $this->openHour;
+    }
+
+    public function setOpenHour(string $openHour): self
+    {
+        $this->openHour = $openHour;
+
+        return $this;
+    }
+
+    public function getVisiteType(): ?string
+    {
+        return $this->visiteType;
+    }
+
+    public function setVisiteType(?string $visiteType): self
+    {
+        $this->visiteType = $visiteType;
+
+        return $this;
+    }
+
+
+
+
 
 
 }

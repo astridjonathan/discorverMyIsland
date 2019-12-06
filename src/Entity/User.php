@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 /**
@@ -35,6 +37,7 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
      * @Assert\NotBlank(message="Vous avez oublié le mot de passe")
      */
     private $password;
+
 
     public function getId(): ?int
     {
@@ -112,4 +115,10 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
     {
         // TODO: Implement eraseCredentials() method.
     }
+
+
+
+
+
+
 }

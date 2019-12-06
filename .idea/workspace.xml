@@ -3,6 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="bb490f8f-437a-4c4d-8f75-5f5e7bde55a6" name="Default Changelist" comment="">
 
+
+    <change afterPath="$PROJECT_DIR$/src/Knp/Bundle/MenuBundle/KnpMenuBundle.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pages/contact.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pages/explore.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pages/single-site.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pages/site.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/discorverMyIsland.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/discorverMyIsland.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/_nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/_nav.html.twig" afterDir="false" />
   
 
       <change afterPath="$PROJECT_DIR$/public/fonts/FontAwesome.otf" afterDir="false" />
@@ -138,11 +155,19 @@
       <path value="$PROJECT_DIR$/vendor/vaimo/topological-sort" />
       <path value="$PROJECT_DIR$/vendor/vaimo/composer-patches" />
       <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-menu-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-menu" />
     </include_path>
   </component>
   <component name="ProjectId" id="1URiDixjqlBoD6A3vqvvoqFwEuK" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
@@ -152,11 +177,14 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+<recent name="$PROJECT_DIR$/templates/pages" />
+      <recent name="C:\xampp\htdocs\discorverMyIsland\public" />
       <recent name="C:\xampp\htdocs\wf3gpe\discoverMyIsland\discorverMyIsland\src\Security" />
+
     </key>
   </component>
   <component name="RunDashboard">
@@ -183,10 +211,12 @@
       <updated>1575325690693</updated>
       <workItem from="1575325691914" duration="13509000" />
 
-      <workItem from="1575395740441" duration="2798000" />
-      <workItem from="1575403075424" duration="7000" />
-      <workItem from="1575420591582" duration="2089000" />
-      <workItem from="1575467085320" duration="21372000" />
+      <workItem from="1575399188802" duration="3323000" />
+      <workItem from="1575460965745" duration="1497000" />
+      <workItem from="1575469510735" duration="16010000" />
+      <workItem from="1575548689929" duration="1844000" />
+      <workItem from="1575550565385" duration="10066000" />
+      <workItem from="1575570820472" duration="4135000" />
 
     </task>
     <servers />
@@ -231,21 +261,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575469780172" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/templates/base.html.twig</url>
-          <line>8</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/templates/base.html.twig</url>
-          <line>14</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="158" y="165" key="SettingsEditor" timestamp="1575553876091">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="158" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1575553876091" />
   </component>
 </project>
