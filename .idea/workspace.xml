@@ -2,14 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb490f8f-437a-4c4d-8f75-5f5e7bde55a6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20191205192827.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Knp/Bundle/MenuBundle/KnpMenuBundle.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pages/contact.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pages/explore.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pages/single-site.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pages/site.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/discorverMyIsland.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/discorverMyIsland.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SiteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Comment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Site.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Site.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191205173900.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/components/_nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/_nav.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -117,6 +124,8 @@
       <path value="$PROJECT_DIR$/vendor/vaimo/topological-sort" />
       <path value="$PROJECT_DIR$/vendor/vaimo/composer-patches" />
       <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-menu-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-menu" />
     </include_path>
   </component>
   <component name="ProjectId" id="1URiDixjqlBoD6A3vqvvoqFwEuK" />
@@ -147,18 +156,19 @@
       <recent name="C:\xampp\htdocs\discorverMyIsland\templates\components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/pages" />
       <recent name="C:\xampp\htdocs\discorverMyIsland\public" />
     </key>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
+  <component name="RunDashboard">
+    <option name="ruleStates">
       <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
       </list>
     </option>
   </component>

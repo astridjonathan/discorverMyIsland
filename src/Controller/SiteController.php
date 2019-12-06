@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 
+use App\Entity\Category;
 use App\Entity\Site;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,4 +19,5 @@ class SiteController extends AbstractController
     {
         return $this->render('default/site.html.twig',  ['sites' => $sites]);
     }
+
 }

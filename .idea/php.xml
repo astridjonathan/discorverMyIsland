@@ -91,6 +91,8 @@
       <path value="$PROJECT_DIR$/vendor/vaimo/topological-sort" />
       <path value="$PROJECT_DIR$/vendor/vaimo/composer-patches" />
       <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-menu-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-menu" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
