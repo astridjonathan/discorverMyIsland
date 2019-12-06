@@ -1,0 +1,17 @@
+easy_admin:
+    entities:
+#        # List the entity class name you want to manage
+        Site:
+            class: App\Entity\Site
+        Course:
+            class: App\Entity\Course
+        User:
+            class: App\Entity\User
+
+    site_name: 'DiscoverMyIsland'
+
+    user:
+        display_name: true
+        display_avatar: false
+        name_property_path: 'fullName'
+        avatar_property_path: 'gravatar'
