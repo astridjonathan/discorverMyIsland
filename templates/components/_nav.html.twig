@@ -3,13 +3,13 @@
         <div class="row h-100">
             <div class="col-12 h-100">
                 <nav class="h-100 navbar navbar-expand-lg">
-                    <a class="navbar-brand" href="index.php"><img src="{{ asset('img/core-img/logo.png') }} " alt="logo.png"></a>
+                    <a class="navbar-brand" href="{{ path('/') }}"><img src="{{ asset('img/core-img/logo.png') }} " alt="logo.png"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dorneNav" aria-controls="dorneNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
                     <!-- Nav -->
                     <div class="collapse navbar-collapse" id="dorneNav">
-                        <ul class="navbar-nav mr-auto" id="dorneMenu">
+                        <ul class="navbar-nav mx-auto" id="dorneMenu">
                             <li class="nav-item active">
-                                <a class="nav-link" href="index.php">Accueil <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="{{ path('/') }}">Accueil <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link " href="{{ path('default_explore') }}"  role="button" aria-haspopup="true" aria-expanded="false">Explore</a>
@@ -17,7 +17,7 @@
                                         a class="dropdown-item" href=""></a>
                                 </div>-->
                             </li>
-                            <li class="nav-item dropdown">
+                            <!--<li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rallye <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
                                     <a class="dropdown-item" href="listing.html">How it Works</a>
@@ -25,16 +25,17 @@
                                     <a class="dropdown-item" href="explore.html">S'inscrire</a>
                                     <a class="dropdown-item" href="listing.html">How it Works</a>
                                 </div>
+                            </li>-->
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('default_concept') }}">Concept</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">Concept</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ path('user_register') }}">Contact</a>
+                                <a class="nav-link" href="{{ path('default_contact') }}">Contact</a>
                             </li>
                         </ul>
                         <!-- Signin btn -->
-                        <div class="dorne-signin-btn">
+
+                        <div class="dorne-signin-btn ml-auto">
                             <a href="{{ path('app_login') }}" class="btn dorne-btn">Connexion</a>
                         </div>
                         <!-- Register btn -->

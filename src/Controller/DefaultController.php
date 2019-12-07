@@ -15,6 +15,7 @@ class DefaultController extends AbstractController
 {
     /**
      * @return Response
+     * @Route("/", name="/",methods={"GET"})
      *
      */
     public function index()
@@ -95,7 +96,35 @@ class DefaultController extends AbstractController
         ]);
     }
 
+    /**
+ * @param Site $site
+ * @return Response
+ * @Route("/concept.html", name="default_concept", methods={"GET"})
+ */
+    public function concept()
+    {
+        return $this->render('default/concept.html.twig');
+    }
 
+    /**
+     * @param Site $site
+     * @return Response
+     * @Route("/contact.html", name="default_contact", methods={"GET"})
+     */
+    public function contact()
+    {
+        return $this->render('default/contact.html.twig');
+    }
+
+    /**
+     * @param Site $site
+     * @return Response
+     * @Route("/mentions-legales.html", name="default_mlegales", methods={"GET"})
+     */
+    public function mLegales()
+    {
+        return $this->render('default/mentions-legales.html.twig');
+    }
 
 
 }
