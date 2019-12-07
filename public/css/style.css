@@ -465,15 +465,22 @@ li {
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 18px;
+    padding-left: 18px;
     color: #fff;
-    font-size: 15px;
-}
+    font-size: 16px;
 
+
+}
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 30px;
+    padding-left: 30px;
+    font-size: 18px;
+}
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-item.active .nav-link {
     color: #FF9900;
+
 }
 
 .dorne-search-btn > a,
@@ -598,7 +605,7 @@ li {
 .hero-social-btn .social-title {
     -webkit-transform: rotate(90deg);
             transform: rotate(90deg);
-    margin-left: -145px;
+    margin-left: -92px;
 }
 
 .hero-social-btn .social-title h6 {
@@ -945,14 +952,17 @@ li {
     padding:  30px 0;
     border-top: 1px solid #cc6908;
 
+
 }
 
 .footer-text p {
     font-size: 14px;
     font-weight: 700;
+    padding: 10px;
     margin-bottom: 0;
     color:white;
-    text-align: center;
+
+
 }
 
 .footer-social-btns > a {
