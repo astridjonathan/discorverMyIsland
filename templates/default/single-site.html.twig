@@ -4,6 +4,12 @@
   {{site.name}}
 {% endblock %}
 
+{% block stylesheet %}
+    <!-- Dropify -->
+    {{ parent() }}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" integrity="sha256-AWdeVMUYtwLH09F6ZHxNgvJI37p+te8hJuSMo44NVm0=" crossorigin="anonymous" />
+{% endblock %}
+
 {% block content %}
 
     <!-- ***** Breadcumb Area Start ***** -->
@@ -15,7 +21,7 @@
                         <div class="map-ratings-review-area d-flex">
                             <a href="#" class="d-flex align-items-center justify-content-center"><img src="{{ asset('img/core-img/map.png') }}" alt="map"></a>
                             <a href="#">8.7</a>
-                            <a href="#">Ecrire un commentaire</a>
+                            <a href="#"> Ajouter un Commentaire</a>
                         </div>
                     </div>
                 </div>
@@ -106,51 +112,52 @@
 
                         <div class="listing-reviews-area mt-100" id="review">
                             <h4>reviews</h4>
-                            <div class="single-review-area">
-                                <div class="reviewer-meta d-flex align-items-center">
-                                    <img src="{{ asset('img/clients-img/1.jpg') }}" alt="user-img">
-                                    <div class="reviewer-content">
-                                        <div class="review-title-ratings d-flex justify-content-between">
-                                            <h5>“The best Burger in town”</h5>
-                                            <div class="ratings">
-                                                <img src="{{ asset('img/clients-img/star-fill.png') }}" alt="starRating">
-                                                <img src="{{ asset('img/clients-img/star-fill.png') }}" alt="starRating">
-                                                <img src="{{ asset('img/clients-img/star-fill.png') }}" alt="starRating">
-                                                <img src="{{ asset('img/clients-img/star-fill.png') }}" alt="starRating">
-                                                <img src="{{ asset('img/clients-img/star-fill.png') }}" alt="starRating">
+                            {% for message in app.flashes('notice') %}
+                                <div class="alert alert-success">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                            {% if comments is not empty %}
+                                {% for comment in comments %}
+                                <div class=" row single-review-area col-12">
+                                    <div class="col-8">
+                                        <div class="reviewer-meta d-flex align-items-center ">
+
+                                            <img src="{{ asset('img/clients-img/avatar/' ~ comment.user.avatar) }}" alt="{{comment.user.pseudo}}">
+                                            <div class="reviewer-content">
+                                                <div class="review-title-ratings d-flex justify-content-between">
+                                                    <h5>“{{comment.title}}”</h5>
+                                                    <div class="ratings">
+                                                        <img src="{{ asset('img/clients-img/star-fill.png') }}" alt="starRating">
+                                                    </div>
+                                                </div>
+                                                <div class="">
+                                                    <p>{{ comment.content }}</p>
+                                                </div>
+
                                             </div>
                                         </div>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac nibh sed mi ullamcorper rhoncus. Curabitur pulvinar vel augue sit amet vestibulum. Proin tempus lacus porta lorem blandit aliquam eget quis ipsum. Vivamus accumsan consequat ligula non volutpat.</p>
-                                    </div>
-                                </div>
-                                <div class="reviewer-name">
-                                    <h6>Christinne Smith</h6>
-                                    <p>12 November 2017</p>
-                                </div>
-                            </div>
-                            <div class="single-review-area">
-                                <div class="reviewer-meta d-flex align-items-center">
-                                    <img src="img/clients-img/1.jpg" alt="">
-                                    <div class="reviewer-content">
-                                        <div class="review-title-ratings d-flex justify-content-between">
-                                            <h5>“Quality ingredients”</h5>
-                                            <div class="ratings">
-                                                <img src="img/clients-img/star-fill.png" alt="">
-                                                <img src="img/clients-img/star-fill.png" alt="">
-                                                <img src="img/clients-img/star-fill.png" alt="">
-                                                <img src="img/clients-img/star-fill.png" alt="">
-                                                <img src="img/clients-img/star-unfill.png" alt="">
-                                            </div>
+                                        <div class="reviewer-name">
+                                            <h6>{{comment.user.pseudo}}</h6>
+                                            <p>{{comment.createdDate| date('Y-m-d')}}</p>
                                         </div>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac nibh sed mi ullamcorper rhoncus. Curabitur pulvinar vel augue sit amet vestibulum. Proin tempus lacus porta lorem blandit aliquam eget quis ipsum. Vivamus accumsan consequat ligula non volutpat.</p>
+                                    </div> <!-- fin div col-8-->
+                                    <div class="col-4 ">
+                                        {% if comment.image  is defined %}
+                                            <img class="img-circle" width="304" height="236" src="{{ asset('img/com-img/' ~ comment.image) }}" alt="comment.image">
+                                        {% endif %}
                                     </div>
+
                                 </div>
-                                <div class="reviewer-name">
-                                    <h6>Michael Brown</h6>
-                                    <p>12 November 2017</p>
+                                {% endfor %}
+                            {% else %}
+                                <div class="col alert alert-warning text-center">
+                                    Pas de commentaire pour le moment
                                 </div>
-                            </div>
-                        </div>
+                            {% endif %}
+                        </div> <!-- Review End -->
+
+
 
                         <div class="location-on-map mt-50" id="lomap">
                             <h4>Location on map</h4>
@@ -160,13 +167,13 @@
                         </div>
 
                     </div>
-                </div>
+                </div><!-- Location MAP End -->
 
                 <!-- Listing Sidebar -->
                 <div class="col-12 col-md-8 col-lg-4">
                     <div class="listing-sidebar">
 
-                        <!-- Contact Form -->
+                        <!-- Contact  -->
                         <div class="contact-form contact-form-widget mt-50">
                             <h6>Contact</h6>
 
@@ -184,7 +191,7 @@
                                         {{site.siteWeb}}
                                     </div>
                                 </div>
-                        </div> <!-- END Contact Form -->
+                        </div> <!-- END Contact  -->
 
                         <!-- Opening Hours Widget -->
                         <div class="opening-hours-widget mt-50">
@@ -195,7 +202,19 @@
                         </div>
 
                     </div>
-                </div>
+                    <div class="row mt-50">
+                        <div class="col-12 mx-auto">
+                            <h3 class="text-center mt-4">
+                                Ajouter un Commentaire
+                            </h3>
+                            <div class=" mt-4 ">
+                                <form method="post">
+                                {{ form(form) }}
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>   <!-- END listing sidebar  Form -->
             </div>
         </div>
     </section>
@@ -207,11 +226,6 @@
     <!-- Google Maps js -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk9KNSL1jTv4MY9Pza6w8DJkpI_nHyCnk"></script>
     <script src="{{ asset('js/google-map/location-map-active.js') }}"></script>
-    <!-- CKEditor -->
-    <script src="https://cdn.ckeditor.com/ckeditor5/15.0.0/classic/ckeditor.js"></script>
-    <script>
-        ClassicEditor.create( document.querySelector( '#form_content' ) );
-    </script>
     <!-- Dropify -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js" integrity="sha256-SUaao5Q7ifr2twwET0iyXVy0OVnuFJhGVi5E/dqEiLU=" crossorigin="anonymous"></script>
     <script>

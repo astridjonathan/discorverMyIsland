@@ -38,6 +38,26 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
      */
     private $password;
 
+    /**
+     * @ORM\Column(type="array")
+     */
+    private $roles = [];
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="user")
+     */
+    private $comments;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $avatar;
+
+    public function __construct()
+    {
+        $this->comments = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -80,16 +100,22 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
         return $this;
     }
 
-    public function setRoles(array $array)
+    public function setRoles(array $roles) : self
     {
+        $this->role = $roles;
+
+        return $this;
     }
 
     /**
      * @inheritDoc
      */
-    public function getRoles()
+    public function getRoles(): ?array
     {
-        // TODO: Implement getRoles() method.
+        $roles = $this->roles;
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
     }
 
     /**
@@ -114,6 +140,51 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
     public function eraseCredentials()
     {
         // TODO: Implement eraseCredentials() method.
+    }
+
+
+
+    /**
+     * @return Collection|Comment[]
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comment $comment): self
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments[] = $comment;
+            $comment->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comment $comment): self
+    {
+        if ($this->comments->contains($comment)) {
+            $this->comments->removeElement($comment);
+            // set the owning side to null (unless already changed)
+            if ($comment->getUser() === $this) {
+                $comment->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getAvatar(): ?string
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(?string $avatar): self
+    {
+        $this->avatar = $avatar;
+
+        return $this;
     }
 
 

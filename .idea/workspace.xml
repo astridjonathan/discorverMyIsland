@@ -2,25 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb490f8f-437a-4c4d-8f75-5f5e7bde55a6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20191209124422.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/discorverMyIsland.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/discorverMyIsland.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/clients-img/avatar/avatar1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/clients-img/avatar/avatar2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/clients-img/avatar/avatarMen1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/clients-img/avatar/avatarMen2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/com-img/mm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/HelperTrait.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20191209145610.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20191209184728.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/core-img/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/core-img/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/core-img/logo_dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/core-img/logo_dark.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/clients-img/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/CommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CommentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DefaultController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SiteController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Comment.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Site.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Site.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/footer.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/default/contact.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/default/contact.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/default/explore.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/default/explore.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/default/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191206213227.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Migrations/Version20191209144121.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191209124422.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Migrations/Version20191209144636.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/default/single-site.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/default/single-site.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -128,6 +135,10 @@
       <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-menu-bundle" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-menu" />
+      <path value="$PROJECT_DIR$/vendor/symfony/expression-language" />
+      <path value="$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle" />
+      <path value="$PROJECT_DIR$/vendor/pagerfanta/pagerfanta" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
     </include_path>
   </component>
   <component name="ProjectId" id="1URiDixjqlBoD6A3vqvvoqFwEuK" />
@@ -144,28 +155,31 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/site" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\discorverMyIsland\templates\site" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/templates/pages" />
       <recent name="C:\xampp\htdocs\discorverMyIsland\public" />
       <recent name="C:\xampp\htdocs\wf3gpe\discoverMyIsland\discorverMyIsland\src\Security" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
+  <component name="ServiceViewManager">
+    <option name="viewStates">
       <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
       </list>
     </option>
   </component>
@@ -214,18 +228,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="736" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1575470293598" />
-    <state x="244" y="281" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1575485224946">
+    <state x="244" y="281" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1575906989182">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="244" y="281" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575485224946" />
+    <state x="244" y="281" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575906989182" />
     <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1575470097403">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1575470097403" />
-    <state x="727" y="334" key="NewPhpClassDialog" timestamp="1575472370687">
+    <state x="727" y="334" key="NewPhpClassDialog" timestamp="1575904288942">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="727" y="334" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575472370687" />
+    <state x="727" y="334" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575904288942" />
     <state x="794" y="443" key="NewPhpFileDialog" timestamp="1575469780172">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

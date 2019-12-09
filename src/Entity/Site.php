@@ -80,9 +80,6 @@ class Site
     }
 
 
-
-
-
     public function getId(): ?int
     {
         return $this->id;

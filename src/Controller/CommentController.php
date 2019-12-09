@@ -5,40 +5,57 @@ namespace App\Controller;
 
 
 use App\Entity\Comment;
+use App\Entity\User;
+use App\Entity\Site;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
 
-class CommentController
+class CommentController extends AbstractController
 {
-    public function addComment()
+    use HelperTrait;
+
+    /**
+     * Formulaire permettant l'ajout d'un commentaire
+     * @Route("/{{category}}/{{alias}}_{{id}}.html/ajouter-un-commentaire", name="comment_add", methods={"GET|POST"})
+     *
+     */
+    public function addComment(Site $site, User $user, Request $request)
     {
-        #Création d'un nouvel article
+
+        #Ajout d'un commentaire
         $comment= new Comment();
-        #Récupérer un user en attendant user connecté
-        $member = $this->getDoctrine()
-            ->getRepository(User::class)
-            ->find();
+        #Récupérer un user
+        $user = $this->getUser();
         #On affecte le User à l'article
-        $comment->setUser($member);
+        $comment->setUser($user);
         #Création d'un formulaire
         $form = $this->createFormBuilder($comment)
             #Titre de l'article
             ->add('title', TextType::class,[
-                'required' =>true, #par defaut à true pas à mettre
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Titre de du commentaire'
                 ]
             ])
 
-            #Article's content
+            #Comment's content
             ->add('content', TextareaType::class, [
-                'required'=>false,
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'Contenu de l\'article'
+                    'placeholder' => 'Contenu du commentaire'
                 ]
             ])
             #Image upload
             ->add('image', FileType::class,[
+                'required'=>false,
                 'label' => false,
                 'attr' => [
                     'class' => 'dropify',
@@ -47,7 +64,10 @@ class CommentController
             ])
             #Bouton envoyer
             ->add('submit', SubmitType::class,[
-                'label' => 'Publier mon Article'
+                'label' => 'Publier un Commentaire',
+                'attr' => [
+                    'class' => 'btn btn-block dorne-btn',
+                ]
             ])
             #Creates Form
             ->getForm();
@@ -58,36 +78,45 @@ class CommentController
             /** @var UploadedFile $imageFile */
             $imageFile = $form['image']->getData();
             if ($imageFile) {
-                $newFilename = $this->slugify($article->getTitle()) . '-' . uniqid() . '.' . $imageFile->guessExtension();
+                $newFilename = $this->slugify($comment->getTitle()) . '-' . uniqid() . '.' . $imageFile->guessExtension();
                 try {
                     $imageFile->move(
-                        $this->getParameter('articles_directory'),
+                        $this->getParameter('comments_directory'),
                         $newFilename
                     );
                 } catch (FileException $e) {
                     // ... handle exception if something happens during file upload
                 }
-                $article->setImage($newFilename);
+                $comment->setImage($newFilename);
             } #fin upload image
-            #Génération de l'alias de l'article
-            $article->setAlias($this->slugify($article->getTitle()));
+            #Génération de l'alias du commentaire
+            $comment->setAlias($this->slugify($comment->getTitle()));
             #Sauvegarde dans la BDD
             $em = $this->getDoctrine()->getManager();
-            $em->persist($article);
+            $em->persist($comment);
             $em->flush();
             #Notification flash
-            $this->addFlash('notice', 'Félicitations votre article est en ligne !');
+            $this->addFlash('notice', 'Félicitations votre commentaire est en ligne !');
             #Redirection
-            return $this->redirectToRoute('default_article',[
-                'category' => $article->getCategory()->getAlias(),
-                'alias'=> $article->getAlias(),
-                'id'=>$article->getId()
-            ]);
+            return $this->redirectToRoute('comment_add');
+
         }
+
+        $comments= $this->getDoctrine()
+            ->getRepository(Comment::class)
+            ->findBy(['site'=>$site]);
+        $user=$this->getDoctrine()
+            ->getRepository(User::class)
+            ->findBy(['id'=>$user]);
         #Transmission du formulaire à la vue
         return $this->render('default/single-site.html.twig',[
-            'form' => $form->createView()
+            'site'=> $site,
+            'user'=>$user,
+            'form' => $form->createView(),
+            'comments'=> $comments
         ]);
 
     }
+
+
 }

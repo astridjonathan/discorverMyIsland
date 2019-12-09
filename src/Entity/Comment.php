@@ -17,12 +17,18 @@ class Comment
     private $id;
 
     /**
+     * @ORM\Column(type="string", length=150)
+     */
+    private $title;
+
+
+    /**
      * @ORM\Column(type="text", nullable=true)
      */
     private $content;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="datetime", nullable=false)
      */
     private $createdDate;
 
@@ -33,12 +39,36 @@ class Comment
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Site", inversedBy="comments")
+     * @ORM\JoinColumn( nullable=false)
      */
     private $site;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="comments")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
+    public function __construct()
+    {
+        $this->createdDate= new \DateTime();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
+
+        return $this;
     }
 
     public function getContent(): ?string
@@ -88,4 +118,30 @@ class Comment
 
         return $this;
     }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function setAlias(?string $slugify)
+    {
+    }
+
+    public function getAlias()
+    {
+    }
+
+    public function getCategory()
+    {
+    }
+
+
 }

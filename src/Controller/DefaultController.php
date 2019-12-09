@@ -6,8 +6,10 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Entity\Comment;
 use App\Entity\Site;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -76,12 +78,22 @@ class DefaultController extends AbstractController
     /**
      * @param Site $site
      * @return Response
-     * @Route("/{category}/{alias}_{id}.html", name="default_site", methods={"GET"})
+     * @Route("/{category}/{alias}_{id}.html", name="default_site", methods={"GET|POST"})
      */
-    public function site(Site $site)
+    public function site(Site $site, Request $request)
     {
-        return $this->render('default/single-site.html.twig', ['site' => $site]);
+        $comments= $this->getDoctrine()
+            ->getRepository(Comment::class)
+            ->findBy(['site'=>$site]);
+        #Récupérer un user
+        $user = $this->getUser();
+        return $this->render('default/single-site.html.twig', [
+            'site' => $site,
+            'user'=>$user,
+            'comments'=> $comments
+        ]);
     }
+
 
 
     public function menu()
@@ -97,7 +109,6 @@ class DefaultController extends AbstractController
     }
 
     /**
- * @param Site $site
  * @return Response
  * @Route("/concept.html", name="default_concept", methods={"GET"})
  */
@@ -107,7 +118,6 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @param Site $site
      * @return Response
      * @Route("/contact.html", name="default_contact", methods={"GET"})
      */
@@ -117,7 +127,6 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @param Site $site
      * @return Response
      * @Route("/mentions-legales.html", name="default_mlegales", methods={"GET"})
      */
