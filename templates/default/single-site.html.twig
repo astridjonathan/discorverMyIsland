@@ -5,9 +5,11 @@
 {% endblock %}
 
 {% block stylesheet %}
-    <!-- Dropify -->
     {{ parent() }}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" integrity="sha256-AWdeVMUYtwLH09F6ZHxNgvJI37p+te8hJuSMo44NVm0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" integrity="sha256-AWdeVMUYtwLH09F6ZHxNgvJI37p+te8hJuSMo44NVm0=" crossorigin="anonymous" />
+    <style>
+        .custom-file-label{display:none;}
+    </style>
 {% endblock %}
 
 {% block content %}
@@ -21,7 +23,7 @@
                         <div class="map-ratings-review-area d-flex">
                             <a href="#" class="d-flex align-items-center justify-content-center"><img src="{{ asset('img/core-img/map.png') }}" alt="map"></a>
                             <a href="#">8.7</a>
-                            <a href="#"> Ajouter un Commentaire</a>
+                            <a href="#addreviews"> Ajouter un Commentaire</a>
                         </div>
                     </div>
                 </div>
@@ -144,7 +146,7 @@
                                     </div> <!-- fin div col-8-->
                                     <div class="col-4 ">
                                         {% if comment.image  is defined %}
-                                            <img class="img-circle" width="304" height="236" src="{{ asset('img/com-img/' ~ comment.image) }}" alt="comment.image">
+                                            <img class="rounded-circle" width="304" height="236" src="{{ asset('img/com-img/' ~ comment.image) }}" alt="comment.image">
                                         {% endif %}
                                     </div>
 
@@ -202,15 +204,14 @@
                         </div>
 
                     </div>
-                    <div class="row mt-50">
-                        <div class="col-12 mx-auto">
+                    <div class="row mt-50" id="addreviews">
+                        <div class="col-12 mx-auto ">
                             <h3 class="text-center mt-4">
                                 Ajouter un Commentaire
                             </h3>
                             <div class=" mt-4 ">
-                                <form method="post">
+                                {{  }}
                                 {{ form(form) }}
-                                </form>
                             </div>
                         </div>
                     </div>
