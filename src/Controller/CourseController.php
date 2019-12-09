@@ -3,23 +3,19 @@
 
 namespace App\Controller;
 
-
+use App\Entity\Course;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class CourseController extends AbstractController
 {
-    public function course(Course $course)
-    {
-        $course = new Course();
-        $course->
-            ->
-            ->
-            ->
-        return $this->render('course/course.html.twig',  ['course' => $course]);
-    }
-
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function addCourse(Request $request)
     {
         # ajouter un parcours / formulaire
@@ -40,6 +36,17 @@ class CourseController extends AbstractController
 
             ->add('content', TextareaType::class, [
                 'required' => true,
+                'label' => false
             ])
+
+            ->add('submit', SubmitType::class, [
+                'label' => 'Nouveau parcours'
+            ])
+
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        return $this->render('course/course.html.twig',  ['course' => $course]);
     }
 }
