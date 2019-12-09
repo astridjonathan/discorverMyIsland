@@ -21,6 +21,7 @@
         "symfony/validator": "5.0.*",
         "symfony/webpack-encore-bundle": "^1.7",
         "symfony/yaml": "5.0.*",
+        "tightenco/collect": "^6.6",
         "twig/string-extra": "^3.0",
         "twig/twig": "^3.0",
         "vaimo/composer-patches": "^4.20"
