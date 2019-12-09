@@ -3,10 +3,22 @@ easy_admin:
 #        # List the entity class name you want to manage
         Site:
             class: App\Entity\Site
+            label: 'Sites'
+            list:
+                title: "Liste sites"
+                fields: ['id', 'category_id', 'name', 'alias', 'content', 'image']
         Course:
             class: App\Entity\Course
+            label: 'Parcours'
+                list:
+                    title: "Liste parcours"
+                    fields: ['id', 'name', 'duration', 'priority', 'steps', 'category']
         User:
             class: App\Entity\User
+            label: 'Utilisateurs'
+            list:
+                title: "Liste utilisateurs"
+                fields: ['id', 'pseudo', 'email', 'password']
 
     site_name: 'DiscoverMyIsland'
 
@@ -15,3 +27,12 @@ easy_admin:
         display_avatar: false
         name_property_path: 'fullName'
         avatar_property_path: 'gravatar'
+
+    design:
+
+    formats:
+        date: 'd/m/Y'
+        time: 'H:i'
+        datetime: 'd/m/Y H:i:s'
+
+

@@ -4,13 +4,14 @@
 namespace App\Controller;
 
 use App\Entity\Course;
+use EasyCorp\Bundle\EasyAdminBundle;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
-class CourseController extends AbstractController
+class CourseController extends EasyAdminController
 {
     /**
      * @param Request $request
