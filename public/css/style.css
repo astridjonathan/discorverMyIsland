@@ -565,7 +565,7 @@ li {
 .hero-social-btn .social-title {
     -webkit-transform: rotate(90deg);
             transform: rotate(90deg);
-    margin-left: -92px;
+    margin-left: -102px;
 }
 
 .hero-social-btn .social-title h6 {
@@ -583,7 +583,7 @@ li {
 }
 
 .hero-social-btn .social-btns {
-    margin-top: 170px;
+    margin-top: 130px;
 }
 
 .hero-social-btn .social-btns > a {

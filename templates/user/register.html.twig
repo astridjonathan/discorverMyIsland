@@ -4,17 +4,12 @@
     Inscription
 {% endblock %}
 
-{% block stylesheet %}
-    {{ parent() }}
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" integrity="sha256-AWdeVMUYtwLH09F6ZHxNgvJI37p+te8hJuSMo44NVm0=" crossorigin="anonymous" />
+{% block content %}
+    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.css" integrity="sha256-AWdeVMUYtwLH09F6ZHxNgvJI37p+te8hJuSMo44NVm0=" crossorigin="anonymous" />
     <style>
         .custom-file-label{display:none;}
     </style>
-{% endblock %}
-
-{% block content %}
-
     <!-- ***** Breadcumb Area Start ***** -->
     <div class="breadcumb-area bg-img bg-overlay" style="background-image: url({{ asset('img/bg-img/hero-1.jpg') }})">
     </div>
@@ -35,13 +30,8 @@
             </div>
         </div>
     </div>
-{% endblock %}
-
-{% block scripts %}
-    {{ parent() }}
-
     <!-- Dropify -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js" integrity="sha256-SUaao5Q7ifr2twwET0iyXVy0OVnuFJhGVi5E/dqEiLU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js" ></script>
     <script>
         $('.dropify').dropify({
             messages: {

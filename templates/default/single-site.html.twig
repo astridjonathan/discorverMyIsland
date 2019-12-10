@@ -4,19 +4,14 @@
   {{site.name}}
 {% endblock %}
 
-{% block stylesheet %}
-    {{ parent() }}
+
+{% block content %}
+
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" integrity="sha256-AWdeVMUYtwLH09F6ZHxNgvJI37p+te8hJuSMo44NVm0=" crossorigin="anonymous" />
     <style>
         .custom-file-label{display:none;}
     </style>
-{% endblock %}
-
-
-
-{% block content %}
-
     <!-- ***** Breadcumb Area Start ***** -->
     <div class="breadcumb-area height-700 bg-img bg-overlay" style="background-image: url({{ asset('img/sites-img/' ~ site.image) }})">
         <div class="container">
@@ -149,7 +144,7 @@
                                     </div> <!-- fin div col-8-->
                                     <div class="col-4 ">
                                         {% if comment.image  is defined %}
-                                            <img class="rounded-circle" width="320" height="250" src="{{ asset('img/com-img/' ~ comment.image) }}" alt="comment.image">
+                                            <img class="rounded-circle" width="320" height="250" src="{{ asset('img/com-img/' ~ comment.image) }}" alt="{{ comment.image }}">
                                         {% endif %}
                                     </div>
 
@@ -223,13 +218,15 @@
         </div>
     </section>
     <!-- ***** Single Listing Area End ***** -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiY2hhYmluZXZpYnoiLCJhIjoiY2szenk4enAxMjAxaDNscWx5MjFtYTE4ZyJ9.2mxGbAQIffpHKpGUphvYVA';
+        var map = new mapboxgl.Map({
+            container: 'locationMap',
+            style: 'mapbox://styles/mapbox/streets-v11'
+        });
+    </script>
 
-{% endblock %}
-{% block scripts %}
-    {{ parent() }}
-    <!-- Google Maps js -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBppR3tyGzWbuXGbySTMp_XqCoOzdohqms"></script>
-    <script src="{{ asset('js/google-map/location-map-active.js') }}"></script>
     <!-- Dropify -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js" integrity="sha256-SUaao5Q7ifr2twwET0iyXVy0OVnuFJhGVi5E/dqEiLU=" crossorigin="anonymous"></script>
     <script>
