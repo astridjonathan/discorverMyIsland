@@ -6,11 +6,16 @@
 
 {% block stylesheet %}
     {{ parent() }}
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" integrity="sha256-AWdeVMUYtwLH09F6ZHxNgvJI37p+te8hJuSMo44NVm0=" crossorigin="anonymous" />
     <style>
         .custom-file-label{display:none;}
     </style>
 {% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+{% endblock %}
+
 
 {% block content %}
 
@@ -141,12 +146,12 @@
                                         </div>
                                         <div class="reviewer-name">
                                             <h6>{{comment.user.pseudo}}</h6>
-                                            <p>{{comment.createdDate| date('Y-m-d')}}</p>
+                                            <p>{{comment.createdDate| date('Y-F-d')}}</p>
                                         </div>
                                     </div> <!-- fin div col-8-->
                                     <div class="col-4 ">
                                         {% if comment.image  is defined %}
-                                            <img class="rounded-circle" width="304" height="236" src="{{ asset('img/com-img/' ~ comment.image) }}" alt="comment.image">
+                                            <img class="rounded-circle" width="320" height="250" src="{{ asset('img/com-img/' ~ comment.image) }}" alt="comment.image">
                                         {% endif %}
                                     </div>
 
@@ -210,7 +215,7 @@
                                 Ajouter un Commentaire
                             </h3>
                             <div class=" mt-4 ">
-                                {{  }}
+
                                 {{ form(form) }}
                             </div>
                         </div>
@@ -225,7 +230,7 @@
 {% block scripts %}
     {{ parent() }}
     <!-- Google Maps js -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk9KNSL1jTv4MY9Pza6w8DJkpI_nHyCnk"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBppR3tyGzWbuXGbySTMp_XqCoOzdohqms"></script>
     <script src="{{ asset('js/google-map/location-map-active.js') }}"></script>
     <!-- Dropify -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js" integrity="sha256-SUaao5Q7ifr2twwET0iyXVy0OVnuFJhGVi5E/dqEiLU=" crossorigin="anonymous"></script>

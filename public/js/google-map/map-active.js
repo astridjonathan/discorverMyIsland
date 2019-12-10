@@ -1,5 +1,5 @@
 var map;
-var latlng = new google.maps.LatLng(51.5074, 0.1278);
+var latlng = new google.maps.LatLng(16.2475842, -61.5385625);
 var stylez = [{
     featureType: "all",
     elementType: "all",
@@ -19,11 +19,11 @@ var mapOptions = {
 };
 map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
 var geocoder_map = new google.maps.Geocoder();
-var address = 'London';
+var address = 'Guadeloupe';
 geocoder_map.geocode({
     'address': address
 }, function (results, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
+    if (status === google.maps.GeocoderStatus.OK) {
         map.setCenter(results[0].geometry.location);
         var marker = new google.maps.Marker({
             map: map,

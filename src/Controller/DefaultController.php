@@ -96,10 +96,14 @@ class DefaultController extends AbstractController
         $comment= new Comment();
         #Récupérer un user
         $user = $this->getUser();
-        #On affecte le User à l'article
+        $comment->setSite($site);
+
+        #On affecte le User au commentaire
+
         $comment->setUser($user);
         #Création d'un formulaire
         $form = $this->createFormBuilder($comment)
+
 
             #Titre de l'article
             ->add('title', TextType::class,[
@@ -161,7 +165,7 @@ class DefaultController extends AbstractController
             #Notification flash
             $this->addFlash('notice', 'Félicitations votre commentaire est en ligne !');
             #Redirection
-            return $this->redirectToRoute('default/single-site.html.twig');
+            #return $this->redirectToRoute('default/single-site.html.twig');
 
         }
 
@@ -171,13 +175,14 @@ class DefaultController extends AbstractController
         $user=$this->getDoctrine()
             ->getRepository(User::class)
             ->findBy(['id'=>$user]);
-        dd($user);
+
+
         #Transmission du formulaire à la vue
         return $this->render('default/single-site.html.twig',[
-            'form' => $form->createView(),
             'site'=> $site,
             'user'=>$user,
-            'comments'=> $comments
+            'comments'=> $comments,
+            'form' => $form->createView()
         ]);
 
     }

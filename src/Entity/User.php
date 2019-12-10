@@ -56,6 +56,8 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+
+        $this->setRoles(["ROLE_USER"]);
     }
 
 
@@ -102,7 +104,7 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
 
     public function setRoles(array $roles) : self
     {
-        $this->role = $roles;
+        $this->roles = $roles;
 
         return $this;
     }
@@ -110,7 +112,7 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
     /**
      * @inheritDoc
      */
-    public function getRoles(): ?array
+    public function getRoles(): array
     {
         $roles = $this->roles;
         $roles[] = 'ROLE_USER';

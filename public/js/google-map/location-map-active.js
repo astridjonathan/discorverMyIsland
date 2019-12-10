@@ -1,5 +1,5 @@
 var map;
-var latlng = new google.maps.LatLng(41.9028, 12.4964);
+var latlng = new google.maps.LatLng(16.2475842, -61.5385625);
 var stylez = [{
     featureType: "all",
     elementType: "all",
@@ -23,7 +23,7 @@ var address = 'rome';
 geocoder_map.geocode({
     'address': address
 }, function (results, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
+    if (status === google.maps.GeocoderStatus.OK) {
         map.setCenter(results[0].geometry.location);
         var marker = new google.maps.Marker({
             map: map,
