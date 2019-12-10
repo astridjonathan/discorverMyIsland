@@ -12,7 +12,7 @@ easy_admin:
             label: 'Parcours'
             list:
                 title: "Liste parcours"
-                fields: ['id', 'name', 'duration', 'priority', 'steps', 'category']
+                fields: ['id', 'category_id', 'name', 'duration', 'priority', 'steps']
         User:
             class: App\Entity\User
             label: 'Utilisateurs'

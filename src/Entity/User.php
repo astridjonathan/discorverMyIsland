@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -36,16 +37,26 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
      */
     private $password;
 
+    /**
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return string|null
+     */
     public function getPseudo(): ?string
     {
         return $this->pseudo;
     }
 
+    /**
+     * @param string $pseudo
+     * @return $this
+     */
     public function setPseudo(string $pseudo): self
     {
         $this->pseudo = $pseudo;
@@ -53,11 +64,18 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getEmail(): ?string
     {
         return $this->email;
     }
 
+    /**
+     * @param string $email
+     * @return $this
+     */
     public function setEmail(string $email): self
     {
         $this->email = $email;
@@ -65,11 +83,18 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getPassword(): ?string
     {
         return $this->password;
     }
 
+    /**
+     * @param string $password
+     * @return $this
+     */
     public function setPassword(string $password): self
     {
         $this->password = $password;
@@ -82,11 +107,12 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
     }
 
     /**
-     * @inheritDoc
+     * @return string[]|void
      */
     public function getRoles()
     {
-        // TODO: Implement getRoles() method.
+
+        // TODO: implement getRoles() method
     }
 
     /**

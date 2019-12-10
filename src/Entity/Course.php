@@ -38,6 +38,16 @@ class Course
      */
     private $visits;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Priority;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Steps;
+
     public function __construct()
     {
         $this->visits = new ArrayCollection();
@@ -111,6 +121,30 @@ class Course
                 $visit->setCourse(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPriority(): ?string
+    {
+        return $this->Priority;
+    }
+
+    public function setPriority(string $Priority): self
+    {
+        $this->Priority = $Priority;
+
+        return $this;
+    }
+
+    public function getSteps(): ?string
+    {
+        return $this->Steps;
+    }
+
+    public function setSteps(string $Steps): self
+    {
+        $this->Steps = $Steps;
 
         return $this;
     }
