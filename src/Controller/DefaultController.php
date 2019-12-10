@@ -228,5 +228,14 @@ class DefaultController extends AbstractController
         return $this->render('default/mentions-legales.html.twig');
     }
 
+    /**
+     * @return Response
+     * @Route("/map.html", name="default_map", methods={"GET"})
+     */
+    public function map()
+    {
+        return $this->render('default/map.html.twig');
+    }
+
 
 }

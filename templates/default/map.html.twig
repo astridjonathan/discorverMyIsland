@@ -1,15 +1,28 @@
 {% extends "base.html.twig" %}
-{% block javascripts %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style type="text/css">
+        #map{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
+            min-height:600px;
+            max-height: 100%;
+        }
+    </style>
 
 {% endblock %}
 
 {% block content %}
 
-    <div class="location-on-map mt-50" id="lomap">
+    <div class="location-on-map mt-50">
         <h4>Location on map</h4>
-        <div class="location-map">
-            <div id="locationMap"></div>
-        </div>
+           <div id="map">
+
+
+
+
+                </div>
+
+
     </div>
 
 
@@ -19,6 +32,41 @@
 {% block scripts %}
     {{ parent() }}
     <!-- Google Maps js -->
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBppR3tyGzWbuXGbySTMp_XqCoOzdohqms&callback=initMap">
+    </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBppR3tyGzWbuXGbySTMp_XqCoOzdohqms"></script>
-    <script src="{{ asset('js/google-map/location-map-active.js') }}"></script>
+    <!-- Fichiers Javascript -->
+    <script>
+
+        // The following example creates a marker in Stockholm, Sweden using a DROP
+        // animation. Clicking on the marker will toggle the animation between a BOUNCE
+        // animation and no animation.
+
+        var marker;
+
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 13,
+                center: {lat: 59.325, lng: 18.070}
+            });
+
+            marker = new google.maps.Marker({
+                map: map,
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                position: {lat: 59.327, lng: 18.067}
+            });
+            marker.addListener('click', toggleBounce);
+        }
+
+        function toggleBounce() {
+            if (marker.getAnimation() !== null) {
+                marker.setAnimation(null);
+            } else {
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+            }
+        }
+    </script>
+
 {% endblock %}

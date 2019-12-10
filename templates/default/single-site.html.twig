@@ -230,7 +230,7 @@
 {% block scripts %}
     {{ parent() }}
     <!-- Google Maps js -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBppR3tyGzWbuXGbySTMp_XqCoOzdohqms"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBppR3tyGzWbuXGbySTMp_XqCoOzdohqms&callback=initMap"></script>
     <script src="{{ asset('js/google-map/location-map-active.js') }}"></script>
     <!-- Dropify -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js" integrity="sha256-SUaao5Q7ifr2twwET0iyXVy0OVnuFJhGVi5E/dqEiLU=" crossorigin="anonymous"></script>
