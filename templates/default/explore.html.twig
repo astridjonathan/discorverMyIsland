@@ -9,6 +9,21 @@
     <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css" rel="stylesheet" />
 {% endblock %}
 
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.js"></script>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiY2hhYmluZXZpYnoiLCJhIjoiY2szenk4enAxMjAxaDNscWx5MjFtYTE4ZyJ9.2mxGbAQIffpHKpGUphvYVA';
+        var map = new mapboxgl.Map({
+            container: 'exploreGoogleMap',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [-74.5, 40], // starting position [lng, lat]
+            zoom: 9 // starting zoom
+        });
+    </script>
+{% endblock %}
+
+
 {% block content %}
 <!-- ***** Breadcumb Area Start ***** -->
     <div class="breadcumb-area bg-img bg-overlay" style="background-image: url({{ asset('img/bg-img/hero-1.jpg') }})"></div>
@@ -109,32 +124,19 @@
                             alias : site.alias,
                             id : site.id,
                             category : site.category.alias}
-                        )}}" class="btn btn-block dorne-btn">J'y go</a>
+                        )}}" class="btn btn-block dorne-btn">J'Y GO</a>
                     </div>
                     {% endfor %}
-            </div>
+                </div>
             </div>
             <!-- END Explore Search Result -->
-
             <!-- Explore Map Area -->
             <div class="explore-map-area">
                 <div id="exploreGoogleMap"></div>
             </div>
+
         </div>
     </section>
 
 {% endblock %}
 
-{% block javascripts %}
-    {{ parent() }}
-    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.js"></script>
-    <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoiY2hhYmluZXZpYnoiLCJhIjoiY2szenk4enAxMjAxaDNscWx5MjFtYTE4ZyJ9.2mxGbAQIffpHKpGUphvYVA';
-        var map = new mapboxgl.Map({
-            container: 'exploreGoogleMap',
-            style: 'mapbox://styles/mapbox/streets-v11',
-            center: [-74.5, 40], // starting position [lng, lat]
-            zoom: 9 // starting zoom
-        });
-    </script>
-{% endblock %}
