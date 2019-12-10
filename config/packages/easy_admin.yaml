@@ -6,7 +6,13 @@ easy_admin:
             label: 'Sites'
             list:
                 title: "Liste sites"
-                fields: ['id', 'category_id', 'name', 'alias', 'content', 'image']
+                fields:
+                    - id
+                    - name
+                    - alias
+                    - content
+                    - image
+                    -  { property: 'category', type: 'entity', type_options: { class: 'App\Entity\Category', multiple: false } }
         Course:
             class: App\Entity\Course
             label: 'Parcours'
