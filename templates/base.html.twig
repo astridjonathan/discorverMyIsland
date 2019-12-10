@@ -10,7 +10,10 @@
         <title>{% block title %}Discovery My Island | Visite Mon Ile {% endblock %}</title>
         <!-- Favicon -->
         <link rel="icon" href="{{ asset('img/core-img/favicon.ico') }}">
+
         {% block stylesheets %}
+            <!-- MAPBOX Stylesheet -->
+            <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
             <!-- Bootstrap Stylesheet -->
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
             <!-- Core Stylesheet -->

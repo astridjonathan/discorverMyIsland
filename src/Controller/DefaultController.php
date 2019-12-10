@@ -188,7 +188,6 @@ class DefaultController extends AbstractController
     }
 
 
-
     public function menu()
     {
         #Récupération des categories
@@ -229,4 +228,12 @@ class DefaultController extends AbstractController
     }
 
 
+    /**
+     * @return Response
+     * @Route("/map.html", name="map", methods={"GET"})
+     */
+    public function map()
+    {
+        return $this->render('default/map.html.twig');
+    }
 }

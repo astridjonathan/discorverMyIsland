@@ -1,16 +1,17 @@
 {% extends "base.html.twig" %}
 
 {% block title %}
-    Explore Page
+    Explore
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
 {% endblock %}
 
 {% block content %}
 
-
-
 <!-- ***** Breadcumb Area Start ***** -->
-    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url({{ asset('img/bg-img/hero-1.jpg') }})">
-    </div>
+    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url({{ asset('img/bg-img/hero-1.jpg') }})"></div>
     <!-- ***** Breadcumb Area End ***** -->
 
     <!-- Explore Area -->
@@ -19,7 +20,7 @@
         <div class="explore-search-area d-md-flex">
             <!-- Explore Search Form -->
             <div class="explore-search-form">
-                <h6>What are you looking for?</h6>
+                <h6>Que recherchez-vous?</h6>
                 <!-- Tabs -->
                 <div class="nav nav-tabs" id="heroTab" role="tablist">
                     <a class="nav-item nav-link active" id="nav-places-tab" data-toggle="tab" href="#nav-places" role="tab" aria-controls="nav-places" aria-selected="true">Sites</a>
@@ -59,21 +60,12 @@
                                         <span class="custom-control-description">EN VOITURE</span>
                                     </label>
                                 </div>
-
                             </div>
-                            <button type="submit" class="btn dorne-btn mt-50 bg-white text-dark"><i class="fa fa-search pr-2" aria-hidden="true"></i> Search</button>
+                            <button type="submit" class="btn dorne-btn mt-50 bg-white text-dark"><i class="fa fa-search pr-2" aria-hidden="true"></i> Rechercher</button>
                         </form>
                     </div>
                     <div class="tab-pane fade" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
                         <form action="#" method="get">
-                            <select class="custom-select" id="events-destinations">
-                                <option selected>Your Destinations</option>
-                                <option value="1">New York</option>
-                                <option value="2">Latvia</option>
-                                <option value="3">Dhaka</option>
-                                <option value="4">Melbourne</option>
-                                <option value="5">London</option>
-                            </select>
                             <select class="custom-select" id="events-catagories">
                                 <option selected>Toutes les Catégories</option>
                                 {% for category in categories %}
@@ -92,9 +84,7 @@
                     </div>
                 </div>
             </div>
-            
             <!-- Explore Search Result -->
-
             <div class="explore-search-result">
                 <!-- Single Features Area -->
                 {% for site in sites %}
@@ -126,10 +116,10 @@
             </div>
             <!-- END Explore Search Result -->
 
-        <!-- Explore Map Area -->
-        <div class="explore-map-area">
-            <div id="exploreGoogleMap"></div>
-        </div>
+            <!-- Explore Map Area -->
+            <div class="explore-map-area">
+                <div id="exploreGoogleMap"></div>
+            </div>
         </div>
     </section>
 
@@ -137,10 +127,16 @@
 
 {% endblock %}
 
-{% block scripts %}
-    {{ parent() }}
-    <!-- Google Maps js -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBppR3tyGzWbuXGbySTMp_XqCoOzdohqms"></script>
-    <script src="{{ asset('js/google-map/location-map-active.js') }}"></script>
 
-{% endblock %}
+    {% block scripts %}
+        {{ parent() }}
+        <!-- Google Maps js -->
+        <script>
+            mapboxgl.accessToken = 'pk.eyJ1IjoiY2hhYmluZXZpYnoiLCJhIjoiY2szenk4enAxMjAxaDNscWx5MjFtYTE4ZyJ9.2mxGbAQIffpHKpGUphvYVA';
+            var map = new mapboxgl.Map({
+                container: 'exploreGoogleMap',
+                style: 'mapbox://styles/mapbox/streets-v11'
+            });
+        </script>
+    {% endblock %}
+

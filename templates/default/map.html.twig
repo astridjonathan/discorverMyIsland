@@ -1,24 +1,25 @@
 {% extends "base.html.twig" %}
-{% block javascripts %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
 {% endblock %}
 
+
 {% block content %}
-
-    <div class="location-on-map mt-50" id="lomap">
-        <h4>Location on map</h4>
-        <div class="location-map">
-            <div id="locationMap"></div>
-        </div>
-    </div>
-
-
+            <div id='map' style='width: 400px; height: 300px;'></div>
 {% endblock %}
 
 
 {% block scripts %}
     {{ parent() }}
     <!-- Google Maps js -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBppR3tyGzWbuXGbySTMp_XqCoOzdohqms"></script>
-    <script src="{{ asset('js/google-map/location-map-active.js') }}"></script>
+
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiY2hhYmluZXZpYnoiLCJhIjoiY2szenk4enAxMjAxaDNscWx5MjFtYTE4ZyJ9.2mxGbAQIffpHKpGUphvYVA';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11'
+        });
+    </script>
 {% endblock %}
