@@ -4,10 +4,12 @@
     Explore
 {% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css" rel="stylesheet" />
+{% endblock %}
 
 {% block content %}
-    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.js"></script>
-    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css" rel="stylesheet" />
 <!-- ***** Breadcumb Area Start ***** -->
     <div class="breadcumb-area bg-img bg-overlay" style="background-image: url({{ asset('img/bg-img/hero-1.jpg') }})"></div>
     <!-- ***** Breadcumb Area End ***** -->
@@ -120,8 +122,12 @@
             </div>
         </div>
     </section>
-    <!-- Script MAP -->
 
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.js"></script>
     <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoiY2hhYmluZXZpYnoiLCJhIjoiY2szenk4enAxMjAxaDNscWx5MjFtYTE4ZyJ9.2mxGbAQIffpHKpGUphvYVA';
         var map = new mapboxgl.Map({
@@ -131,8 +137,4 @@
             zoom: 9 // starting zoom
         });
     </script>
-
 {% endblock %}
-
-
-
