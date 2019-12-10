@@ -10,9 +10,9 @@ easy_admin:
         Course:
             class: App\Entity\Course
             label: 'Parcours'
-                list:
-                    title: "Liste parcours"
-                    fields: ['id', 'name', 'duration', 'priority', 'steps', 'category']
+            list:
+                title: "Liste parcours"
+                fields: ['id', 'name', 'duration', 'priority', 'steps', 'category']
         User:
             class: App\Entity\User
             label: 'Utilisateurs'

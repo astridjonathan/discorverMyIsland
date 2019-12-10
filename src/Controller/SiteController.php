@@ -5,11 +5,10 @@ namespace App\Controller;
 
 
 use App\Entity\Site;
-use EasyCorp\Bundle\EasyAdminBundle;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class SiteController extends EasyAdminBundle
+class SiteController extends EasyAdminController
 {
     /**
      * @return \Symfony\Component\HttpFoundation\Response

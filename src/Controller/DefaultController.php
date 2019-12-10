@@ -23,7 +23,7 @@ class DefaultController extends AbstractController
     public function index()
     {
 
-        # Get course
+        /*# Get course
         $course = $this->getDoctrine()
             ->getRepository(Course::class)
             ->find(1);
@@ -32,16 +32,16 @@ class DefaultController extends AbstractController
         $visits = new Collection($course->getVisits());
         $visits = $visits->sortBy(function ($visit) {
             return $visit->getPriority();
-        });
+        });*/
 
-        /** @var Visit $visit */
-        foreach ($visits as $visit) {
-            # Get site name for each visit by priority
-            dump($visit->getSite()->getName());
-            dump($visit->getPriority());
-        }
+        #/** @var Visit $visit */
+        #foreach ($visits as $visit) {
+        #    # Get site name for each visit by priority
+        #    dump($visit->getSite()->getName());
+        #    dump($visit->getPriority());
+        #}
 
-        die;
+        #die;
 
         $sites = $this->getDoctrine()
             ->getRepository(Site::class)
