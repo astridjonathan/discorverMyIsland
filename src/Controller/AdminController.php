@@ -2,17 +2,14 @@
 
 
 namespace App\Controller;
-namespace EasyCorp\Bundle\EasyAdminBundle;
 
-
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
-use EasyCorp\Bundle\EasyAdminBundle;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class AdminController extends EasyAdminController
 {
     /**
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @return RedirectResponse
      */
     public function restockAction()
     {
@@ -28,12 +25,12 @@ class AdminController extends EasyAdminController
             'entity' => $this->request->query->get('entity'),
         ));
 
-        return $this->redirectToRoute('_dmi_backend', array(
-
-            'action' => 'edit',
-            'id' => $id,
-            'entity' => $this->request->query->get('entity'),
-        ));
+//        return $this->redirectToRoute('_dmi_backend', array(
+//
+//            'action' => 'edit',
+//            'id' => $id,
+//            'entity' => $this->request->query->get('entity'),
+//        ));
     }
 
 }
