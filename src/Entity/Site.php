@@ -44,9 +44,7 @@ class Site
      */
     private $category;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Visit", mappedBy="site")
-     */
+
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -77,13 +75,18 @@ class Site
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="site")
      */
     private $comments;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Visit", mappedBy="site")
+     */
+    private $visits;
+
 
     public function __construct()
     {
         $this->comments = new ArrayCollection();
         $this->visits = new ArrayCollection();
     }
-   private $visits;
 
 
 
