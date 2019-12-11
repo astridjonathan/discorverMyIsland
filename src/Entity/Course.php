@@ -7,9 +7,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\SiteRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\CourseRepository")
  */
-class Site
+class Course
 {
     /**
      * @ORM\Id()
@@ -19,36 +19,34 @@ class Site
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=80)
+     * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=80)
-     */
-    private $alias;
-
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $content;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
-    private $image;
+    private $duration;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="sites")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="courses")
      */
     private $category;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Visit", mappedBy="site")
+     * @ORM\OneToMany(targetEntity="App\Entity\Visit", mappedBy="course")
      */
     private $visits;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Priority;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Steps;
 
     public function __construct()
     {
@@ -72,38 +70,14 @@ class Site
         return $this;
     }
 
-    public function getAlias(): ?string
+    public function getDuration(): ?string
     {
-        return $this->alias;
+        return $this->duration;
     }
 
-    public function setAlias(string $alias): self
+    public function setDuration(string $duration): self
     {
-        $this->alias = $alias;
-
-        return $this;
-    }
-
-    public function getContent(): ?string
-    {
-        return $this->content;
-    }
-
-    public function setContent(string $content): self
-    {
-        $this->content = $content;
-
-        return $this;
-    }
-
-    public function getImage(): ?string
-    {
-        return $this->image;
-    }
-
-    public function setImage(string $image): self
-    {
-        $this->image = $image;
+        $this->duration = $duration;
 
         return $this;
     }
@@ -120,7 +94,6 @@ class Site
         return $this;
     }
 
-
     /**
      * @return Collection|Visit[]
      */
@@ -133,7 +106,7 @@ class Site
     {
         if (!$this->visits->contains($visit)) {
             $this->visits[] = $visit;
-            $visit->setSite($this);
+            $visit->setCourse($this);
         }
 
         return $this;
@@ -144,39 +117,35 @@ class Site
         if ($this->visits->contains($visit)) {
             $this->visits->removeElement($visit);
             // set the owning side to null (unless already changed)
-            if ($visit->getSite() === $this) {
-                $visit->setSite(null);
+            if ($visit->getCourse() === $this) {
+                $visit->setCourse(null);
             }
         }
 
+        return $this;
+    }
+
+    public function getPriority(): ?string
+    {
+        return $this->Priority;
+    }
+
+    public function setPriority(string $Priority): self
+    {
+        $this->Priority = $Priority;
 
         return $this;
     }
 
-
-    public function getOpenHour(): ?string
+    public function getSteps(): ?string
     {
-        return $this->openHour;
+        return $this->Steps;
     }
 
-    public function setOpenHour(string $openHour): self
+    public function setSteps(string $Steps): self
     {
-        $this->openHour = $openHour;
+        $this->Steps = $Steps;
 
         return $this;
     }
-
-    public function getVisiteType(): ?string
-    {
-        return $this->visiteType;
-    }
-
-    public function setVisiteType(?string $visiteType): self
-    {
-        $this->visiteType = $visiteType;
-
-        return $this;
-    }
-
-
 }

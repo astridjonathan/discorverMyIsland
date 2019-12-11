@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
  */
@@ -39,10 +40,19 @@ class Category
      */
     private $icon;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Course", mappedBy="category")
+     */
+    private $courses;
 
     public function __construct()
     {
         $this->sites = new ArrayCollection();
+        $this->courses = new ArrayCollection();
+    }
+
+    public function __toString(){
+        return $this->name;
     }
 
     public function getId(): ?int
@@ -116,5 +126,35 @@ class Category
         return $this;
     }
 
+    /**
+     * @return Collection|Course[]
+     */
+    public function getCourses(): Collection
+    {
+        return $this->courses;
+    }
+
+    public function addCourse(Course $course): self
+    {
+        if (!$this->courses->contains($course)) {
+            $this->courses[] = $course;
+            $course->setCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCourse(Course $course): self
+    {
+        if ($this->courses->contains($course)) {
+            $this->courses->removeElement($course);
+            // set the owning side to null (unless already changed)
+            if ($course->getCategory() === $this) {
+                $course->setCategory(null);
+            }
+        }
+
+        return $this;
+    }
 
 }

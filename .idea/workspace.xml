@@ -20,6 +20,7 @@
       <change beforePath="$PROJECT_DIR$/templates/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/default/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,8 +126,11 @@
       <path value="$PROJECT_DIR$/vendor/vaimo/topological-sort" />
       <path value="$PROJECT_DIR$/vendor/vaimo/composer-patches" />
       <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
-      <path value="$PROJECT_DIR$/vendor/knplabs/knp-menu-bundle" />
-      <path value="$PROJECT_DIR$/vendor/knplabs/knp-menu" />
+      <path value="$PROJECT_DIR$/vendor/symfony/expression-language" />
+      <path value="$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle" />
+      <path value="$PROJECT_DIR$/vendor/pagerfanta/pagerfanta" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/vendor/tightenco/collect" />
     </include_path>
   </component>
   <component name="ProjectId" id="1URiDixjqlBoD6A3vqvvoqFwEuK" />
@@ -179,12 +183,11 @@
       <option name="presentableId" value="Default" />
       <updated>1575325690693</updated>
       <workItem from="1575325691914" duration="13509000" />
-      <workItem from="1575399188802" duration="3323000" />
-      <workItem from="1575460965745" duration="1497000" />
-      <workItem from="1575469510735" duration="16010000" />
-      <workItem from="1575548689929" duration="1844000" />
-      <workItem from="1575550565385" duration="10066000" />
-      <workItem from="1575570820472" duration="4135000" />
+      <workItem from="1575395740441" duration="2798000" />
+      <workItem from="1575403075424" duration="7000" />
+      <workItem from="1575420591582" duration="2089000" />
+      <workItem from="1575467085320" duration="21372000" />
+      <workItem from="1575892549966" duration="5076000" />
     </task>
     <servers />
   </component>

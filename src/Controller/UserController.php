@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use http\Env\Response;
+use EasyCorp\Bundle\EasyAdminBundle;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
