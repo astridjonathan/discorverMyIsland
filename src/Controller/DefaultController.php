@@ -69,7 +69,7 @@ class DefaultController extends AbstractController
     /**
      * @param $alias
      * @return Response
-     * @Route("/explore.html", name="default_explore", methods={"GET"})
+     * @Route("/explore.html", name="default_explore", methods={"GET|POST"})
      */
     public function explore()
     {
@@ -251,12 +251,4 @@ class DefaultController extends AbstractController
     }
 
 
-    /**
-     * @return Response
-     * @Route("/map.html", name="map", methods={"GET"})
-     */
-    public function map()
-    {
-        return $this->render('default/map.html.twig');
-    }
 }

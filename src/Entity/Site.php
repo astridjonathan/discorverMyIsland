@@ -48,10 +48,13 @@ class Site
      * @ORM\OneToMany(targetEntity="App\Entity\Visit", mappedBy="site")
      */
 
-    private $adress;
-
     /**
      * @ORM\Column(type="text", nullable=true)
+     */
+    private $address;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $siteWeb;
 
