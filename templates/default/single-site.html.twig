@@ -18,7 +18,6 @@
              top: 0;
              background: #fff;
              padding: 10px;
-             font-family: 'Open Sans', sans-serif;
          }
 
     </style>
@@ -163,38 +162,7 @@
     </script>
 {% endblock %}
 
-{% block stylesheets %}
-    {{ parent() }}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" integrity="sha256-AWdeVMUYtwLH09F6ZHxNgvJI37p+te8hJuSMo44NVm0=" crossorigin="anonymous" />
-    <style>
-        .custom-file-label{display:none;}
-    </style>
-{% endblock %}
 
-{% block javascripts %}
-    {{ parent() }}
-    <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
-    <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoiY2hhYmluZXZpYnoiLCJhIjoiY2szenk4enAxMjAxaDNscWx5MjFtYTE4ZyJ9.2mxGbAQIffpHKpGUphvYVA';
-        var map = new mapboxgl.Map({
-            container: 'locationMap',
-            style: 'mapbox://styles/mapbox/streets-v11'
-        });
-    </script>
-
-    <!-- Dropify -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js" integrity="sha256-SUaao5Q7ifr2twwET0iyXVy0OVnuFJhGVi5E/dqEiLU=" crossorigin="anonymous"></script>
-    <script>
-        $('.dropify').dropify({
-            messages: {
-                default: 'Glissez-d&eacute;posez un fichier ici ou cliquez',
-                replace: 'Glissez-d&eacute;posez un fichier ou cliquez pour remplacer',
-                remove:  'Supprimer',
-                error:   'D&eacute;sol&eacute;, le fichier est trop volumineux'
-            }
-        });
-    </script>
-{% endblock %}
 
 
 

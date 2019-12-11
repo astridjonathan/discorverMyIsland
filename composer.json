@@ -4,6 +4,7 @@
     "require": {
         "php": "^7.2.5",
         "ext-ctype": "*",
+        "ext-iconv": "*",
         "doctrine/annotations": "^1.8",
         "knplabs/knp-menu-bundle": "^3.0",
         "sensio/framework-extra-bundle": "^5.5",
@@ -25,9 +26,7 @@
         "symfony/yaml": "5.0.*",
         "twig/string-extra": "^3.0",
         "twig/twig": "^3.0",
-        "vaimo/composer-patches": "^4.20",
-      "ext-http": "*",
-      "ext-iconv": "*"
+        "vaimo/composer-patches": "^4.20"
     },
     "require-dev": {
     },
