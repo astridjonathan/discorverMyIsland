@@ -64,3 +64,9 @@
     <!-- ***** Contact Area End ***** -->
 
 {% endblock %}
+{% block scripts %}
+    {{ parent() }}
+    <!-- Google Maps js -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk9KNSL1jTv4MY9Pza6w8DJkpI_nHyCnk"></script>
+    <script src="{{ asset('js/google-map/location-map-active.js') }}"></script>
+{% endblock %}

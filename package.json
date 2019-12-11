@@ -12,5 +12,9 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"
+    },
+    "dependencies": {
+        "dropify": "^0.2.2",
+        "mapbox-gl": "^1.6.0"
     }
 }

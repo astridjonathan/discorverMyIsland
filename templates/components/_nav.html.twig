@@ -9,7 +9,7 @@
                     <div class="collapse navbar-collapse" id="dorneNav">
                         <ul class="navbar-nav mx-auto" id="dorneMenu">
                             <li class="nav-item active">
-                                <a class="nav-link" href="{{ path('/') }}">Accueil <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="{{ path('/') }}">Accueil</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link " href="{{ path('default_explore') }}"  role="button" aria-haspopup="true" aria-expanded="false">Explore</a>
@@ -33,15 +33,22 @@
                                 <a class="nav-link" href="{{ path('default_contact') }}">Contact</a>
                             </li>
                         </ul>
-                        <!-- Signin btn -->
 
-                        <div class="dorne-signin-btn ml-auto">
-                            <a href="{{ path('app_login') }}" class="btn dorne-btn">Connexion</a>
-                        </div>
+                        <!-- LogIn LogOut Register-->
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                            <a href="{{ path('app_logout') }}" class=" btn dorne-btn ">DECONNEXION</a>
+                        {% else %}
+                        <!-- Signin btn -->
+                            <div class="dorne-signin-btn ml-auto">
+                                <a href="{{ path('app_login') }}" class="btn dorne-btn">CONNEXION</a>
+                            </div>
                         <!-- Register btn -->
                         <div class="dorne-signin-btn">
-                            <a href="{{ path('user_register') }}" class="btn dorne-btn">Enregistrement</a>
+                            <a href="{{ path('user_register') }}" class="btn dorne-btn">ENREGISTREMENT</a>
                         </div>
+                        {% endif %}
+
+
                         <!-- Add listings btn
                         <div class="dorne-add-listings-btn">
                             <a href="#" class="btn dorne-btn">+ Add Listings</a>

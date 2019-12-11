@@ -26,46 +26,6 @@
     padding: 0;
 }
 
-.dorne-load {
-    width: 60px;
-    height: 60px;
-    background-color: transparent;
-    position: relative;
-    border-width: 5px;
-    border-style: solid;
-    border-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.95);
-    z-index: 9;
-    top: 50%;
-    margin-left: -30px;
-    margin-top: -30px;
-    left: 50%;
-    border-radius: 50%;
-    overflow: hidden;
-    -webkit-animation: 4000ms linear 0s normal none infinite running dorneload;
-            animation: 4000ms linear 0s normal none infinite running dorneload;
-}
-
-@-webkit-keyframes dorneload {
-    0% {
-        -webkit-transform: rotate(0);
-                transform: rotate(0);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-                transform: rotate(360deg);
-    }
-}
-
-@keyframes dorneload {
-    0% {
-        -webkit-transform: rotate(0);
-                transform: rotate(0);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-                transform: rotate(360deg);
-    }
-}
 
 body {
     font-family: 'Open Sans', sans-serif;
@@ -257,7 +217,7 @@ li {
 .section-heading {
     position: relative;
     z-index: 1;
-    margin-bottom: 100px;
+    margin-bottom: 150px;
 }
 
 .section-heading span {
@@ -344,8 +304,8 @@ li {
 }
 
 .dorne-btn {
-    min-width: 100px;
-    height: 45px;
+    min-width: 123px;
+    height: 50px;
     background-color: #FF9900;
     border-radius: 0;
     padding: 0 15px;
@@ -449,7 +409,7 @@ li {
 
 .sticky .header_area {
     background-color: rgba(14, 2, 35, 0.9);
-    height: 80px;
+    height: 115px;
     z-index: 9999;
     border-bottom: 1px solid transparent;
 }
@@ -605,7 +565,7 @@ li {
 .hero-social-btn .social-title {
     -webkit-transform: rotate(90deg);
             transform: rotate(90deg);
-    margin-left: -92px;
+    margin-left: -102px;
 }
 
 .hero-social-btn .social-title h6 {
@@ -623,7 +583,7 @@ li {
 }
 
 .hero-social-btn .social-btns {
-    margin-top: 170px;
+    margin-top: 130px;
 }
 
 .hero-social-btn .social-btns > a {
@@ -980,7 +940,7 @@ li {
 /* Breadcumb Area CSS */
 
 .breadcumb-area {
-    height: 120px;
+    height: 150px;
     position: relative;
     z-index: 1;
 }

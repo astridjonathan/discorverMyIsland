@@ -1,16 +1,32 @@
 {% extends "base.html.twig" %}
 
 {% block title %}
-    Explore Page
+    Explore
 {% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css" rel="stylesheet" />
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.js"></script>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiY2hhYmluZXZpYnoiLCJhIjoiY2szenk4enAxMjAxaDNscWx5MjFtYTE4ZyJ9.2mxGbAQIffpHKpGUphvYVA';
+        var map = new mapboxgl.Map({
+            container: 'exploreGoogleMap',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [-74.5, 40], // starting position [lng, lat]
+            zoom: 9 // starting zoom
+        });
+    </script>
+{% endblock %}
+
+
 {% block content %}
-
-
-
 <!-- ***** Breadcumb Area Start ***** -->
-    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url({{ asset('img/bg-img/hero-1.jpg') }})">
-    </div>
+    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url({{ asset('img/bg-img/hero-1.jpg') }})"></div>
     <!-- ***** Breadcumb Area End ***** -->
 
     <!-- Explore Area -->
@@ -19,7 +35,7 @@
         <div class="explore-search-area d-md-flex">
             <!-- Explore Search Form -->
             <div class="explore-search-form">
-                <h6>What are you looking for?</h6>
+                <h6>Que recherchez-vous?</h6>
                 <!-- Tabs -->
                 <div class="nav nav-tabs" id="heroTab" role="tablist">
                     <a class="nav-item nav-link active" id="nav-places-tab" data-toggle="tab" href="#nav-places" role="tab" aria-controls="nav-places" aria-selected="true">Sites</a>
@@ -28,7 +44,7 @@
                 <!-- Tabs Content -->
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
-                        <form action="#" method="get">
+                        <form action="#" method="post">
 
                             <select class="custom-select" id="categories">
                                 <option selected>Toutes les Catégories</option>
@@ -59,21 +75,12 @@
                                         <span class="custom-control-description">EN VOITURE</span>
                                     </label>
                                 </div>
-
                             </div>
-                            <button type="submit" class="btn dorne-btn mt-50 bg-white text-dark"><i class="fa fa-search pr-2" aria-hidden="true"></i> Search</button>
+                            <button type="submit" class="btn dorne-btn mt-50 bg-white text-dark"><i class="fa fa-search pr-2" aria-hidden="true"></i> Rechercher</button>
                         </form>
                     </div>
                     <div class="tab-pane fade" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
                         <form action="#" method="get">
-                            <select class="custom-select" id="events-destinations">
-                                <option selected>Your Destinations</option>
-                                <option value="1">New York</option>
-                                <option value="2">Latvia</option>
-                                <option value="3">Dhaka</option>
-                                <option value="4">Melbourne</option>
-                                <option value="5">London</option>
-                            </select>
                             <select class="custom-select" id="events-catagories">
                                 <option selected>Toutes les Catégories</option>
                                 {% for category in categories %}
@@ -92,9 +99,7 @@
                     </div>
                 </div>
             </div>
-            
             <!-- Explore Search Result -->
-
             <div class="explore-search-result">
                 <!-- Single Features Area -->
                 {% for site in sites %}
@@ -119,19 +124,19 @@
                             alias : site.alias,
                             id : site.id,
                             category : site.category.alias}
-                        )}}" class="btn btn-block dorne-btn">J'y go</a>
+                        )}}" class="btn btn-block dorne-btn">J'Y GO</a>
                     </div>
                     {% endfor %}
+                </div>
+            </div>
+            <!-- END Explore Search Result -->
+            <!-- Explore Map Area -->
+            <div class="explore-map-area">
+                <div id="exploreGoogleMap"></div>
             </div>
 
-            <!-- END Explore Search Result -->
-        </div>
-        <!-- Explore Map Area -->
-        <div class="explore-map-area">
-            <div id="exploreGoogleMap"></div>
         </div>
     </section>
 
-
-
 {% endblock %}
+

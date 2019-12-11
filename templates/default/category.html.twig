@@ -1,7 +1,7 @@
 {% extends "base.html.twig" %}
 
 {% block title %}
-
+{{ category.name }}
 {% endblock %}
 
 {% block content %}
@@ -30,10 +30,10 @@
 
 
                             <div class="single-features-area mb-50">
-                                <img class="img-fluid" src="{{ asset('img/sites-img/' ~ site.image) }}" alt="{{ site.name }}">
+                                <img class="img-fluid" src="{{ asset('img/sites-img/' ~ site.image) }}"  alt="{{ site.name }}">
                                 <!-- Category -->
                                 <div class="price-start">
-                                    <p>Culture</p>
+                                    <p>{{ category.name}}</p>
                                 </div>
                                 <div class="feature-content d-flex align-items-center justify-content-between">
                                     <div class="feature-title">

@@ -10,7 +10,10 @@
         <title>{% block title %}Discovery My Island | Visite Mon Ile {% endblock %}</title>
         <!-- Favicon -->
         <link rel="icon" href="{{ asset('img/core-img/favicon.ico') }}">
+
         {% block stylesheets %}
+            <!-- MAPBOX Stylesheet -->
+            <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
             <!-- Bootstrap Stylesheet -->
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
             <!-- Core Stylesheet -->
@@ -21,7 +24,32 @@
     </head>
     <body>
         {{ include('components/_nav.html.twig') }}
-        {% block content %}{% endblock %}
+        {% block content %}
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <div class="container my-4">
+                    <div class="row">
+                        <div class="col">
+                            <div class="alert alert-info text-center">
+                                Bonjour {{ app.user.firstname }} -
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <em>Administrateur</em>
+                                {% elseif is_granted('ROLE_USER') %}
+                                    <em>Membre</em>
+                                {% else %}
+                                    <em>Non Abonné(e)</em>
+                                {% endif %}
+
+                                {% if is_granted('ROLE_USER') %}
+                                     <a href="#">Mon Dashboard</a>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+        {% endblock %}
         {{ include('components/footer.html.twig') }}
         {% block javascripts %}
             <!-- jQuery-2.2.4 js -->
