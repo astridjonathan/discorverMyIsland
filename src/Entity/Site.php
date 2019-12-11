@@ -62,7 +62,7 @@ class Site
     private $tel;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     private $openHour;
 
@@ -75,7 +75,7 @@ class Site
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="site")
      */
     private $comments;
-    
+
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Visit", mappedBy="site")
      */
@@ -188,7 +188,53 @@ class Site
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
 
+    /**
+     * @param mixed $address
+     */
+    public function setAddress($address): void
+    {
+        $this->address = $address;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSiteWeb()
+    {
+        return $this->siteWeb;
+    }
+
+    /**
+     * @param mixed $siteWeb
+     */
+    public function setSiteWeb($siteWeb): void
+    {
+        $this->siteWeb = $siteWeb;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTel()
+    {
+        return $this->tel;
+    }
+
+    /**
+     * @param mixed $tel
+     */
+    public function setTel($tel): void
+    {
+        $this->tel = $tel;
+    }
     public function getOpenHour(): ?string
     {
         return $this->openHour;
