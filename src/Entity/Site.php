@@ -78,14 +78,11 @@ class Site
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+        $this->visits = new ArrayCollection();
     }
    private $visits;
 
 
-    public function __construct()
-    {
-        $this->visits = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
