@@ -9,6 +9,9 @@ use App\Entity\Category;
 use App\Entity\Comment;
 use App\Entity\Site;
 use App\Entity\User;
+use App\Entity\Course;
+use App\Entity\Visit;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -19,6 +22,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Tightenco\Collect\Support\Collection;
 
 class DefaultController extends AbstractController
 {
@@ -30,6 +34,25 @@ class DefaultController extends AbstractController
     public function index()
     {
 
+        /*# Get course
+        $course = $this->getDoctrine()
+            ->getRepository(Course::class)
+            ->find(1);
+
+        # Get associated visits
+        $visits = new Collection($course->getVisits());
+        $visits = $visits->sortBy(function ($visit) {
+            return $visit->getPriority();
+        });*/
+
+        #/** @var Visit $visit */
+        #foreach ($visits as $visit) {
+        #    # Get site name for each visit by priority
+        #    dump($visit->getSite()->getName());
+        #    dump($visit->getPriority());
+        #}
+
+        #die;
         $sites = $this->getDoctrine()
             ->getRepository(Site::class)
             ->findAll();

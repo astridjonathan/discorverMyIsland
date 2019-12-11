@@ -7,6 +7,7 @@ namespace App\Controller;
 use App\Entity\Category;
 use App\Entity\Comment;
 use App\Entity\Site;
+
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -17,9 +18,12 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+
+use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
+
 use Symfony\Component\Routing\Annotation\Route;
 
-class SiteController extends AbstractController
+class SiteController extends EasyAdminController
 {
 
     use HelperTrait;

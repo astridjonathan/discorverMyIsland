@@ -45,8 +45,9 @@ class Site
     private $category;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\OneToMany(targetEntity="App\Entity\Visit", mappedBy="site")
      */
+
     private $adress;
 
     /**
@@ -78,7 +79,13 @@ class Site
     {
         $this->comments = new ArrayCollection();
     }
+   private $visits;
 
+
+    public function __construct()
+    {
+        $this->visits = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -145,41 +152,39 @@ class Site
         return $this;
     }
 
-    public function getAdress(): ?string
+
+    /**
+     * @return Collection|Visit[]
+     */
+    public function getVisits(): Collection
     {
-        return $this->adress;
+        return $this->visits;
     }
 
-    public function setAdress(string $adress): self
+    public function addVisit(Visit $visit): self
     {
-        $this->adress = $adress;
+        if (!$this->visits->contains($visit)) {
+            $this->visits[] = $visit;
+            $visit->setSite($this);
+        }
 
         return $this;
     }
 
-    public function getSiteWeb(): ?string
+    public function removeVisit(Visit $visit): self
     {
-        return $this->siteWeb;
-    }
+        if ($this->visits->contains($visit)) {
+            $this->visits->removeElement($visit);
+            // set the owning side to null (unless already changed)
+            if ($visit->getSite() === $this) {
+                $visit->setSite(null);
+            }
+        }
 
-    public function setSiteWeb(?string $siteWeb): self
-    {
-        $this->siteWeb = $siteWeb;
 
         return $this;
     }
 
-    public function getTel(): ?int
-    {
-        return $this->tel;
-    }
-
-    public function setTel(?int $tel): self
-    {
-        $this->tel = $tel;
-
-        return $this;
-    }
 
     public function getOpenHour(): ?string
     {
@@ -235,10 +240,6 @@ class Site
 
         return $this;
     }
-
-
-
-
 
 
 }
