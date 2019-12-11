@@ -15,3 +15,11 @@ npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
 *.xml
+*.iml
+*.xml
+public/.DS_Store
+*.xml
+public/img/.DS_Store
+*.xml
+*.iml
+templates/.DS_Store

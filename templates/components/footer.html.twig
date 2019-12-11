@@ -3,20 +3,38 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 d-md-flex align-items-center justify-content-between">
-                <div class="footer-text">
-                    <p>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="http://www.dgitalqueen.com" target="_blank">DgitalQueen</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    </p>
+                <div class="col-5" id="contactB">
+                    <a class="navbar-brand" href="{{ path('/') }}"><img src="{{ asset('img/core-img/logo_dark.png') }} " alt="logo.png"></a>
+                    <p>Visiter autrement, Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>Ab ad consequuntur doloremque doloribus eveniet.</p>
+                    <a href="{{ path('default_mlegales') }}">Mentions Légales</a>
                 </div>
-                <div class="footer-social-btns">
+                <div class="col-4" >
+                    <h5 class="mx-auto">S'abonner à la newsletter</h5>
+                    <form class="form-inline mt-2" id="newsletter" method="POST" novalidate action="#" >
+
+                        <div class="form-inline">
+                            <input type="email" name="email" class="form-control mr-2" id="email"  placeholder="Email">
+                        </div>
+                        <button type="submit" class="btn dorne-btn ">S'ABONNER</button>
+                    </form>
+                </div>
+                <div class="col-4 footer-social-btns">
+                    <a href="#"><i class="fa fa-facebook" aria-haspopup="true"></i></a>
+                    <a href="#"><i class="fa fa-twitter" aria-haspopup="true"></i></a>
                     <a href="#"><i class="fa fa-linkedin" aria-haspopup="true"></i></a>
                     <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
                     <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-twitter" aria-haspopup="true"></i></a>
-                    <a href="#"><i class="fa fa-facebook" aria-haspopup="true"></i></a>
+
+
                 </div>
+
+            </div>
+        </div>
+        <div class="row bg-default justify-content-center mt-2 ">
+            <div class="footer-text text-center">
+                <p class="text-center">
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="http://www.dgitalqueen.com" target="_blank">DgitalQueen</a>
+                </p>
             </div>
         </div>
     </div>

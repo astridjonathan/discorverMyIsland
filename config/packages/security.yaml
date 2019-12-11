@@ -32,7 +32,10 @@ security:
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/profile, roles: ROLE_USER }
-
+        - { path: ^/invited, roles: ROLE_VISITOR }
+    role_hierarchy:
+        ROLE_USER: ROLE_VISITOR
+        ROLE_ADMIN: ROLE_USER
 
     #Encodage du mot de passe
     encoders:

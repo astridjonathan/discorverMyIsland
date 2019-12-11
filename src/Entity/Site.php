@@ -49,6 +49,7 @@ class Site
      */
     private $visits;
 
+
     public function __construct()
     {
         $this->visits = new ArrayCollection();
@@ -119,6 +120,7 @@ class Site
         return $this;
     }
 
+
     /**
      * @return Collection|Visit[]
      */
@@ -146,6 +148,32 @@ class Site
                 $visit->setSite(null);
             }
         }
+
+
+        return $this;
+    }
+
+
+    public function getOpenHour(): ?string
+    {
+        return $this->openHour;
+    }
+
+    public function setOpenHour(string $openHour): self
+    {
+        $this->openHour = $openHour;
+
+        return $this;
+    }
+
+    public function getVisiteType(): ?string
+    {
+        return $this->visiteType;
+    }
+
+    public function setVisiteType(?string $visiteType): self
+    {
+        $this->visiteType = $visiteType;
 
         return $this;
     }

@@ -1,0 +1,204 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+  {{site.name}}
+{% endblock %}
+
+{% block content %}
+
+    <!-- ***** Breadcumb Area Start ***** -->
+    <div class="breadcumb-area height-700 bg-img bg-overlay" style="background-image: url({{ asset('img/sites-img/' ~ site.image) }})">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcumb-content">
+                        <div class="map-ratings-review-area d-flex">
+                            <a href="#" class="d-flex align-items-center justify-content-center"><img src="{{ asset('img/core-img/map.png') }}" alt="map"></a>
+                            <a href="#">8.7</a>
+                            <a href="#">Ecrire un commentaire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Breadcumb Area End ***** -->
+
+    <!-- ***** Single Listing Area Start ***** -->
+    <section class="dorne-single-listing-area section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- Single Listing Content -->
+                <div class="col-12 col-lg-8">
+                    <div class="single-listing-content">
+
+                        <div class="listing-title">
+                            <h4>{{ site.name}}</h4>
+                            <h6>{{ site.adress}}</h6>
+                        </div>
+
+                        <div class="single-listing-nav">
+                            <nav>
+                                <ul id="listingNav">
+                                    <li class="active"><a href="#overview">Overview</a></li>
+                                    <li><a href="#menu">Descriptif</a></li>
+                                    <li><a href="#review">Reviews</a></li>
+                                    <li><a href="#lomap">Location on map</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                        <div class="overview-content mt-50" id="overview">
+                            <p>{{ site.content }}</p>
+                            <div class="row mt-5">
+                                <div class="col-6">
+                                    <label class="custom-control custom-checkbox mb-3">
+                                        <input type="checkbox" class="custom-control-input">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">Accepts Credit Cards</span>
+                                    </label>
+                                </div>
+                                <div class="col-6">
+                                    <label class="custom-control custom-checkbox mb-3">
+                                        <input type="checkbox" class="custom-control-input">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">Wireless Internet</span>
+                                    </label>
+                                </div>
+                                <div class="col-6">
+                                    <label class="custom-control custom-checkbox mb-3">
+                                        <input type="checkbox" class="custom-control-input">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">Paiement en ligne</span>
+                                    </label>
+                                </div>
+                                <div class="col-6">
+                                    <label class="custom-control custom-checkbox mb-3">
+                                        <input type="checkbox" class="custom-control-input">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">Privat Parking</span>
+                                    </label>
+                                </div>
+                                <div class="col-6">
+                                    <label class="custom-control custom-checkbox mb-3">
+                                        <input type="checkbox" class="custom-control-input">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">Smoking Area</span>
+                                    </label>
+                                </div>
+                                <div class="col-6">
+                                    <label class="custom-control custom-checkbox mb-3">
+                                        <input type="checkbox" class="custom-control-input">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">Wheelchair Accesible</span>
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="listing-menu-area mt-100" id="menu">
+                            <p>
+                                {{ site.visiteType }}
+                            </p>
+                            <a href="{{site.siteWeb}}" class="btn dorne-btn mt-50">+ En savoir plus</a>
+                        </div>
+
+                        <div class="listing-reviews-area mt-100" id="review">
+                            <h4>reviews</h4>
+                            <div class="single-review-area">
+                                <div class="reviewer-meta d-flex align-items-center">
+                                    <img src="{{ asset('img/clients-img/1.jpg') }}" alt="user-img">
+                                    <div class="reviewer-content">
+                                        <div class="review-title-ratings d-flex justify-content-between">
+                                            <h5>“The best Burger in town”</h5>
+                                            <div class="ratings">
+                                                <img src="{{ asset('img/clients-img/star-fill.png') }}" alt="starRating">
+                                                <img src="{{ asset('img/clients-img/star-fill.png') }}" alt="starRating">
+                                                <img src="{{ asset('img/clients-img/star-fill.png') }}" alt="starRating">
+                                                <img src="{{ asset('img/clients-img/star-fill.png') }}" alt="starRating">
+                                                <img src="{{ asset('img/clients-img/star-fill.png') }}" alt="starRating">
+                                            </div>
+                                        </div>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac nibh sed mi ullamcorper rhoncus. Curabitur pulvinar vel augue sit amet vestibulum. Proin tempus lacus porta lorem blandit aliquam eget quis ipsum. Vivamus accumsan consequat ligula non volutpat.</p>
+                                    </div>
+                                </div>
+                                <div class="reviewer-name">
+                                    <h6>Christinne Smith</h6>
+                                    <p>12 November 2017</p>
+                                </div>
+                            </div>
+                            <div class="single-review-area">
+                                <div class="reviewer-meta d-flex align-items-center">
+                                    <img src="img/clients-img/1.jpg" alt="">
+                                    <div class="reviewer-content">
+                                        <div class="review-title-ratings d-flex justify-content-between">
+                                            <h5>“Quality ingredients”</h5>
+                                            <div class="ratings">
+                                                <img src="img/clients-img/star-fill.png" alt="">
+                                                <img src="img/clients-img/star-fill.png" alt="">
+                                                <img src="img/clients-img/star-fill.png" alt="">
+                                                <img src="img/clients-img/star-fill.png" alt="">
+                                                <img src="img/clients-img/star-unfill.png" alt="">
+                                            </div>
+                                        </div>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac nibh sed mi ullamcorper rhoncus. Curabitur pulvinar vel augue sit amet vestibulum. Proin tempus lacus porta lorem blandit aliquam eget quis ipsum. Vivamus accumsan consequat ligula non volutpat.</p>
+                                    </div>
+                                </div>
+                                <div class="reviewer-name">
+                                    <h6>Michael Brown</h6>
+                                    <p>12 November 2017</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="location-on-map mt-50" id="lomap">
+                            <h4>Location on map</h4>
+                            <div class="location-map">
+                                <div id="locationMap"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Listing Sidebar -->
+                <div class="col-12 col-md-8 col-lg-4">
+                    <div class="listing-sidebar">
+
+                        <!-- Contact Form -->
+                        <div class="contact-form contact-form-widget mt-50">
+                            <h6>Contact</h6>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        {{site.name}}
+                                    </div>
+                                    <div class="col-12">
+                                        {{site.adress}}
+                                    </div>
+                                    <div class="col-12">
+                                       {{site.tel}}
+                                    </div>
+                                    <div class="col-12">
+                                        {{site.siteWeb}}
+                                    </div>
+                                </div>
+                        </div> <!-- END Contact Form -->
+
+                        <!-- Opening Hours Widget -->
+                        <div class="opening-hours-widget mt-50">
+                            <h6>Horaires d'ouvertures</h6>
+                            <div class="opening-hours">
+                                {{ site.openHour | striptags}}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Single Listing Area End ***** -->
+
+{% endblock %}
