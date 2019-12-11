@@ -3,6 +3,165 @@
 {% block title %}
   {{site.name}}
 {% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <!-- MAPBOX Stylesheet -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
+    <!-- Dropify -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css"
+          integrity="sha256-AWdeVMUYtwLH09F6ZHxNgvJI37p+te8hJuSMo44NVm0=" crossorigin="anonymous" />
+    <style>
+        .custom-file-label{display:none;}
+
+         #menuMap {
+
+             top: 0;
+             background: #fff;
+             padding: 10px;
+             font-family: 'Open Sans', sans-serif;
+         }
+
+    </style>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <!-- Mapbox-->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiY2hhYmluZXZpYnoiLCJhIjoiY2szenk4enAxMjAxaDNscWx5MjFtYTE4ZyJ9.2mxGbAQIffpHKpGUphvYVA';
+        var map = new mapboxgl.Map({
+            container: 'locationMap',
+            zoom: 1.5,
+            style: 'mapbox://styles/mapbox/streets-v11'
+        });
+        /***
+         * change style map
+         * ****/
+        var layerList = document.getElementById('menuMap');
+        var inputs = layerList.getElementsByTagName('input');
+
+        function switchLayer(layer) {
+            var layerId = layer.target.id;
+            map.setStyle('mapbox://styles/mapbox/' + layerId);
+        }
+
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].onclick = switchLayer;
+        }
+/***
+ * Add animate marker
+ * ****/
+        var size = 100;
+
+        var pulsingDot = {
+            width: size,
+            height: size,
+            data: new Uint8Array(size * size * 4),
+
+// get rendering context for the map canvas when layer is added to the map
+            onAdd: function() {
+                var canvas = document.createElement('canvas');
+                canvas.width = this.width;
+                canvas.height = this.height;
+                this.context = canvas.getContext('2d');
+            },
+
+// called once before every frame where the icon will be used
+            render: function() {
+                var duration = 1000;
+                var t = (performance.now() % duration) / duration;
+
+                var radius = (size / 2) * 0.3;
+                var outerRadius = (size / 2) * 0.7 * t + radius;
+                var context = this.context;
+
+// draw outer circle
+                context.clearRect(0, 0, this.width, this.height);
+                context.beginPath();
+                context.arc(
+                    this.width / 2,
+                    this.height / 2,
+                    outerRadius,
+                    0,
+                    Math.PI * 2
+                );
+                context.fillStyle = 'rgba(255, 200, 200,' + (1 - t) + ')';
+                context.fill();
+
+// draw inner circle
+                context.beginPath();
+                context.arc(
+                    this.width / 2,
+                    this.height / 2,
+                    radius,
+                    0,
+                    Math.PI * 2
+                );
+                context.fillStyle = 'rgba(255, 100, 100, 1)';
+                context.strokeStyle = 'white';
+                context.lineWidth = 2 + 4 * (1 - t);
+                context.fill();
+                context.stroke();
+
+// update this image's data with data from the canvas
+                this.data = context.getImageData(
+                    0,
+                    0,
+                    this.width,
+                    this.height
+                ).data;
+
+// continuously repaint the map, resulting in the smooth animation of the dot
+                map.triggerRepaint();
+
+// return `true` to let the map know that the image was updated
+                return true;
+            }
+        };
+
+        map.on('load', function() {
+            map.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
+
+            map.addLayer({
+                'id': 'points',
+                'type': 'symbol',
+                'source': {
+                    'type': 'geojson',
+                    'data': {
+                        'type': 'FeatureCollection',
+                        'features': [
+                            {
+                                'type': 'Feature',
+                                'geometry': {
+                                    'type': 'Point',
+                                    'coordinates': [-61.551,16.265 ],
+                                    'zoom': 0.3
+                                }
+                            }
+                        ]
+                    }
+                },
+                'layout': {
+                    'icon-image': 'pulsing-dot'
+                }
+            });
+        });
+
+    </script>
+
+    <!-- Dropify -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js" integrity="sha256-SUaao5Q7ifr2twwET0iyXVy0OVnuFJhGVi5E/dqEiLU=" crossorigin="anonymous"></script>
+    <script>
+        $('.dropify').dropify({
+            messages: {
+                default: 'Glissez-d&eacute;posez un fichier ici ou cliquez',
+                replace: 'Glissez-d&eacute;posez un fichier ou cliquez pour remplacer',
+                remove:  'Supprimer',
+                error:   'D&eacute;sol&eacute;, le fichier est trop volumineux'
+            }
+        });
+    </script>
+{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -77,10 +236,9 @@
                         <div class="single-listing-nav">
                             <nav>
                                 <ul id="listingNav">
-                                    <li class="active"><a href="#overview">Overview</a></li>
-                                    <li><a href="#menu">Descriptif</a></li>
-                                    <li><a href="#review">Reviews</a></li>
-                                    <li><a href="#lomap">Location on map</a></li>
+                                    <li class="active"><a href="#menu">Descriptif</a></li>
+                                    <li><a href="#review">Commentaires</a></li>
+                                    <li><a href="#lomap">Localiser le site</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -142,7 +300,7 @@
                         </div>
 
                         <div class="listing-reviews-area mt-100" id="review">
-                            <h4>reviews</h4>
+                            <h4>commentaires</h4>
                             {% for message in app.flashes('notice') %}
                                 <div class="alert alert-success">
                                     {{ message }}
@@ -193,7 +351,26 @@
                         <div class="location-on-map mt-50" id="lomap">
                             <h4>Nous localiser</h4>
                             <div class="location-map">
-                                <div id="locationMap"></div>
+                                <div id="locationMap">
+                                    <div id="menuMap">
+                                        <input
+                                                id="streets-v11"
+                                                type="radio"
+                                                name="rtoggle"
+                                                value="streets"
+                                                checked="checked"
+                                        />
+                                        <label for="streets">streets</label>
+                                        <input id="light-v10" type="radio" name="rtoggle" value="light" />
+                                        <label for="light">light</label>
+                                        <input id="dark-v10" type="radio" name="rtoggle" value="dark" />
+                                        <label for="dark">dark</label>
+                                        <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors" />
+                                        <label for="outdoors">outdoors</label>
+                                        <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" />
+                                        <label for="satellite">satellite</label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -228,7 +405,10 @@
                         <div class="opening-hours-widget mt-50">
                             <h6>Horaires d'ouvertures</h6>
                             <div class="opening-hours">
-                                {{ site.openHour | striptags}}
+                                <ul>
+                                    <li> {{ site.openHour | striptags}}</li>
+                                </ul>
+
                             </div>
                         </div>
 
