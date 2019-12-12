@@ -1,9 +1,10 @@
 easy_admin:
     entities:
-#        # List the entity class name you want to manage
+        #        # List the entity class name you want to manage
         Site:
             class: App\Entity\Site
             label: 'Sites'
+            file_base_path: '%site_directory%'
             list:
                 title: "Liste sites"
                 fields:
@@ -13,11 +14,25 @@ easy_admin:
                     - content
                     - image
                     - address
-                    - siteWeb
-                    - tel
+                    - { property: 'siteWeb', type: 'url' }
+                    - { property: 'tel', type: 'tel' }
                     - openHour
                     - visiteType
-                    -  { property: 'category', type: 'entity', type_options: { class: 'App\Entity\Category', multiple: false } }
+                    -  { property: 'category', type_options: { class: 'App\Entity\Category', multiple: false } }
+
+            form:
+                fields:
+                    - name
+                    - alias
+                    - { property: 'content', type: 'text_editor' }
+                    - { property: 'image', type: 'file', base_path: 'site_directory' }
+                    - address
+                    - { property: 'siteWeb', type: 'url' }
+                    - { property: 'tel', type: 'tel' }
+                    - { property: 'openHour', type: 'text_editor' }
+                    - { property: 'visiteType', type: 'text_editor' }
+                    - { property: 'category', type: 'entity', type_options: { class: 'App\Entity\Category', multiple: false } }
+
         Course:
             class: App\Entity\Course
             label: 'Parcours'
@@ -25,6 +40,7 @@ easy_admin:
                 title: "Liste parcours"
                 fields: ['id', 'category_id', 'name', 'duration', 'priority', 'steps']
         User:
+
             class: App\Entity\User
             label: 'Utilisateurs'
             list:
@@ -36,10 +52,17 @@ easy_admin:
     user:
         display_name: true
         display_avatar: false
-        name_property_path: 'fullName'
-        avatar_property_path: 'gravatar'
+        name_property_path: 'pseudo'
+        avatar_property_path: 'avatar'
+
+
 
     design:
+        form_theme:
+            - "@EasyAdmin/form/bootstrap_4.html.twig"
+
+
+
 
     formats:
         date: 'd/m/Y'

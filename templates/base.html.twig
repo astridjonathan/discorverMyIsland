@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html  lang="fr">
     <head>
         <meta charset="UTF-8">
         <meta name="description" content="Discover my Island">
@@ -25,29 +25,6 @@
     <body>
         {{ include('components/_nav.html.twig') }}
         {% block content %}
-            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                <div class="container my-4">
-                    <div class="row">
-                        <div class="col">
-                            <div class="alert alert-info text-center">
-                                Bonjour {{ app.user.firstname }} -
-                                {% if is_granted('ROLE_ADMIN') %}
-                                    <em>Administrateur</em>
-                                {% elseif is_granted('ROLE_USER') %}
-                                    <em>Membre</em>
-                                {% else %}
-                                    <em>Non Abonné(e)</em>
-                                {% endif %}
-
-                                {% if is_granted('ROLE_USER') %}
-                                     <a href="#">Mon Dashboard</a>
-                                {% endif %}
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            {% endif %}
 
         {% endblock %}
         {{ include('components/footer.html.twig') }}

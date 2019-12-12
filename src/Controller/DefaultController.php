@@ -28,7 +28,7 @@ class DefaultController extends AbstractController
 {
     /**
      * @return Response
-     * @Route("/", name="/",methods={"GET"})
+     * @Route("/", name="/",methods={"GET|POST"})
      *
      */
     public function index()

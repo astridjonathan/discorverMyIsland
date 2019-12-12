@@ -13,7 +13,7 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link " href="{{ path('default_explore') }}"  role="button" aria-haspopup="true" aria-expanded="false">Explore</a>
-                                <!--<<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <!--<div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         a class="dropdown-item" href=""></a>
                                 </div>-->
                             </li>
@@ -34,25 +34,32 @@
                             </li>
                         </ul>
 
-                        <!-- LogIn LogOut Register-->
-                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                            <a href="{{ path('app_logout') }}" class=" btn dorne-btn ">DECONNEXION</a>
-                        {% else %}
-                        <!-- Signin btn -->
-                            <div class="dorne-signin-btn ml-auto">
-                                <a href="{{ path('app_login') }}" class="btn dorne-btn">CONNEXION</a>
-                            </div>
-                        <!-- Register btn -->
-                        <div class="dorne-signin-btn">
-                            <a href="{{ path('user_register') }}" class="btn dorne-btn">ENREGISTREMENT</a>
-                        </div>
+                            <!-- LogIn LogOut Register-->
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                <span class="text-white"> Bonjour {{ app.user.pseudo}}  </span>
+                                <a class="nav-link dropdown"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown"></a>
+                                <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="{{ path('app_logout') }}">Déconnexion</a></li>
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                        <li><a class="dropdown-item" href="{{path('easyadmin')}}">Administration</a></li>
+                                    {% elseif is_granted('ROLE_USER') %}
+                                    <li> <a class="dropdown-item" href="#">Mon Profil</a></li>
+                                    <li><a class="dropdown-item" href="#">Mon Panier</a></li>
+                                </ul>
+                                {% endif %}
+
+                            {% else %} <!-- ANONYMOUS USER-->
+                                <!-- Signin btn -->
+                                <div class="dorne-signin-btn ml-auto">
+                                    <a href="{{ path('app_login') }}" class="btn dorne-btn">CONNEXION</a>
+                                </div>
+                                <!-- Register btn -->
+                                <div class="dorne-signin-btn">
+                                    <a href="{{ path('user_register') }}" class="btn dorne-btn">ENREGISTREMENT</a>
+                                </div>
+
                         {% endif %}
 
-
-                        <!-- Add listings btn
-                        <div class="dorne-add-listings-btn">
-                            <a href="#" class="btn dorne-btn">+ Add Listings</a>
-                        </div>-->
                     </div>
                 </nav>
 
