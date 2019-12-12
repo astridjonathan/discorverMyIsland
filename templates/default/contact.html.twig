@@ -32,8 +32,14 @@
                 </div>
             </div>
             <div class="contact-form">
+
+            {% for message in app.flashes('notice') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
                 <div class="contact-form-title">
-                    <h6>Nous contacter</h6>
+                    <h6>NOUS CONTACTER</h6>
                 </div>
                 <form action="#" method="post">
                     <div class="row">

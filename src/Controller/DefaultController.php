@@ -298,6 +298,9 @@ class DefaultController extends AbstractController
 
             #Notification flash
             $this->addFlash('notice', 'Félicitations votre message a bien été envoyé !');
+
+            #Redirection
+            return $this->redirectToRoute('default_contact');
         }
 
             return $this->render('default/contact.html.twig', [
