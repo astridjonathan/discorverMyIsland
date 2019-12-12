@@ -90,7 +90,9 @@ class Site
         $this->visits = new ArrayCollection();
     }
 
-
+    public function __toString(){
+        return $this->image;
+    }
 
     public function getId(): ?int
     {

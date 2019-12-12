@@ -58,6 +58,7 @@ class UserController extends AbstractController
             ])
             #AVATAR upload
             ->add('avatar', FileType::class,[
+                'required'=> false,
                 'label' => false,
                 'attr' => [
                     'class' => 'dropify',
