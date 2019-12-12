@@ -280,7 +280,10 @@ class DefaultController extends AbstractController
 
             # Submit Button
             ->add('submit', SubmitType::class, [
-                'label' => 'Envoyer'
+                'label' => 'Envoyer',
+                'attr' => [
+                    'class' => 'btn btn-block dorne-btn'
+                ]
             ])
             # crée le formulaire
             ->getForm();
