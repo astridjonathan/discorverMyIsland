@@ -7,11 +7,13 @@ namespace App\Controller;
 
 use App\Entity\Category;
 use App\Entity\Comment;
+use App\Entity\Contact;
 use App\Entity\Site;
 use App\Entity\User;
 use App\Entity\Course;
 use App\Entity\Visit;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -234,13 +236,75 @@ class DefaultController extends AbstractController
 
     /**
      * @return Response
-     * @Route("/contact.html", name="default_contact", methods={"GET"})
+     * @Route("/contact.html", name="default_contact", methods={"GET|POST"})
      */
-    public function contact()
-    {
-        return $this->render('default/contact.html.twig');
-    }
 
+        public function contact(Request $request)
+    {
+
+        $contact = new Contact();
+
+        $form = $this->createFormBuilder($contact)
+            ->add('Firstname', TextType::class, [
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Prénom'
+                ]
+            ])
+            ->add('Lastname', TextType::class, [
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Nom'
+                ]
+            ])
+            ->add('Email', TextType::class, [
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Email'
+                ]
+
+            ])
+            ->add('Subject', TextType::class, [
+                'required' => false,
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Sujet du message'
+                ]
+            ])
+            ->add('Message', TextareaType::class, [
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Entrez votre message'
+                ]
+            ])
+
+            # Submit Button
+            ->add('submit', SubmitType::class, [
+                'label' => 'Envoyer'
+            ])
+            # crée le formulaire
+            ->getForm();
+
+
+        $form->handleRequest($request);
+
+        // On vérifie que les valeurs entrées sont correctes
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($contact);
+            $em->flush();
+
+            #Notification flash
+            $this->addFlash('notice', 'Félicitations votre message a bien été envoyé !');
+        }
+
+            return $this->render('default/contact.html.twig', [
+                'form' => $form->createView()
+            ]);
+
+    }
     /**
      * @return Response
      * @Route("/mentions-legales.html", name="default_mlegales", methods={"GET"})
