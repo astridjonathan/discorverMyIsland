@@ -6,6 +6,9 @@
 parameters:
     comments_directory: '%kernel.project_dir%/public/img/com-img'
     avatar_directory: '%kernel.project_dir%/public/img/clients-img/avatar'
+    site_directory: '%kernel.project_dir%/public/img/sites-img'
+
+
 services:
     # default configuration for services in *this* file
     _defaults:

@@ -24,11 +24,7 @@ class Kernel extends BaseKernel
                 yield new $class();
             }
         }
-        $bundles = [
-            // ...
 
-            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
-        ];
     }
 
     public function getProjectDir(): string

@@ -4,6 +4,6 @@ default_index:
 
 easy_admin_bundle:
     resource: '@EasyAdminBundle/Controller/EasyAdminController.php'
-    prefix: /_dmi_backend
+    prefix: /adminDMI
     type: annotation
 
