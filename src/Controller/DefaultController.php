@@ -69,7 +69,7 @@ class DefaultController extends AbstractController
         ]);
 
     }
-
+    /****************************************************************************************************************/
     /**
      * @param $alias
      * @return Response
@@ -84,14 +84,17 @@ class DefaultController extends AbstractController
         $categories= $this->getDoctrine()
             ->getRepository(Category::class)
             ->findAll();
-
+//        $category = $this->getDoctrine()
+//            ->getRepository(Category::class)
+//            ->findOneBy(['alias'=>$alias]);
         return $this->render('default/explore.html.twig', [
             'sites' => $sites,
             'categories' => $categories,
+//            'category' => $category,
 
         ]);
-
     }
+    /****************************************************************************************************************/
     /**
      * @param Category $category
      * @return Response
@@ -107,30 +110,24 @@ class DefaultController extends AbstractController
             ['sites'=>$category->getSites(),
                 'category'=>$category]);
     }
-
+    /****************************************************************************************************************/
     /**
      * @param Site $site
      * @return Response
      * @Route("/{category}/{alias}_{id}.html", name="default_site", methods={"GET|POST"})
      */
-
     use HelperTrait;
     public function addComment(Site $site,  Request $request)
     {
-
         #Ajout d'un commentaire
         $comment= new Comment();
         #Récupérer un user
         $user = $this->getUser();
         $comment->setSite($site);
-
         #On affecte le User au commentaire
-
         $comment->setUser($user);
         #Création d'un formulaire
         $form = $this->createFormBuilder($comment)
-
-
             #Titre de l'article
             ->add('title', TextType::class,[
                 'label' => false,
@@ -138,7 +135,6 @@ class DefaultController extends AbstractController
                     'placeholder' => 'Titre de du commentaire'
                 ]
             ])
-
             #Comment's content
             ->add('content', TextareaType::class, [
                 'label' => false,
@@ -193,15 +189,12 @@ class DefaultController extends AbstractController
             #Redirection
             #return $this->redirectToRoute('default/single-site.html.twig');
         }
-
         $comments= $this->getDoctrine()
             ->getRepository(Comment::class)
             ->findBy(['site'=>$site]);
         $user=$this->getDoctrine()
             ->getRepository(User::class)
             ->findBy(['id'=>$user]);
-
-
         #Transmission du formulaire à la vue
         return $this->render('default/single-site.html.twig',[
             'site'=> $site,
@@ -209,10 +202,9 @@ class DefaultController extends AbstractController
             'comments'=> $comments,
             'form' => $form->createView()
         ]);
-
     }
 
-
+    /****************************************************************************************************************/
     public function menu()
     {
         #Récupération des categories
@@ -224,7 +216,7 @@ class DefaultController extends AbstractController
             'categories' => $categories
         ]);
     }
-
+    /****************************************************************************************************************/
     /**
      * @return Response
      * @Route("/concept.html", name="default_concept", methods={"GET"})
@@ -233,7 +225,7 @@ class DefaultController extends AbstractController
     {
         return $this->render('default/concept.html.twig');
     }
-
+    /****************************************************************************************************************/
     /**
      * @return Response
      * @Route("/contact.html", name="default_contact", methods={"GET"})
@@ -242,7 +234,7 @@ class DefaultController extends AbstractController
     {
         return $this->render('default/contact.html.twig');
     }
-
+    /****************************************************************************************************************/
     /**
      * @return Response
      * @Route("/mentions-legales.html", name="default_mlegales", methods={"GET"})

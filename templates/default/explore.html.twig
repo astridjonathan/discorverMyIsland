@@ -37,10 +37,10 @@
                 <div class="explore-search-form">
                     <h6>Que recherchez-vous?</h6>
                     <!-- Tabs -->
-                    <div class="nav nav-tabs" id="heroTab" role="tablist">
-                        <a class="nav-item nav-link active" id="nav-places-tab" data-toggle="tab" href="#nav-places" role="tab" aria-controls="nav-places" aria-selected="true">Sites</a>
-                        <a class="nav-item nav-link" id="nav-events-tab" data-toggle="tab" href="#nav-events" role="tab" aria-controls="nav-events" aria-selected="false">Events</a>
-                    </div>
+{#                    <div class="nav nav-tabs" id="heroTab" role="tablist">#}
+{#                        <a class="nav-item nav-link active" id="nav-places-tab" data-toggle="tab" href="#nav-places" role="tab" aria-controls="nav-places" aria-selected="true">Sites</a>#}
+{#                        <a class="nav-item nav-link" id="nav-events-tab" data-toggle="tab" href="#nav-events" role="tab" aria-controls="nav-events" aria-selected="false">Events</a>#}
+{#                    </div>#}
                     <!-- Tabs Content -->
                     <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
@@ -52,30 +52,30 @@
                                         <option value="{{category.id}}">{{category.name}}</option>
                                     {% endfor %}
                                 </select>
-                                <select class="custom-select" id="proximity">
-                                    <option selected>Communes</option>
-                                    <option value="1">Proximity 1</option>
-                                    <option value="2">Proximity 2</option>
-                                    <option value="3">Proximity 3</option>
-                                    <option value="3">Proximity 4</option>
-                                    <option value="3">Proximity 5</option>
-                                </select>
-                                <div class="row mt-md-5 mt-0">
-                                    <div class="col-12 col-xl-6">
-                                        <label class="custom-control custom-checkbox mb-3">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <span class="custom-control-indicator"></span>
-                                            <span class="custom-control-description">A PIED</span>
-                                        </label>
-                                    </div>
-                                    <div class="col-12 col-xl-6">
-                                        <label class="custom-control custom-checkbox mb-3">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <span class="custom-control-indicator"></span>
-                                            <span class="custom-control-description">EN VOITURE</span>
-                                        </label>
-                                    </div>
-                                </div>
+{#                                <select class="custom-select" id="proximity">#}
+{#                                    <option selected>Communes</option>#}
+{#                                    <option value="1">Proximity 1</option>#}
+{#                                    <option value="2">Proximity 2</option>#}
+{#                                    <option value="3">Proximity 3</option>#}
+{#                                    <option value="3">Proximity 4</option>#}
+{#                                    <option value="3">Proximity 5</option>#}
+{#                                </select>#}
+{#                                <div class="row mt-md-5 mt-0">#}
+{#                                    <div class="col-12 col-xl-6">#}
+{#                                        <label class="custom-control custom-checkbox mb-3">#}
+{#                                            <input type="checkbox" class="custom-control-input">#}
+{#                                            <span class="custom-control-indicator"></span>#}
+{#                                            <span class="custom-control-description">A PIED</span>#}
+{#                                        </label>#}
+{#                                    </div>#}
+{#                                    <div class="col-12 col-xl-6">#}
+{#                                        <label class="custom-control custom-checkbox mb-3">#}
+{#                                            <input type="checkbox" class="custom-control-input">#}
+{#                                            <span class="custom-control-indicator"></span>#}
+{#                                            <span class="custom-control-description">EN VOITURE</span>#}
+{#                                        </label>#}
+{#                                    </div>
+{#                                </div>#}
                                 <button type="submit" class="btn dorne-btn mt-50 bg-white text-dark"><i class="fa fa-search pr-2" aria-hidden="true"></i> Rechercher</button>
                             </form>
                         </div>
@@ -88,12 +88,12 @@
                                     {% endfor %}
                                 </select>
 
-                                <select class="custom-select" id="events-proximity">
-                                    <option selected>Communes</option>
-                                    <option value="1">Proximity 1</option>
-                                    <option value="2">Proximity 2</option>
+{#                                <select class="custom-select" id="events-proximity">#}
+{#                                    <option selected>Communes</option>#}
+{#                                    <option value="1">Proximity 1</option>#}
+{#                                    <option value="2">Proximity 2</option>#}
 
-                                </select>
+{#                                </select>#}
                                 <button type="submit" class="btn dorne-btn mt-50 bg-white text-dark"><i class="fa fa-search pr-2" aria-hidden="true"></i> Search</button>
                             </form>
                         </div>

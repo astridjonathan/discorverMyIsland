@@ -12,7 +12,7 @@ easy_admin:
                     - name
                     - alias
                     - content
-                    - { property: 'image', type: 'image', base_path: 'site_directory' }
+                    - image
                     - address
                     - { property: 'siteWeb', type: 'url' }
                     - { property: 'tel', type: 'tel' }
@@ -25,7 +25,7 @@ easy_admin:
                     - name
                     - alias
                     - { property: 'content', type: 'text_editor' }
-                    - { property: 'image', type: 'file', base_path: 'site_directory' }
+                    - { property: 'imageFile', type: 'file', base_path: 'site_directory'}
                     - address
                     - { property: 'siteWeb', type: 'url' }
                     - { property: 'tel', type: 'tel' }

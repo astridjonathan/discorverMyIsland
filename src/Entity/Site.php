@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SiteRepository")
@@ -41,6 +42,13 @@ class Site
      */
     private $image;
 
+    /**
+     * @var File
+     * @throws \Exception
+     *
+     */
+    private $imageFile;
+
 
 
     /**
@@ -48,8 +56,6 @@ class Site
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;
-
-
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -85,6 +91,7 @@ class Site
      * @ORM\OneToMany(targetEntity="App\Entity\Visit", mappedBy="site")
      */
     private $visits;
+
     /**
      * @var \DateTime
      */
@@ -145,18 +152,29 @@ class Site
         return $this->image;
     }
 
-    public function setImage(File $image = null): self
+    public function setImage( $image = null): self
     {
         $this->image = $image;
-        if ($image) {
-            // if 'updatedAt' is not defined in your entity, use another property
+        return $this;
+    }
+    /*
+    * @param File|UploadedFile $imageFile
+    * @return User
+    * @throws \Exception
+    */
+    public function setImageFile(?File $imageFile = null): Site
+    {
+        $this->imageFile = $imageFile;
+        if ($this->imageFile instanceof UploadedFile) {
             $this->updatedAt = new \DateTime('now');
         }
-
         return $this;
     }
 
-
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
 
     public function getCategory(): ?Category
     {
@@ -193,13 +211,11 @@ class Site
     {
         if ($this->visits->contains($visit)) {
             $this->visits->removeElement($visit);
-            // set the owning side to null (unless already changed)
+
             if ($visit->getSite() === $this) {
                 $visit->setSite(null);
             }
         }
-
-
         return $this;
     }
 
