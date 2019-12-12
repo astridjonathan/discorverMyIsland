@@ -37,8 +37,11 @@ class Site
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
      */
     private $image;
+
+
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="sites")
@@ -82,6 +85,10 @@ class Site
      * @ORM\OneToMany(targetEntity="App\Entity\Visit", mappedBy="site")
      */
     private $visits;
+    /**
+     * @var \DateTime
+     */
+    private $updatedAt;
 
 
     public function __construct()
@@ -90,9 +97,7 @@ class Site
         $this->visits = new ArrayCollection();
     }
 
-    public function __toString(){
-        return $this->image;
-    }
+
 
     public function getId(): ?int
     {
@@ -140,12 +145,18 @@ class Site
         return $this->image;
     }
 
-    public function setImage($image): self
+    public function setImage(File $image = null): self
     {
         $this->image = $image;
+        if ($image) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTime('now');
+        }
 
         return $this;
     }
+
+
 
     public function getCategory(): ?Category
     {

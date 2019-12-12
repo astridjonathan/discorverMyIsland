@@ -53,6 +53,9 @@ class DefaultController extends AbstractController
         #}
 
         #die;
+        $category = $this->getDoctrine()
+            ->getRepository(Category::class)
+            ->findAll();
         $sites = $this->getDoctrine()
             ->getRepository(Site::class)
             ->findAll();
@@ -61,7 +64,8 @@ class DefaultController extends AbstractController
             ->findAll();
         return $this->render('default/index.html.twig', [
             'sites' => $sites,
-            'categories' => $categories
+            'categories' => $categories,
+            'category' => $category
         ]);
 
     }
@@ -80,7 +84,6 @@ class DefaultController extends AbstractController
         $categories= $this->getDoctrine()
             ->getRepository(Category::class)
             ->findAll();
-
 
         return $this->render('default/explore.html.twig', [
             'sites' => $sites,
@@ -189,7 +192,6 @@ class DefaultController extends AbstractController
             $this->addFlash('notice', 'Félicitations votre commentaire est en ligne !');
             #Redirection
             #return $this->redirectToRoute('default/single-site.html.twig');
-
         }
 
         $comments= $this->getDoctrine()
@@ -224,9 +226,9 @@ class DefaultController extends AbstractController
     }
 
     /**
- * @return Response
- * @Route("/concept.html", name="default_concept", methods={"GET"})
- */
+     * @return Response
+     * @Route("/concept.html", name="default_concept", methods={"GET"})
+     */
     public function concept()
     {
         return $this->render('default/concept.html.twig');
