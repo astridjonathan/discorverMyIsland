@@ -51,7 +51,7 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\File()
+     *
      */
     private $avatar;
 

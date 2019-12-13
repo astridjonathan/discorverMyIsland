@@ -56,6 +56,7 @@ class DefaultController extends AbstractController
         $category = $this->getDoctrine()
             ->getRepository(Category::class)
             ->findAll();
+        
         $sites = $this->getDoctrine()
             ->getRepository(Site::class)
             ->findAll();
@@ -84,13 +85,14 @@ class DefaultController extends AbstractController
         $categories= $this->getDoctrine()
             ->getRepository(Category::class)
             ->findAll();
-//        $category = $this->getDoctrine()
-//            ->getRepository(Category::class)
-//            ->findOneBy(['alias'=>$alias]);
+        $category= $this->getDoctrine()
+            ->getRepository(Category::class)
+            ->findByCategory();
+
         return $this->render('default/explore.html.twig', [
             'sites' => $sites,
             'categories' => $categories,
-//            'category' => $category,
+            'category' => $category,
 
         ]);
     }
