@@ -19,31 +19,24 @@
                     <div class="hero-search-form">
                         <!-- Tabs -->
                         <div class="nav nav-tabs" id="heroTab" role="tablist">
-{#                           role="tab" aria-controls="nav-places" aria-selected="true">Sites</a>#}
-{#                            <a class="nav-item nav-link" id="nav-events-tab" data-toggle="tab" href="#nav-events"#}
-{#                               role="tab" aria-controls="nav-events" aria-selected="false">Events</a>#}
+                            {#                           role="tab" aria-controls="nav-places" aria-selected="true">Sites</a>#}
+                            {#                            <a class="nav-item nav-link" id="nav-events-tab" data-toggle="tab" href="#nav-events"#}
+                            {#                               role="tab" aria-controls="nav-events" aria-selected="false">Events</a>#}
                         </div>
                         <!-- Tabs Content -->
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="nav-places" role="tabpanel"
                                  aria-labelledby="nav-places-tab">
                                 <h6>Que recherchez-vous?</h6>
-                                <form action="#" method="get">
-{#                                    <select class="custom-select">#}
-{#                                        <option selected>Moyens de transport</option>#}
-{#                                        <option value="1">A pied</option>#}
-{#                                        <option value="2">En voiture</option>#}
-{#                                        <option value="3">Autre</option>#}
-
-{#                                    </select>#}
-                                    <select class="custom-select">
-                                        <option selected>Toutes les catégories</option>
+                                <form action="{{ path('default_explore') }}" method="get">
+                                    <select name="q" class="custom-select">
+                                        <option value="" selected>Toutes les catégories</option>
                                         {% for category in categories %}
-                                        <option value="{{category.id}}">{{category.name}}</option>
+                                            <option value="{{ category.alias }}">{{ category.name }}</option>
                                         {% endfor %}
                                     </select>
-                                    <button type="submit" class="btn dorne-btn"><i class="fa fa-search"
-                                                                                   aria-hidden="true"></i> Rechercher
+                                    <button type="submit" class="btn dorne-btn">
+                                        <i class="fa fa-search" aria-hidden="true"></i> Rechercher
                                     </button>
                                 </form>
                             </div>
@@ -82,8 +75,8 @@
                                     <div class="single-category-area wow fadeInUpBig" data-wow-delay="0.2s">
                                         <div class="category-content">
                                             <a href="{{ path('default_category', {alias : category.alias}) }}">
-                                            <img src="{{ asset('img/core-img/' ~ category.icon) }}"
-                                                 alt="{{ category.name }}">
+                                                <img src="{{ asset('img/core-img/' ~ category.icon) }}"
+                                                     alt="{{ category.name }}">
                                                 <h6>{{ category.name }}</h6>
                                             </a>
                                         </div>
@@ -111,12 +104,12 @@
                             nunc nec tincidunt volutpat, ex libero.</p>
                     </div>
                     <div class="row">
-                        <div id="donwloadApp"class="col-12 text-center mt-2">
-                               <div>
-                                   <span> Télécharger  notre application</span>
-                                    <a href="#" class="btn btn-dark">GoogleStore</a>
-                                    <a href="#" class="btn btn-dark">AppleStore</a>
-                               </div>
+                        <div id="donwloadApp" class="col-12 text-center mt-2">
+                            <div>
+                                <span> Télécharger  notre application</span>
+                                <a href="#" class="btn btn-dark">GoogleStore</a>
+                                <a href="#" class="btn btn-dark">AppleStore</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -139,11 +132,12 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                        <div class="features-slides owl-carousel">
-                            <!-- Single Site Area -->
-                            {% for site in sites %}
+                    <div class="features-slides owl-carousel">
+                        <!-- Single Site Area -->
+                        {% for site in sites %}
                             <div class="single-features-area">
-                                <img class="img-fluid" width="413" height="275" src="{{ asset('img/sites-img/' ~ site.image) }}" alt="{{ site.name }}">
+                                <img class="img-fluid" width="413" height="275"
+                                     src="{{ asset('img/sites-img/' ~ site.image) }}" alt="{{ site.name }}">
                                 <!-- Rating & Map Area -->
                                 <div class="ratings-map-area d-flex">
                                     <a href="#">8.5</a>
@@ -158,12 +152,12 @@
                                             alias : site.alias,
                                             id : site.id,
                                             category : site.category.alias}
-                                        )}}"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                                        ) }}"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                             </div>
-                            {% endfor %}
-                        </div>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
