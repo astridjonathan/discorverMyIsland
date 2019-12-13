@@ -52,10 +52,6 @@ class DefaultController extends AbstractController
         #}
 
         #die;
-        $category = $this->getDoctrine()
-            ->getRepository(Category::class)
-            ->findAll();
-
         $sites = $this->getDoctrine()
             ->getRepository(Site::class)
             ->findAll();
@@ -64,10 +60,14 @@ class DefaultController extends AbstractController
             ->getRepository(Category::class)
             ->findAll();
 
+        $courses = $this->getDoctrine()
+            ->getRepository(Course::class)
+            ->findAll();
+
         return $this->render('default/index.html.twig', [
             'sites' => $sites,
             'categories' => $categories,
-            'category' => $category
+            'courses' => $courses
         ]);
 
     }

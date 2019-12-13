@@ -90,6 +90,12 @@ img {
     height: auto;
 }
 
+.img-dmi {
+    max-width: 100% !important;
+    height: 275px !important;
+    object-fit: cover !important;
+}
+
 .mt-15 {
     margin-top: 15px;
 }

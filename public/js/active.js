@@ -9,21 +9,7 @@
             autoplay: false,
             smartSpeed: 2000,
             margin: 50,
-            nav: false,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                576: {
-                    items: 2
-                },
-                992: {
-                    items: 3
-                },
-                1200: {
-                    items: 4
-                }
-            }
+            nav: false
         })
     }
 
