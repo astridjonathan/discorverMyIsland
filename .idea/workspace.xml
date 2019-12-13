@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb490f8f-437a-4c4d-8f75-5f5e7bde55a6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/default/map.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/active.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/active.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/google-map/location-map-active.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/google-map/location-map-active.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/google-map/map-active.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/google-map/map-active.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/_nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/_nav.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/default/explore.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/default/explore.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/default/single-site.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/default/single-site.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/easy_admin.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/easy_admin.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Visit.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Visit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -120,16 +114,11 @@
       <path value="$PROJECT_DIR$/vendor/vaimo/topological-sort" />
       <path value="$PROJECT_DIR$/vendor/vaimo/composer-patches" />
       <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
-
-
       <path value="$PROJECT_DIR$/vendor/symfony/expression-language" />
       <path value="$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle" />
       <path value="$PROJECT_DIR$/vendor/pagerfanta/pagerfanta" />
       <path value="$PROJECT_DIR$/vendor/symfony/translation" />
-
-
       <path value="$PROJECT_DIR$/vendor/tightenco/collect" />
-
     </include_path>
   </component>
   <component name="ProjectId" id="1URiDixjqlBoD6A3vqvvoqFwEuK" />
@@ -185,7 +174,6 @@
       <option name="presentableId" value="Default" />
       <updated>1575325690693</updated>
       <workItem from="1575325691914" duration="13509000" />
-
       <workItem from="1575399188802" duration="3323000" />
       <workItem from="1575460965745" duration="1497000" />
       <workItem from="1575469510735" duration="16010000" />
@@ -194,13 +182,11 @@
       <workItem from="1575570820472" duration="4135000" />
       <workItem from="1575690567349" duration="7949000" />
       <workItem from="1575925765810" duration="7548000" />
-
       <workItem from="1575395740441" duration="2798000" />
       <workItem from="1575403075424" duration="7000" />
       <workItem from="1575420591582" duration="2089000" />
       <workItem from="1575467085320" duration="21372000" />
       <workItem from="1575892549966" duration="5076000" />
-
     </task>
     <servers />
   </component>
