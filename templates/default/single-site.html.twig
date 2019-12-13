@@ -242,27 +242,15 @@
                                         <span class="custom-control-description">Privat Parking</span>
                                     </label>
                                 </div>
-                                <div class="col-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Smoking Area</span>
-                                    </label>
-                                </div>
-                                <div class="col-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Wheelchair Accesible</span>
-                                    </label>
-                                </div>
+
+
 
                             </div>
                         </div>
 
                         <div class="listing-menu-area mt-100" id="menu">
                             <p>
-                                {{ site.visiteType }}
+                                {{ site.visiteType | striptags }}
                             </p>
                             <a href="{{site.siteWeb}}" class="btn dorne-btn mt-50">+ En savoir plus</a>
                         </div>
@@ -289,7 +277,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="">
-                                                    <p>{{ comment.content }}</p>
+                                                    <p>{{ comment.content | striptags }}</p>
                                                 </div>
 
                                             </div>
@@ -358,7 +346,7 @@
                                         {{site.name}}
                                     </div>
                                     <div class="col-12">
-                                        {{site.address}}
+                                        {{site.address | striptags}}
                                     </div>
                                     <div class="col-12">
                                        {{site.tel}}

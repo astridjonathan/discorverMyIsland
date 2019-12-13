@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SiteRepository")
@@ -37,16 +38,24 @@ class Site
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
      */
     private $image;
+
+    /**
+     * @var File
+     * @throws \Exception
+     *
+     */
+    private $imageFile;
+
+
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="sites")
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;
-
-
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -83,6 +92,11 @@ class Site
      */
     private $visits;
 
+    /**
+     * @var \DateTime
+     */
+    private $updatedAt;
+
 
     public function __construct()
     {
@@ -90,9 +104,7 @@ class Site
         $this->visits = new ArrayCollection();
     }
 
-    public function __toString(){
-        return $this->image;
-    }
+
 
     public function getId(): ?int
     {
@@ -140,11 +152,28 @@ class Site
         return $this->image;
     }
 
-    public function setImage($image): self
+    public function setImage( $image = null): self
     {
         $this->image = $image;
-
         return $this;
+    }
+    /*
+    * @param File|UploadedFile $imageFile
+    * @return User
+    * @throws \Exception
+    */
+    public function setImageFile(?File $imageFile = null): Site
+    {
+        $this->imageFile = $imageFile;
+        if ($this->imageFile instanceof UploadedFile) {
+            $this->updatedAt = new \DateTime('now');
+        }
+        return $this;
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
     }
 
     public function getCategory(): ?Category
@@ -182,13 +211,11 @@ class Site
     {
         if ($this->visits->contains($visit)) {
             $this->visits->removeElement($visit);
-            // set the owning side to null (unless already changed)
+
             if ($visit->getSite() === $this) {
                 $visit->setSite(null);
             }
         }
-
-
         return $this;
     }
 

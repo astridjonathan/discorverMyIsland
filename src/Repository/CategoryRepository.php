@@ -36,6 +36,21 @@ class CategoryRepository extends ServiceEntityRepository
     }
     */
 
+    public function findByCategory($id)
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.id= :id')
+            ->setParameter('id', $id)
+            ->orderBy('c.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+
+
+
     /*
     public function findOneBySomeField($value): ?Category
     {

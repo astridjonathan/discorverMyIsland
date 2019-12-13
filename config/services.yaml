@@ -31,3 +31,4 @@ services:
     # please note that last definitions always *replace* previous ones
     Twig\Extra\String\StringExtension:
         tags: ['twig.extension']
+

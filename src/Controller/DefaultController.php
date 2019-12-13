@@ -4,7 +4,6 @@
 namespace App\Controller;
 
 
-
 use App\Entity\Category;
 use App\Entity\Comment;
 use App\Entity\Contact;
@@ -58,39 +57,55 @@ class DefaultController extends AbstractController
         $sites = $this->getDoctrine()
             ->getRepository(Site::class)
             ->findAll();
-        $categories= $this->getDoctrine()
+
+        $categories = $this->getDoctrine()
             ->getRepository(Category::class)
             ->findAll();
+
+        $courses = $this->getDoctrine()
+            ->getRepository(Course::class)
+            ->findAll();
+
         return $this->render('default/index.html.twig', [
             'sites' => $sites,
-            'categories' => $categories
+            'categories' => $categories,
+            'courses' => $courses
         ]);
 
     }
-
+    /****************************************************************************************************************/
     /**
-     * @param $alias
+     * @param Request $request
      * @return Response
      * @Route("/explore.html", name="default_explore", methods={"GET|POST"})
      */
-    public function explore()
+    public function explore(Request $request)
     {
-        #Récupération de tous les sites et des catégories
-        $sites = $this->getDoctrine()
-            ->getRepository(Site::class)
-            ->findAll();
-        $categories= $this->getDoctrine()
+
+        # Get alias param from query
+        $aliasCategory = $request->query->get('q');
+
+
+        # Get doctrine repositories
+        $siteRepository = $this->getDoctrine()
+            ->getRepository(Site::class);
+        $categoryRepository = $this->getDoctrine()
+            ->getRepository(Category::class);
+
+        # get sites from category
+        $sites = $aliasCategory ? $categoryRepository->findOneByAlias($aliasCategory)->getSites() : $siteRepository->findAll();
+
+        #Récupération des catégories
+        $categories = $this->getDoctrine()
             ->getRepository(Category::class)
             ->findAll();
 
-
         return $this->render('default/explore.html.twig', [
             'sites' => $sites,
-            'categories' => $categories,
-
+            'categories' => $categories
         ]);
-
     }
+    /****************************************************************************************************************/
     /**
      * @param Category $category
      * @return Response
@@ -100,44 +115,38 @@ class DefaultController extends AbstractController
     {
         $category = $this->getDoctrine()
             ->getRepository(Category::class)
-            ->findOneBy(['alias'=>$alias]);
+            ->findOneBy(['alias' => $alias]);
         $sites = $category->getSites();
         return $this->render('default/category.html.twig',
-            ['sites'=>$category->getSites(),
-                'category'=>$category]);
+            ['sites' => $category->getSites(),
+                'category' => $category]);
     }
-
+    /****************************************************************************************************************/
     /**
      * @param Site $site
      * @return Response
      * @Route("/{category}/{alias}_{id}.html", name="default_site", methods={"GET|POST"})
      */
-
     use HelperTrait;
-    public function addComment(Site $site,  Request $request)
-    {
 
+    public function addComment(Site $site, Request $request)
+    {
         #Ajout d'un commentaire
-        $comment= new Comment();
+        $comment = new Comment();
         #Récupérer un user
         $user = $this->getUser();
         $comment->setSite($site);
-
         #On affecte le User au commentaire
-
         $comment->setUser($user);
         #Création d'un formulaire
         $form = $this->createFormBuilder($comment)
-
-
             #Titre de l'article
-            ->add('title', TextType::class,[
+            ->add('title', TextType::class, [
                 'label' => false,
                 'attr' => [
                     'placeholder' => 'Titre de du commentaire'
                 ]
             ])
-
             #Comment's content
             ->add('content', TextareaType::class, [
                 'label' => false,
@@ -146,8 +155,8 @@ class DefaultController extends AbstractController
                 ]
             ])
             #Image upload
-            ->add('image', FileType::class,[
-                'required'=>false,
+            ->add('image', FileType::class, [
+                'required' => false,
                 'label' => false,
                 'attr' => [
                     'class' => 'dropify',
@@ -155,7 +164,7 @@ class DefaultController extends AbstractController
                 ]
             ])
             #Bouton envoyer
-            ->add('submit', SubmitType::class,[
+            ->add('submit', SubmitType::class, [
                 'label' => 'Publier un Commentaire',
                 'attr' => [
                     'class' => 'btn btn-block dorne-btn',
@@ -191,28 +200,23 @@ class DefaultController extends AbstractController
             $this->addFlash('notice', 'Félicitations votre commentaire est en ligne !');
             #Redirection
             #return $this->redirectToRoute('default/single-site.html.twig');
-
         }
-
-        $comments= $this->getDoctrine()
+        $comments = $this->getDoctrine()
             ->getRepository(Comment::class)
-            ->findBy(['site'=>$site]);
-        $user=$this->getDoctrine()
+            ->findBy(['site' => $site]);
+        $user = $this->getDoctrine()
             ->getRepository(User::class)
-            ->findBy(['id'=>$user]);
-
-
+            ->findBy(['id' => $user]);
         #Transmission du formulaire à la vue
-        return $this->render('default/single-site.html.twig',[
-            'site'=> $site,
-            'user'=>$user,
-            'comments'=> $comments,
+        return $this->render('default/single-site.html.twig', [
+            'site' => $site,
+            'user' => $user,
+            'comments' => $comments,
             'form' => $form->createView()
         ]);
-
     }
 
-
+    /****************************************************************************************************************/
     public function menu()
     {
         #Récupération des categories
@@ -224,16 +228,16 @@ class DefaultController extends AbstractController
             'categories' => $categories
         ]);
     }
-
+    /****************************************************************************************************************/
     /**
- * @return Response
- * @Route("/concept.html", name="default_concept", methods={"GET"})
- */
+     * @return Response
+     * @Route("/concept.html", name="default_concept", methods={"GET"})
+     */
     public function concept()
     {
         return $this->render('default/concept.html.twig');
     }
-
+    /****************************************************************************************************************/
     /**
      * @return Response
      * @Route("/contact.html", name="default_contact", methods={"GET|POST"})

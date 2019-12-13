@@ -1,6 +1,6 @@
 easy_admin:
     entities:
-        #        # List the entity class name you want to manage
+        #------ SITE ENTITY -------#
         Site:
             class: App\Entity\Site
             label: 'Sites'
@@ -25,7 +25,7 @@ easy_admin:
                     - name
                     - alias
                     - { property: 'content', type: 'text_editor' }
-                    - { property: 'image', type: 'file', base_path: 'site_directory' }
+                    - { property: 'imageFile', type: 'file', base_path: 'site_directory'}
                     - address
                     - { property: 'siteWeb', type: 'url' }
                     - { property: 'tel', type: 'tel' }
@@ -33,19 +33,29 @@ easy_admin:
                     - { property: 'visiteType', type: 'text_editor' }
                     - { property: 'category', type: 'entity', type_options: { class: 'App\Entity\Category', multiple: false } }
 
+        #------ COURSE ENTITY -------#
         Course:
             class: App\Entity\Course
             label: 'Parcours'
             list:
                 title: "Liste parcours"
                 fields: ['id', 'category_id', 'name', 'duration', 'priority', 'steps']
+
+        #------ USER ENTITY -------#
         User:
 
             class: App\Entity\User
             label: 'Utilisateurs'
             list:
                 title: "Liste utilisateurs"
-                fields: ['id', 'pseudo', 'email', 'password']
+                list:
+                    fields:
+                        - id
+                        - { property: 'pseudo', type: 'avatar' }
+                        - email
+                        - password
+
+
 
     site_name: 'DiscoverMyIsland'
 
@@ -60,8 +70,6 @@ easy_admin:
     design:
         form_theme:
             - "@EasyAdmin/form/bootstrap_4.html.twig"
-
-
 
 
     formats:

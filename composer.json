@@ -28,8 +28,7 @@
         "tightenco/collect": "^6.6",
         "twig/string-extra": "^3.0",
         "twig/twig": "^3.0",
-        "vaimo/composer-patches": "^4.20",
-        "vich/uploader-bundle": "^1.12"
+        "vaimo/composer-patches": "^4.20"
     },
     "require-dev": {
     },

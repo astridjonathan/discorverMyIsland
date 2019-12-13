@@ -6,7 +6,7 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css" rel="stylesheet" />
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css" rel="stylesheet"/>
 {% endblock %}
 
 {% block javascripts %}
@@ -25,8 +25,9 @@
 
 
 {% block content %}
-<!-- ***** Breadcumb Area Start ***** -->
-    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url({{ asset('img/bg-img/hero-1.jpg') }})"></div>
+    <!-- ***** Breadcumb Area Start ***** -->
+    <div class="breadcumb-area bg-img bg-overlay"
+         style="background-image: url({{ asset('img/bg-img/hero-1.jpg') }})"></div>
     <!-- ***** Breadcumb Area End ***** -->
 
     <!-- Explore Area -->
@@ -37,46 +38,25 @@
             <div class="explore-search-form">
                 <h6>Que recherchez-vous?</h6>
                 <!-- Tabs -->
-                <div class="nav nav-tabs" id="heroTab" role="tablist">
-                    <a class="nav-item nav-link active" id="nav-places-tab" data-toggle="tab" href="#nav-places" role="tab" aria-controls="nav-places" aria-selected="true">Sites</a>
-                    <a class="nav-item nav-link" id="nav-events-tab" data-toggle="tab" href="#nav-events" role="tab" aria-controls="nav-events" aria-selected="false">Events</a>
-                </div>
+                {#                    <div class="nav nav-tabs" id="heroTab" role="tablist">#}
+                {#                        <a class="nav-item nav-link active" id="nav-places-tab" data-toggle="tab" href="#nav-places" role="tab" aria-controls="nav-places" aria-selected="true">Sites</a>#}
+                {#                        <a class="nav-item nav-link" id="nav-events-tab" data-toggle="tab" href="#nav-events" role="tab" aria-controls="nav-events" aria-selected="false">Events</a>#}
+                {#                    </div>#}
                 <!-- Tabs Content -->
                 <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
-                        <form action="#" method="post">
+                    <div class="tab-pane fade show active" id="nav-places" role="tabpanel"
+                         aria-labelledby="nav-places-tab">
+                        <form method="get">
 
-                            <select class="custom-select" id="categories">
-                                <option selected>Toutes les Catégories</option>
+                            <select name="q" class="custom-select" id="categories">
+                                <option value="" selected>Toutes les Catégories</option>
                                 {% for category in categories %}
-                                    <option value="{{category.id}}">{{category.name}}</option>
+                                    <option value="{{ category.alias }}">{{ category.name }}</option>
                                 {% endfor %}
                             </select>
-                            <select class="custom-select" id="proximity">
-                                <option selected>Communes</option>
-                                <option value="1">Proximity 1</option>
-                                <option value="2">Proximity 2</option>
-                                <option value="3">Proximity 3</option>
-                                <option value="3">Proximity 4</option>
-                                <option value="3">Proximity 5</option>
-                            </select>
-                            <div class="row mt-md-5 mt-0">
-                                <div class="col-12 col-xl-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">A PIED</span>
-                                    </label>
-                                </div>
-                                <div class="col-12 col-xl-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">EN VOITURE</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn dorne-btn mt-50 bg-white text-dark"><i class="fa fa-search pr-2" aria-hidden="true"></i> Rechercher</button>
+                            <button type="submit" class="btn dorne-btn mt-50 bg-white text-dark">
+                                <i class="fa fa-search pr-2" aria-hidden="true"></i> Rechercher
+                            </button>
                         </form>
                     </div>
                     <div class="tab-pane fade" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
@@ -84,17 +64,19 @@
                             <select class="custom-select" id="events-catagories">
                                 <option selected>Toutes les Catégories</option>
                                 {% for category in categories %}
-                                    <option value="{{category.id}}">{{category.name}}</option>
+                                    <option value="{{ category.id }}">{{ category.name }}</option>
                                 {% endfor %}
                             </select>
 
-                            <select class="custom-select" id="events-proximity">
-                                <option selected>Communes</option>
-                                <option value="1">Proximity 1</option>
-                                <option value="2">Proximity 2</option>
+                            {#                                <select class="custom-select" id="events-proximity">#}
+                            {#                                    <option selected>Communes</option>#}
+                            {#                                    <option value="1">Proximity 1</option>#}
+                            {#                                    <option value="2">Proximity 2</option>#}
 
-                            </select>
-                            <button type="submit" class="btn dorne-btn mt-50 bg-white text-dark"><i class="fa fa-search pr-2" aria-hidden="true"></i> Search</button>
+                            {#                                </select>#}
+                            <button type="submit" class="btn dorne-btn mt-50 bg-white text-dark"><i
+                                        class="fa fa-search pr-2" aria-hidden="true"></i> Search
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -103,39 +85,39 @@
             <div class="explore-search-result">
                 <!-- Single Features Area -->
                 {% for site in sites %}
-                <div class="single-features-area">
-                    <img class="img-fluid" src="{{ asset('img/sites-img/' ~ site.image) }}" alt="{{ site.name }}">
-                    <!-- Category -->
-                    <div class="price-start">
-                        <p>{{site.category.name}}</p>
-                    </div>
-                    <div class="feature-content d-flex align-items-center justify-content-between">
-                        <div class="feature-title">
-                            <h5>{{ site.name }}</h5>
-
-                            <p>{{ site.content|striptags | u.truncate(100, '...')}}</p>
+                    <div class="single-features-area">
+                        <img class="img-fluid" src="{{ asset('img/sites-img/' ~ site.image) }}" alt="{{ site.name }}">
+                        <!-- Category -->
+                        <div class="price-start">
+                            <p>{{ site.category.name }}</p>
                         </div>
-                        <div class="feature-favourite">
-                            <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                        <div class="feature-content d-flex align-items-center justify-content-between">
+                            <div class="feature-title">
+                                <h5>{{ site.name }}</h5>
+
+                                <p>{{ site.content|striptags | u.truncate(100, '...') }}</p>
+                            </div>
+                            <div class="feature-favourite">
+                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                        <div class="">
+                            <a href="{{ path('default_site', {
+                                alias : site.alias,
+                                id : site.id,
+                                category : site.category.alias}
+                            ) }}" class="btn btn-block dorne-btn">J'Y GO</a>
                         </div>
                     </div>
-                    <div class="">
-                        <a href="{{ path('default_site', {
-                            alias : site.alias,
-                            id : site.id,
-                            category : site.category.alias}
-                        )}}" class="btn btn-block dorne-btn">J'Y GO</a>
-                    </div>
-                    {% endfor %}
-                </div>
+                {% endfor %}
             </div>
-            <!-- END Explore Search Result -->
-            <!-- Explore Map Area -->
-            <div class="explore-map-area">
-                <div id="exploreGoogleMap"></div>
-            </div>
-
         </div>
+        <!-- END Explore Search Result -->
+        <!-- Explore Map Area -->
+        <div class="explore-map-area">
+            <div id="exploreGoogleMap"></div>
+        </div>
+
     </section>
 
 {% endblock %}
