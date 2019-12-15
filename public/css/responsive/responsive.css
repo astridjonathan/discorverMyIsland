@@ -10,10 +10,11 @@
         margin-right: 15px;
         font-size: 14px;
     }
+
     .navbar-expand-lg .navbar-nav .nav-link {
-        padding-right: 7px;
-        padding-left: 7px;
-        font-size: 14px;
+        padding-right: 14px;
+        padding-left: 14px;
+        font-size: 18px;
     }
     .hero-content h2 {
         font-size: 50px;
@@ -57,9 +58,10 @@
     }
     #dorneNav {
         padding: 30px;
-        background-color: #341a79;
+        background-color: #CC6600;
         box-shadow: 1px 9px 10px rgba(255, 255, 255, 0.15);
-        border-radius: 0 0 3px 3px
+        border-radius: 0 0 3px 3px;
+        text-align: center !important;
     }
     .dorne-search-btn > a,
     .dorne-signin-btn > a {

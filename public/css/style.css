@@ -49,7 +49,10 @@ p {
     line-height: 1.5;
     font-weight: 400;
 }
-
+.section-padding-30 {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
 .section-padding-150 {
     padding-top: 150px;
     padding-bottom: 150px;
@@ -95,7 +98,13 @@ img {
     height: 275px !important;
     object-fit: cover !important;
 }
-
+#avatarNav {
+    max-width: 100% !important;
+    height: 60px !important;
+    object-fit: cover !important;
+    border-radius: 50%;
+    margin-right: 10px;
+}
 .mt-15 {
     margin-top: 15px;
 }
@@ -322,9 +331,28 @@ li {
     -webkit-transition-duration: 500ms;
             transition-duration: 500ms;
 }
+.dmi-btn {
+    min-width: 60px;
+    height: 50px;
+    background-color: #FF9900;
+    border-radius: 0;
+    padding: 0 15px;
+    line-height: 40px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
 
 .dorne-btn:hover,
 .dorne-btn:focus {
+    color: #fff;
+    background-color: #FF6600;
+    font-weight: 600;
+}
+.dmi-btn:hover,
+.dmi-btn:focus {
     color: #fff;
     background-color: #FF6600;
     font-weight: 600;
@@ -431,10 +459,10 @@ li {
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
-    padding-right: 18px;
-    padding-left: 18px;
+    padding-right: 16px;
+    padding-left: 16px;
     color: #fff;
-    font-size: 16px;
+    font-size: 18px;
 
 
 }
@@ -685,11 +713,21 @@ li {
 }
 
 .single-editors-pick-area {
-    position: relative;
-    z-index: 1;
-    margin-bottom: 20px;
+     position: relative;
+     z-index: 1;
+     margin-bottom: 20px;
+ }
+.img-course1{
+    max-width: 100% !important;
+    height: 540px !important;
+    object-fit: cover !important;
 }
-
+.img-course{
+    min-width: 470px !important;
+    max-width: 100% !important;
+    height: 260px !important;
+    object-fit: cover !important;
+}
 .editors-pick-info {
     position: absolute;
     top: 25px;
@@ -935,7 +973,7 @@ li {
     display: inline-block;
     color: #464646;
     padding: 0 15px;
-    font-size: 14px;
+    font-size: 18px;
 }
 .footer-social-btns > a:hover{
 
@@ -1295,11 +1333,11 @@ li {
 
 .overview-content p {
     line-height: 2;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .overview-content .custom-control-description {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 22px;
     font-weight: 600;
 }

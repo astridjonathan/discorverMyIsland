@@ -213,47 +213,19 @@
 
                         <div class="overview-content mt-50" id="overview">
                             <p>{{ site.content }}</p>
-                            <div class="row mt-5">
-                                <div class="col-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Accepts Credit Cards</span>
-                                    </label>
-                                </div>
-                                <div class="col-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Wireless Internet</span>
-                                    </label>
-                                </div>
-                                <div class="col-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Paiement en ligne</span>
-                                    </label>
-                                </div>
-                                <div class="col-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Privat Parking</span>
-                                    </label>
-                                </div>
+                            <a href="{{site.siteWeb}}" class="btn btn-block dorne-btn mt-3"> En savoir plus</a>
 
-
-
+                            <div class="listing-menu-area mt-100" id="menu">
+                                {% if site.visiteType is not empty %}
+                                    <h5>Idées de visites</h5><p>
+                                        {{ site.visiteType | striptags }}
+                                    </p>
+                                {% endif %}
                             </div>
                         </div>
 
-                        <div class="listing-menu-area mt-100" id="menu">
-                            <p>
-                                {{ site.visiteType | striptags }}
-                            </p>
-                            <a href="{{site.siteWeb}}" class="btn dorne-btn mt-50">+ En savoir plus</a>
-                        </div>
+
+
 
                         <div class="listing-reviews-area mt-100" id="review">
                             <h4>commentaires</h4>
@@ -308,24 +280,6 @@
                             <h4>Nous localiser</h4>
                             <div class="location-map">
                                 <div id="locationMap">
-                                    <div id="menuMap">
-                                        <input
-                                                id="streets-v11"
-                                                type="radio"
-                                                name="rtoggle"
-                                                value="streets"
-                                                checked="checked"
-                                        />
-                                        <label for="streets">streets</label>
-                                        <input id="light-v10" type="radio" name="rtoggle" value="light" />
-                                        <label for="light">light</label>
-                                        <input id="dark-v10" type="radio" name="rtoggle" value="dark" />
-                                        <label for="dark">dark</label>
-                                        <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors" />
-                                        <label for="outdoors">outdoors</label>
-                                        <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" />
-                                        <label for="satellite">satellite</label>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -340,7 +294,6 @@
                         <!-- Contact  -->
                         <div class="contact-form contact-form-widget mt-50">
                             <h6>Contact</h6>
-
                                 <div class="row">
                                     <div class="col-12">
                                         {{site.name}}
@@ -361,14 +314,28 @@
                         <div class="opening-hours-widget mt-50">
                             <h6>Horaires d'ouvertures</h6>
                             <div class="opening-hours">
-                                <ul>
-                                    <li> {{ site.openHour | striptags}}</li>
-                                </ul>
-
+                                <div> {{ site.openHour | striptags}}</div>
                             </div>
                         </div>
 
+                        <!-- Courses  -->
+                        <div class="contact-form contact-form-widget mt-50">
+                            <h6>Parcours conseillés</h6>
+                            <ul class="row">
+                                {% for course in courses %}
+                                <li class="col-12">
+
+                                    <div class="add-more">
+                                        <a href="{{ path('default_course', {
+                                            alias : course.alias}
+                                        )}}">{{course.name}}</a>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
                     </div>
+                    <!-- Reviews -->
                     <div class="row mt-50" id="addreviews">
                         <div class="col-12 mx-auto ">
                             <h3 class="text-center mt-4">

@@ -83,8 +83,6 @@
                                     </div>
                                 </div>
                             {% endfor %}
-
-
                         </div>
                     </div>
                 </div>
@@ -104,12 +102,8 @@
                             nunc nec tincidunt volutpat, ex libero.</p>
                     </div>
                     <div class="row">
-                        <div id="donwloadApp" class="col-12 text-center mt-2">
-                            <div>
-                                <span> Télécharger  notre application</span>
-                                <a href="#" class="btn btn-dark">GoogleStore</a>
-                                <a href="#" class="btn btn-dark">AppleStore</a>
-                            </div>
+                        <div  class="col-12 text-center mt-2">
+                           <h5>STAY CONNECTED ! - La nouvelle application sortira bientôt !</h5>
                         </div>
                     </div>
                 </div>
@@ -117,8 +111,106 @@
         </div>
     </section>
     <!-- ***** About Area End ***** -->
+    <!-- ***** Editor Pick Area Start ***** -->
+    <section class="dorne-editors-pick-area bg-img bg-overlay-9 section-padding-100" style="background-image: url({{ asset('img/bg-img/hero-2.jpg') }});">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading text-center">
+                        <span></span>
+                        <h4>Nos parcours</h4>
+                        <p>Les plus populaires</p>
+                    </div>
+                </div>
+            </div>
 
+            <div class="row">
+                {% if courses is not empty %}
+                <div class="col-12 col-lg-6">
+                    <div class="single-editors-pick-area wow fadeInUp" data-wow-delay="0.2s">
+                            {% for course in courses %}
+                                {% if course.visits.1.site.id == 1 %}
+                                    <img class="img-course1"
+                                         src="{{ asset('img/sites-img/' ~ course.visits.1.site.image) }}" alt="{{ course.name }}">
 
+                                    <div class="editors-pick-info">
+                                        <div class="places-total-destinations d-flex">
+                                            <a href="#">{{course.visits.1.site.category.name}}</a>
+                                            <a href="#">{{course.name | upper}}</a>
+                                        </div>
+                                        <div class="add-more">
+                                            <a href="{{ path('default_course', {
+                                                alias : course.alias}
+                                            )}}">+</a>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="single-editors-pick-area wow fadeInUp" data-wow-delay="0.4s">
+                        {% for course in courses %}
+                            {% if course.visits.1.site.id == 2 %}
+                                <img class="img-course"
+                                     src="{{ asset('img/sites-img/' ~ course.visits.0.site.image) }}" alt="{{ course.name }}">
+                                <div class="editors-pick-info">
+                                    <div class="places-total-destinations d-flex">
+                                        <a href="#">{{course.visits.1.site.category.name}}</a>
+                                        <a href="#">{{course.name | upper}}</a>
+                                    </div>
+                                    <div class="add-more">
+                                        <a href="{{ path('default_course', {
+                                            alias : course.alias}
+                                        )}}">+</a>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="single-editors-pick-area wow fadeInUp" data-wow-delay="0.6s">
+                        {% for course in courses %}
+                            {% if course.visits.1.site.id == 3 %}
+                            <img class="img-course"
+                                 src="{{ asset('img/sites-img/' ~ course.visits.1.site.image) }}" alt="{{ course.name }}">
+                            <div class="editors-pick-info">
+                                <div class="places-total-destinations d-flex">
+                                    <a href="#">{{course.visits.1.site.category.name}}</a>
+                                    <a href="#">{{course.name | upper}}</a>
+                                </div>
+                                <div class="add-more">
+                                    <a href="{{ path('default_course', {
+                                        alias : course.alias}
+                                    )}}">+</a>
+                                </div>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    <!-- ***** Editor Pick Area End ***** -->
+
+    <!-- ***** Contact Info ***** -->
+    <div class="dorne-clients-area section-padding-30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+
+                    <div>
+                        <h5>CONTACTEZ-NOUS !
+                            <small class="ml-2">Une nouvelle proposition de site, ou de parcours. Ou encore devenir un partenaire.</small>
+                        <a href="{{ path('default_contact')}}" class="btn dorne-btn ml-3">C'EST ICI</a>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Contact Info ***** -->
     <!-- ***** POPULAR SITE ***** -->
     <section class="dorne-features-restaurant-area bg-default">
         <div class="container-fluid">
@@ -126,7 +218,7 @@
                 <div class="col-12">
                     <div class="section-heading text-center">
                         <span></span>
-                        <h4>Nos sites ou parcours préférés </h4>
+                        <h4>Nos sites </h4>
                     </div>
                 </div>
             </div>

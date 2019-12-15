@@ -2,11 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb490f8f-437a-4c4d-8f75-5f5e7bde55a6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/img/bg-img/hero-2 copie.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20191215083151.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/easy_admin.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/easy_admin.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Visit.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Visit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/responsive/responsive.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/responsive/responsive.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/bg-img/hero-2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/bg-img/hero-2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/active.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/active.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Course.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Course.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/_nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/_nav.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/footer.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/default/category.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/default/category.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/default/course.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/default/course.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/default/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/default/single-site.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/default/single-site.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -187,6 +198,7 @@
       <workItem from="1575420591582" duration="2089000" />
       <workItem from="1575467085320" duration="21372000" />
       <workItem from="1575892549966" duration="5076000" />
+      <workItem from="1576337662979" duration="24241000" />
     </task>
     <servers />
   </component>
