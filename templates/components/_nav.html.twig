@@ -36,18 +36,20 @@
 
                             <!-- LogIn LogOut Register-->
                             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                                <span class="text-white"> Bonjour {{ app.user.pseudo}}  </span>
 
-                                <a class="nav-link dropdown"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
-                                    <img id="avatarNav" class="rounded-circle" src="{{ asset('img/clients-img/avatar/' ~ app.user.avatar) }}" alt="{{app.user.pseudo}}">
-                                </a>
-                                <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="{{ path('app_logout') }}">Déconnexion</a></li>
-                                    {% if is_granted('ROLE_ADMIN') %}
-                                        <li><a class="dropdown-item" href="{{path('easyadmin')}}">Administration</a></li>
-                                    {% elseif is_granted('ROLE_USER') %}
-                                    <li> <a class="dropdown-item" href="#">Mon Profil</a></li>
-                                </ul>
+                                <span class="text-white"> Bonjour {{ app.user.pseudo}}  </span>
+                                <div class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <img id="avatarNav" class="rounded-circle" src="{{ asset('img/clients-img/avatar/' ~ app.user.avatar) }}" alt="{{app.user.pseudo}}">
+                                    </a>
+                                    <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="{{ path('app_logout') }}">Déconnexion</a></li>
+                                        {% if is_granted('ROLE_ADMIN') %}
+                                            <li><a class="dropdown-item" href="{{path('easyadmin')}}">Administration</a></li>
+                                        {% elseif is_granted('ROLE_USER') %}
+                                        <li> <a class="dropdown-item" href="#">Mon Profil</a></li>
+                                    </ul>
+                                </div>
                                 {% endif %}
 
                             {% else %} <!-- ANONYMOUS USER-->
