@@ -110,7 +110,13 @@ class Comment
 
         return $this;
     }
+    public function setAlias(?string $slugify)
+    {
+    }
 
+    public function getAlias()
+    {
+    }
     public function getSite(): ?Site
     {
         return $this->site;
@@ -135,17 +141,9 @@ class Comment
         return $this;
     }
 
-    public function setAlias(?string $slugify)
-    {
-    }
 
-    public function getAlias()
-    {
-    }
 
-    public function getCategory()
-    {
-    }
+
 
 
 }

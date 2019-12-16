@@ -34,15 +34,15 @@ class DefaultController extends AbstractController
      */
     public function index()
     {
-
+        #Get Sites
         $sites = $this->getDoctrine()
             ->getRepository(Site::class)
             ->findAll();
-
+        #Get Categories
         $categories = $this->getDoctrine()
             ->getRepository(Category::class)
             ->findAll();
-
+        ##Get Courses
         $courses = $this->getDoctrine()
             ->getRepository(Course::class)
             ->findAll();
@@ -315,23 +315,26 @@ class DefaultController extends AbstractController
     }
 
     /****************************************************************************************************************/
+
     /**
      * @return Response
-     * @Route("/{alias}", name="default_course", methods={"GET"})
+     * @Route("{alias}", name="default_course", methods={"GET"})
      */
 
-    public function course( $alias)
+    public function course($alias)
     {
         # Get course
-         $course = $this->getDoctrine()
-          ->getRepository(Course::class)
-          ->findOneBy(['alias' => $alias]);
+        $course = $this->getDoctrine()
+            ->getRepository(Course::class)
+            ->findOneBy(['alias' => $alias]);
 
-       # Get associated visits
-       $visits = new Collection($course->getVisits());
-       $visits = $visits->sortBy(function ($visit) {
-           return $visit->getPriority();
-       });
+        # Get associated visits
+        $visits = new Collection($course->getVisits());
+
+        $visits = $visits->sortBy(function ($visit) {
+            return $visit->getPriority();
+        });
+
 
         # @var Visit $visit
         foreach ($visits as $visit) {
@@ -344,12 +347,12 @@ class DefaultController extends AbstractController
         return $this->render('default/course.html.twig',
             [
                 'alias'=>$alias,
-                'course' => $course,
-                'visits'=>$visits
+                'visits'=>$visits,
+                'course' => $course
+
 
             ]);
 
 
     }
-
 }

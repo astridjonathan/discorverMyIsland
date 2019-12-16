@@ -8,6 +8,7 @@
     <!-- ***** Welcome Area Start ***** -->
     <section class="dorne-welcome-area bg-img bg-overlay"
              style="background-image: url( {{ asset('img/bg-img/hero-1.jpg') }});">
+
         <div class="container h-100">
             <div class="row h-100 align-items-center justify-content-center">
                 <div class="col-12 col-md-10">
@@ -110,6 +111,7 @@
         </div>
     </section>
     <!-- ***** About Area End ***** -->
+
     <!-- ***** Editor Pick Area Start ***** -->
     <section class="dorne-editors-pick-area bg-img bg-overlay-9 section-padding-100" style="background-image: url({{ asset('img/bg-img/hero-2.jpg') }});">
         <div class="container">
@@ -122,7 +124,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 {% if courses is not empty %}
                 <div class="col-12 col-lg-6">
@@ -198,7 +199,6 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 text-center">
-
                     <div>
                         <h5>CONTACTEZ-NOUS !
                             <small class="ml-2">Une nouvelle proposition de site, ou de parcours. Ou encore devenir un partenaire.</small>
@@ -210,6 +210,7 @@
         </div>
     </div>
     <!-- ***** Contact Info ***** -->
+
     <!-- ***** POPULAR SITE ***** -->
     <section class="dorne-features-restaurant-area bg-default">
         <div class="container-fluid">
@@ -217,7 +218,7 @@
                 <div class="col-12">
                     <div class="section-heading text-center">
                         <span></span>
-                        <h4>Nos sites </h4>
+                        <h4>Nos sites</h4>
                     </div>
                 </div>
             </div>
@@ -225,21 +226,28 @@
                 <div class="col-12">
                     <div class="features-slides owl-carousel">
                         <!-- Single Site Area -->
-                        {% for course in courses %}
+                        {% for site in sites %}
                             <div class="single-features-area">
-                                <img class="img-dmi"
-                                     src="{{ asset('img/sites-img/' ~ course.visits.0.site.image) }}" alt="{{ course.name }}">
-                                <!-- Rating & Map Area -->
+                                <img class="img-dmi" src="{{ asset('img/sites-img/' ~ site.image) }}" alt="{{ site.name }}">
+                                <!-- Rating & Map -->
                                 <div class="ratings-map-area d-flex">
-                                    <a href="#">8.5</a>
+                                    <a href="#">{{site.category.alias}}</a>
                                     <a href="#"><img src="{{ asset('img/core-img/map.png') }}" alt=""></a>
                                 </div>
                                 <div class="feature-content d-flex align-items-center justify-content-between">
                                     <div class="feature-title">
-                                        <h5>{{ course.name }}</h5>
+                                        <a href="{{ path('default_site', {
+                                            alias : site.alias,
+                                            id : site.id,
+                                            category : site.category.alias}
+                                        )}}"><h5>{{ site.name }}</h5></a>
                                     </div>
                                     <div class="feature-favourite">
-                                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                                        <a href="{{ path('default_site', {
+                                            alias : site.alias,
+                                            id : site.id,
+                                            category : site.category.alias}
+                                        )}}"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -258,10 +266,10 @@
             <div class="row">
                 <div class="col-12">
                     <div class="clients-logo d-md-flex align-items-center justify-content-around">
-                        <img style=" height:80px;" src="{{ asset('img/clients-img/1.png') }}" alt="">
-                        <img style=" height:80px;" src="{{ asset('img/clients-img/2.png') }}" alt="">
-                        <img style=" height:80px;" src="{{ asset('img/clients-img/3.png') }}" alt="">
-                        <img style=" height:80px;" src="{{ asset('img/clients-img/4.png') }}" alt="">
+                        <a href="https://www.regionguadeloupe.fr"><img style=" height:80px;" src="{{ asset('img/clients-img/1.png') }}" alt=""></a>
+                        <a href="https://restaurant.michelin.fr/"><img style=" height:80px;" src="{{ asset('img/clients-img/2.png') }}" alt=""></a>
+                        <a href="https://caraibe.orange.fr/"><img style=" height:80px;" src="{{ asset('img/clients-img/3.png') }}" alt=""></a>
+                        <a href="http://www.lesilesdeguadeloupe.com"><img style=" height:80px;" src="{{ asset('img/clients-img/4.png') }}" alt=""></a>
                     </div>
                 </div>
             </div>
