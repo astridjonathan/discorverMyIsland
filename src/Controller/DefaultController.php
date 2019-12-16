@@ -334,13 +334,6 @@ class DefaultController extends AbstractController
             return $visit->getPriority();
         });
 
-
-        # @var Visit $visit
-        foreach ($visits as $visit) {
-            # Get site name for each visit by priority
-            $visit->getSite->getName();
-            $visit->getPriority();
-        }
         return $this->render('default/course.html.twig',
             [
                 'alias'=>$alias,
