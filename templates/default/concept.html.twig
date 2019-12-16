@@ -28,36 +28,69 @@
     <!--Video Section-->
     <section id="videoDmi">
         <div class="overlay"></div>
-        <video playsinline="playsinline"  autoplay="1" muted="muted" loop="1">
-            <source src="{{asset('video/video1.mp4')}}?&autoload=1&loop=1" type="video/mp4">
+        <video playsinline="playsinline"  autoplay="autoplay" muted="muted" loop="loop">
+            <iframe width="2000" height="700" src="https://www.youtube.com/embed/a3qzy_-IDcw?controls=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
         </video>
         <div class="container h-100">
             <div class="d-flex text-center h-100">
                 <div class="my-auto w-100 text-white">
                     <h1 class="display-3 text-white">DISCOVERMYISLAND</h1>
-                    <h2>A pied… en voiture… en ville ou dans des contrées lointaines
+                    <h3 class="text-white">A pied… en voiture… en ville ou dans des contrées lointaines
                         Un parcours à thème pour vous aiguiller dans votre déambulation !
-                        Cher DMIste, en piste ! 4</h2>
+                        Cher DMIste, en piste ! </h3>
                 </div>
             </div>
         </div>
     </section>
 
-
-
-
     <!--Video Section Ends Here-->
 <!-- ***** Text Start ***** -->
 <div class="container">
     <div class="row">
-        <div class="col-12">
-            <h3>Qui sommes-nous</h3>
+        <div class="col-12 mt-4 ">
+            <h3 class="text-center">Qui sommes-nous ! </h3>
+        </div>
+        <div class="col-12 mt-4 ">
             <p>
                 Astrid et Léna, 2 jeunes femmes passionnées du digital, de la découverte décident lors d'un projet de
                 formation de créer une application permettant de découvrir différement la Guadeloupe.
             </p>
         </div>
     </div>
+    <div class="row pb-5 mx-auto">
+        <div class="col-12 mt-4">
+            <h3 class="text-center">L'équipe</h3>
+        </div>
+            <div class="col-6 ">
+                <div class="col-5 mx-auto">
+                    <img class="rounded-circle" src="{{ asset('img/clients-img/avatar/astrid-5defa4b37d9c6.png') }}" alt="astrid">
+                </div>
+                <div class="col-7 mx-auto">
+                    <ul class="text-center">
+                        <li><h3>Astrid JONATHAN</h3></li>
+                        <li><h6>Chef de projet technique, designer, back-end</h6></li>
+                        <li>@mail: astrid.jonathan@gmail.com</li>
+                        <li><b><i>Que la force soit avec toi ! </i></b></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="col-5 mx-auto">
+                    <img class="rounded-circle" src="{{ asset('img/clients-img/avatar/avatar1.jpg') }}" alt="astrid">
+                </div>
+                <div class="col-7 mx-auto">
+                    <ul class="text-center">
+                        <li><h3>Léna BOISSERON</h3></li>
+                        <li><h6>Chef de projet fonctionnel, communication, front-end</h6></li>
+                        <li>@mail: astrid.jonathan@gmail.com</li>
+                        <li><b><i>Infini et au delà ! </i></b></li>
+                    </ul>
+                </div>
+
+            </div>
+    </div>
+
 </div>
 <!-- ***** Text Area End ***** -->
 
