@@ -163,12 +163,7 @@
 {% endblock %}
 
 
-
-
-
-
 {% block content %}
-
 
     <!-- ***** Breadcumb Area Start ***** -->
     <div class="breadcumb-area height-700 bg-img bg-overlay" style="background-image: url({{ asset('img/sites-img/' ~ site.image) }})">
@@ -224,10 +219,7 @@
                             </div>
                         </div>
 
-
-
-
-                        <div class="listing-reviews-area mt-100" id="review">
+                <div class="listing-reviews-area mt-100" id="review">
                             <h4>commentaires</h4>
                             {% for message in app.flashes('notice') %}
                                 <div class="alert alert-success">
@@ -248,7 +240,6 @@
                                                 <div class="">
                                                     <p>{{ comment.content | striptags }}</p>
                                                 </div>
-
                                             </div>
                                         </div>
                                         <div class="reviewer-name">
@@ -261,7 +252,6 @@
                                             <img class="rounded-circle" width="320" height="250" src="{{ asset('img/com-img/' ~ comment.image) }}" alt="{{ comment.image }}">
                                         {% endif %}
                                     </div>
-
                                 </div>
                                 {% endfor %}
                             {% else %}
@@ -270,8 +260,6 @@
                                 </div>
                             {% endif %}
                         </div> <!-- Review End -->
-
-
 
                         <div class="location-on-map mt-50" id="lomap">
                             <h4>Nous localiser</h4>
@@ -287,7 +275,6 @@
                 <!-- Listing Sidebar -->
                 <div class="col-12 col-md-8 col-lg-4">
                     <div class="listing-sidebar">
-
                         <!-- Contact  -->
                         <div class="contact-form contact-form-widget mt-50">
                             <h6>Contact</h6>
@@ -321,7 +308,6 @@
                             <ul class="row">
                                 {% for course in courses %}
                                 <li class="col-12">
-
                                     <div class="add-more">
                                         <a href="{{ path('default_course', {
                                             alias : course.alias}

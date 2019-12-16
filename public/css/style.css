@@ -98,6 +98,11 @@ img {
     height: 275px !important;
     object-fit: cover !important;
 }
+.img-icon {
+    max-width: 100% !important;
+    height: 50px !important;
+    object-fit: cover !important;
+}
 #avatarNav {
     max-width: 100% !important;
     height: 60px !important;
@@ -959,7 +964,7 @@ li {
 /* Footer Area CSS */
 
 .dorne-footer-area {
-    padding: 30px 0 0 0;
+    padding: 15px 0 0 0;
     border-top: 1px solid #cc6908;
 
 
@@ -1416,3 +1421,46 @@ li {
     width: 100%;
     height: 380px;
 }
+
+/*Video */
+
+#videoDmi {
+    position: relative;
+    background-color: black;
+    height: 75vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+#videoDmi video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+#videoDmi .container {
+    position: relative;
+    z-index: 2;
+}
+
+#videoDmi .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 1;
+}
+

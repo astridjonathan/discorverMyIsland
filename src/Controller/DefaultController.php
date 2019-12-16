@@ -318,7 +318,7 @@ class DefaultController extends AbstractController
 
     /**
      * @return Response
-     * @Route("{alias}", name="default_course", methods={"GET"})
+     * @Route("/parcours/{alias}.html", name="default_course", methods={"GET"})
      */
 
     public function course($alias)
@@ -330,7 +330,6 @@ class DefaultController extends AbstractController
 
         # Get associated visits
         $visits = new Collection($course->getVisits());
-
         $visits = $visits->sortBy(function ($visit) {
             return $visit->getPriority();
         });
@@ -339,20 +338,14 @@ class DefaultController extends AbstractController
         # @var Visit $visit
         foreach ($visits as $visit) {
             # Get site name for each visit by priority
-            $visit->getSite()->getName();
+            $visit->getSite->getName();
             $visit->getPriority();
         }
-
-
         return $this->render('default/course.html.twig',
             [
                 'alias'=>$alias,
                 'visits'=>$visits,
                 'course' => $course
-
-
             ]);
-
-
     }
 }

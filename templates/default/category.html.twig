@@ -5,8 +5,6 @@
 {% endblock %}
 
 {% block content %}
-    
-
 
 <!-- ***** Breadcumb Area Start ***** -->
 <div class="breadcumb-area bg-img bg-overlay" style="background-image: url({{ asset('img/bg-img/hero-1.jpg') }})"></div>
@@ -27,8 +25,6 @@
                 {% if sites is not empty %}
                     {% for site in sites %}
                     <div class="col-12 col-sm-6 col-lg-4">
-
-
                             <div class="single-features-area mb-50">
                                 <img class="img-dmi" src="{{ asset('img/sites-img/' ~ site.image) }}"  alt="{{ site.name }}">
                                 <!-- Category -->
@@ -39,7 +35,7 @@
                                     <div class="feature-title">
                                         <h5>{{ site.name }}</h5>
 
-                                        <p>{{ site.content|striptags | u.truncate(100, '...')}}</p>
+                                        <p>{{ site.content|striptags | u.truncate(80, '...')}}</p>
                                     </div>
                                     <div class="feature-favourite">
                                         <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
@@ -53,9 +49,8 @@
                                     )}}" class="btn btn-block dmi-btn">J'y go</a>
                                 </div>
                             </div>
-
                     </div>
-                {% endfor %}
+                    {% endfor %}
                 {% else %}
                     <div class="col-12 alert alert-warning text-center">
                         Aucun site pour le moment pour cette catégorie !

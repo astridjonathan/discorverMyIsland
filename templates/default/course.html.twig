@@ -27,9 +27,7 @@
                             <nav>
                                 <ul id="listingNav">
                                     <li class="active"><a href="#contentCourse">Descriptif</a></li>
-
                                     <li><a href="#menu">Les étapes à suivre</a></li>
-                                    <li><a href="#review">Commentaires</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -40,15 +38,11 @@
                             <h4>Voici les étapes du parcours</h4>
                             <!-- Single Listing Menu -->
                             {% for visit in visits %}
-
                             <div class="single-listing-menu d-flex justify-content-between">
-
-
-
                                 <!-- listing SITES -->
                                 <div class="listing-menu-title">
                                     <h6>{{visit.site.name | upper}}</h6>
-                                    <p>{{visit.site.content  | u.truncate(70, '...')}}</p>
+                                    <p>{{visit.site.content  | u.truncate(150, '...')}}</p>
                                 </div>
                                 <!-- GO BUTTON  -->
                                 <div class="listing-menu-price">

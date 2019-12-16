@@ -1,11 +1,45 @@
 {% extends "base.html.twig" %}
 
 {% block title %}
-    Inscription
+   Contact
 {% endblock %}
 
 {% block content %}
-    
+
+    {% block stylesheets %}
+        {{ parent() }}
+        <!-- MAPBOX Stylesheet -->
+        <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
+        <style>.custom-file-label{display:none;}</style>
+    {% endblock %}
+    {% block javascripts %}
+        {{ parent() }}
+        <!-- Mapbox-->
+        <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+        <script>
+            mapboxgl.accessToken = 'pk.eyJ1IjoiY2hhYmluZXZpYnoiLCJhIjoiY2szenk4enAxMjAxaDNscWx5MjFtYTE4ZyJ9.2mxGbAQIffpHKpGUphvYVA';
+            var map = new mapboxgl.Map({
+                container: 'googleMap',
+                zoom: 1.5,
+                style: 'mapbox://styles/mapbox/streets-v11'
+            });
+            /***
+             * change style map
+             * ****/
+            var layerList = document.getElementById('menuMap');
+            var inputs = layerList.getElementsByTagName('input');
+
+            function switchLayer(layer) {
+                var layerId = layer.target.id;
+                map.setStyle('mapbox://styles/mapbox/' + layerId);
+            }
+
+            for (var i = 0; i < inputs.length; i++) {
+                inputs[i].onclick = switchLayer;
+            }
+
+            </script>
+    {% endblock %}
 
 
 <!-- ***** Breadcumb Area Start ***** -->
@@ -56,10 +90,4 @@
     </div>
     <!-- ***** Contact Area End ***** -->
 
-{% endblock %}
-{% block scripts %}
-    {{ parent() }}
-    <!-- Google Maps js -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk9KNSL1jTv4MY9Pza6w8DJkpI_nHyCnk"></script>
-    <script src="{{ asset('js/google-map/location-map-active.js') }}"></script>
 {% endblock %}

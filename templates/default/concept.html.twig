@@ -1,18 +1,62 @@
 {% extends "base.html.twig" %}
 
 {% block title %}
-    Inscription
+    Concept
 {% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href='http://fonts.googleapis.com/css?family=Buenard:700' rel='stylesheet' type='text/css'>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="http://pupunzi.com/mb.components/mb.YTPlayer/demo/inc/jquery.mb.YTPlayer.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $(".player").mb_YTPlayer();
+
+        });
+    </script>
+{% endblock %}
+
 
 {% block content %}
 
-<!-- ***** Breadcumb Area Start ***** -->
-<div class="breadcumb-area bg-img bg-overlay" style="background-image: url({{ asset('img/bg-img/hero-1.jpg') }})"></div>
-<!-- ***** Breadcumb Area End ***** -->
 
 
-<!-- ***** Contact Area Start ***** -->
+    <!--Video Section-->
+    <section id="videoDmi">
+        <div class="overlay"></div>
+        <video playsinline="playsinline"  autoplay="1" muted="muted" loop="1">
+            <source src="{{asset('video/video1.mp4')}}?&autoload=1&loop=1" type="video/mp4">
+        </video>
+        <div class="container h-100">
+            <div class="d-flex text-center h-100">
+                <div class="my-auto w-100 text-white">
+                    <h1 class="display-3 text-white">Video Header</h1>
+                    <h2>With HTML5 Video and Bootstrap 4</h2>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- ***** Contact Area End ***** -->
+
+
+
+    <!--Video Section Ends Here-->
+<!-- ***** Text Start ***** -->
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h3>Qui sommes-nous</h3>
+            <p>
+                Astrid et Léna, 2 jeunes femmes passionnées du digital, de la découverte décident lors d'un projet de
+                formation de créer une application permettant de découvrir différement la Guadeloupe.
+            </p>
+        </div>
+    </div>
+</div>
+<!-- ***** Text Area End ***** -->
 
 {% endblock %}
