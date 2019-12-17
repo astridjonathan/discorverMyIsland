@@ -52,8 +52,9 @@ class Category
         $this->courses = new ArrayCollection();
     }
 
+
     public function __toString(){
-        return $this->alias;
+        return $this->name;
     }
 
     public function getId(): ?int

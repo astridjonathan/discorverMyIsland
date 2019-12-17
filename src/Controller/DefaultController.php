@@ -54,6 +54,7 @@ class DefaultController extends AbstractController
         ]);
 
     }
+
     /****************************************************************************************************************/
     /**
      * @param Request $request
@@ -86,6 +87,7 @@ class DefaultController extends AbstractController
             'categories' => $categories
         ]);
     }
+
     /****************************************************************************************************************/
     /**
      * @param Category $category
@@ -102,6 +104,7 @@ class DefaultController extends AbstractController
             ['sites' => $category->getSites(),
                 'category' => $category]);
     }
+
     /****************************************************************************************************************/
     /**
      * @param Site $site
@@ -217,6 +220,7 @@ class DefaultController extends AbstractController
             'categories' => $categories
         ]);
     }
+
     /****************************************************************************************************************/
     /**
      * @return Response
@@ -315,7 +319,6 @@ class DefaultController extends AbstractController
     }
 
     /****************************************************************************************************************/
-
     /**
      * @return Response
      * @Route("/parcours/{alias}.html", name="default_course", methods={"GET"})
@@ -334,11 +337,10 @@ class DefaultController extends AbstractController
             return $visit->getPriority();
         });
 
+
         return $this->render('default/course.html.twig',
             [
                 'alias'=>$alias,
-                'visits'=>$visits,
-                'course' => $course
             ]);
     }
 }

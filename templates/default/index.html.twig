@@ -133,7 +133,9 @@
                                     <div class="editors-pick-info">
                                         <div class="places-total-destinations d-flex">
                                             <a href="#">{{course.visits.0.site.category.name}}</a>
-                                            <a href="#">{{course.name | upper}}</a>
+                                            <a href="{{ path('default_course', {
+                                                alias : course.alias}
+                                            )}}">{{course.name | upper}}</a>
                                         </div>
                                         <div class="add-more">
                                             <a href="{{ path('default_course', {
@@ -175,7 +177,9 @@
                             <div class="editors-pick-info">
                                 <div class="places-total-destinations d-flex">
                                     <a href="#">{{course.visits.1.site.category.name}}</a>
-                                    <a href="#">{{course.name | upper}}</a>
+                                    <a href="{{ path('default_course', {
+                                        alias : course.alias}
+                                    )}}">{{course.name | upper}}</a>
                                 </div>
                                 <div class="add-more">
                                     <a href="{{ path('default_course', {

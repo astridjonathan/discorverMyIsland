@@ -56,6 +56,9 @@ class Course
 
     }
 
+    public function __toString(){
+        return $this->name;
+    }
 
     public function getId(): ?int
     {
@@ -96,9 +99,6 @@ class Course
         $this->category = $category;
 
         return $this;
-    }
-    public function __toString(){
-        return $this->name;
     }
 
     public function getAlias(): ?string
