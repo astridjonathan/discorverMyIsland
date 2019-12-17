@@ -27,6 +27,9 @@ use Tightenco\Collect\Support\Collection;
 
 class DefaultController extends AbstractController
 {
+
+    use HelperTrait;
+
     /**
      * @return Response
      * @Route("/", name="/",methods={"GET|POST"})
@@ -108,12 +111,10 @@ class DefaultController extends AbstractController
     /****************************************************************************************************************/
     /**
      * @param Site $site
+     * @param Request $request
      * @return Response
      * @Route("/{category}/{alias}_{id}.html", name="default_site", methods={"GET|POST"})
      */
-    use HelperTrait;
-
-
     public function addComment(Site $site, Request $request)
     {
         #Ajout d'un commentaire
@@ -195,7 +196,7 @@ class DefaultController extends AbstractController
 
         $courses=$this->getDoctrine()
            ->getRepository(Course::class)
-           ->findAll();
+           ->findBySite($site);
 
         #Transmission du formulaire à la vue
         return $this->render('default/single-site.html.twig', [
@@ -321,7 +322,7 @@ class DefaultController extends AbstractController
     /****************************************************************************************************************/
     /**
      * @return Response
-     * @Route("/parcours/{alias}.html", name="default_course", methods={"GET"})
+     * @Route("/parcours-{alias}.html", name="default_course", methods={"GET"})
      */
 
     public function course($alias)
@@ -341,6 +342,8 @@ class DefaultController extends AbstractController
         return $this->render('default/course.html.twig',
             [
                 'alias'=>$alias,
+                'course' => $course,
+                'visits' => $visits
             ]);
     }
 }
