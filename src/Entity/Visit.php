@@ -33,6 +33,7 @@ class Visit
      */
     private $site;
 
+
     public function getId(): ?int
     {
         return $this->id;

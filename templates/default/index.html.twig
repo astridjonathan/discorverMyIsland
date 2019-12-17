@@ -92,8 +92,9 @@
                 <div class="col-12">
                     <div class="about-content text-center">
                         <h2>Découvre la Guadeloupe avec <br><span>DiscoverMyIsland</span></h2>
-                        <p>s tempus elit. Sed efficitur tortor neque, vitae aliquet urna varius sit amet. Ut rhoncus,
-                            nunc nec tincidunt volutpat, ex libero.</p>
+                        <p>A pied… en voiture… en ville ou dans des contrées lointaines
+                            Un parcours à thème pour vous aiguiller dans votre déambulation !
+                            Cher DMIste, en piste !</p>
                     </div>
                     <div class="row">
                         <div  class="col-12 text-center mt-2">
@@ -153,7 +154,9 @@
                                 <div class="editors-pick-info">
                                     <div class="places-total-destinations d-flex">
                                         <a href="#">{{course.visits.0.site.category.name}}</a>
-                                        <a href="#">{{course.name | upper}}</a>
+                                        <a href="{{ path('default_course', {
+                                            alias : course.alias}
+                                        )}}">{{course.name | upper}}</a>
                                     </div>
                                     <div class="add-more">
                                         <a href="{{ path('default_course', {
@@ -191,7 +194,7 @@
     <!-- ***** Editor Pick Area End ***** -->
 
     <!-- ***** Contact Info ***** -->
-    <div class="dorne-clients-area section-padding-30">
+    <div id="middleContact" class="dorne-clients-area section-padding-50">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 text-center">
@@ -215,6 +218,7 @@
                     <div class="section-heading text-center">
                         <span></span>
                         <h4>Nos sites</h4>
+                        <p>Vous pouvez manuellement parcourir un site. N'hésitez pas cher DMIste! </p>
                     </div>
                 </div>
             </div>
@@ -257,7 +261,7 @@
 
 
     <!-- ***** Clients Area Start ***** -->
-    <div class="dorne-clients-area section-padding-100">
+    <div id="partner" class="dorne-clients-area section-padding-100">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">

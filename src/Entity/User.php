@@ -20,7 +20,7 @@ class User implements \Symfony\Component\Security\Core\User\UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=80)
+     * @ORM\Column(type="string", length=80, unique=true)
      * @Assert\NotBlank(message="Vous avez oublié le pseudonyme")
      */
     private $pseudo;

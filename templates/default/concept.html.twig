@@ -4,21 +4,6 @@
     Concept
 {% endblock %}
 
-{% block stylesheets %}
-    {{ parent() }}
-    <link href='http://fonts.googleapis.com/css?family=Buenard:700' rel='stylesheet' type='text/css'>
-{% endblock %}
-{% block javascripts %}
-    {{ parent() }}
-    <script src="http://pupunzi.com/mb.components/mb.YTPlayer/demo/inc/jquery.mb.YTPlayer.js"></script>
-    <script>
-        $(document).ready(function () {
-
-            $(".player").mb_YTPlayer();
-
-        });
-    </script>
-{% endblock %}
 
 
 {% block content %}
@@ -27,71 +12,64 @@
 
     <!--Video Section-->
     <section id="videoDmi">
-        <div class="overlay"></div>
-        <video playsinline="playsinline"  autoplay="autoplay" muted="muted" loop="loop">
-            <iframe width="2000" height="700" src="https://www.youtube.com/embed/a3qzy_-IDcw?controls=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+        <video  autoplay="autoplay" loop="loop">
+            <iframe width="1200" height="600" src="https://www.youtube.com/embed/a3qzy_-IDcw?controls=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </video>
         <div class="container h-100">
             <div class="d-flex text-center h-100">
                 <div class="my-auto w-100 text-white">
-                    <h1 class="display-3 text-white">DISCOVERMYISLAND</h1>
-                    <h3 class="text-white">A pied… en voiture… en ville ou dans des contrées lointaines
+                    <h2 class="display-3 text-white">DISCOVERMYISLAND</h2>
+                    <h5 class="text-white">A pied… en voiture… en ville ou dans des contrées lointaines
                         Un parcours à thème pour vous aiguiller dans votre déambulation !
-                        Cher DMIste, en piste ! </h3>
+                        Cher DMIste, en piste ! </h5>
                 </div>
             </div>
         </div>
     </section>
 
     <!--Video Section Ends Here-->
-<!-- ***** Text Start ***** -->
-<div class="container">
-    <div class="row">
-        <div class="col-12 mt-4 ">
-            <h3 class="text-center">Qui sommes-nous ! </h3>
+
+    <!-- ***** Text Start ***** -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-4 ">
+                <h3 class="text-center">Qui sommes-nous ! </h3>
+            </div>
+            <div class="col-12 mt-4 ">
+                <p>
+                    Astrid et Léna, 2 jeunes femmes passionnées du digital, de la découverte décident lors d'un projet de
+                    formation de créer une site web dans un premier temps mais à terme une application permettant de découvrir différement la Guadeloupe.
+                </p>
+                <h6 class="text-dmi text-right">Entrez dans notre univers!</h6>
+            </div>
         </div>
-        <div class="col-12 mt-4 ">
-            <p>
-                Astrid et Léna, 2 jeunes femmes passionnées du digital, de la découverte décident lors d'un projet de
-                formation de créer une application permettant de découvrir différement la Guadeloupe.
-            </p>
+        <div class="row pb-5 mx-auto">
+            <div class="col-12 mt-4">
+                <h3 class="text-center">L'équipe</h3>
+            </div>
+        </div>
+        <div class="row mx-auto pb-3">
+            <div class="col-6 text-center ">
+                        <img class="img-avatar rounded-circle" src="{{ asset('img/clients-img/avatar/avatarAstrid.png') }}" alt="astrid">
+                        <ul class=" mt-3">
+                            <li ><h3>Astrid JONATHAN</h3></li>
+                            <li ><p><h6 class="text-dmi">Chef de projet technique, designer, back-end</h6></p></li>
+                            <li><p>@mail: astrid.jonathan@gmail.com</p></li>
+                            <li ><p><b><i>Que la force soit avec toi ! </i></b></p></li>
+                        </ul>
+            </div>
+            <!-- Team 2-->
+            <div class="col-6 text-center ">
+                <img class=" img-avatar rounded-circle" src="{{ asset('img/clients-img/avatar/avatarLena.png') }}" alt="astrid">
+                <ul class=" text-center mt-3">
+                    <li><h3>Léna BOISSERON</h3></li>
+                    <li><h6 class="text-dmi">Chef de projet fonctionnel, rédacteur, front-end</h6></li>
+                    <li><p>@mail: lena.boisseron@yahoo.com</p></li>
+                    <li><p><b><i>Infini et au delà ! </i></b></p></li>
+                </ul>
+            </div>
         </div>
     </div>
-    <div class="row pb-5 mx-auto">
-        <div class="col-12 mt-4">
-            <h3 class="text-center">L'équipe</h3>
-        </div>
-            <div class="col-6 ">
-                <div class="col-5 mx-auto">
-                    <img class="rounded-circle" src="{{ asset('img/clients-img/avatar/astrid-5defa4b37d9c6.png') }}" alt="astrid">
-                </div>
-                <div class="col-7 mx-auto">
-                    <ul class="text-center">
-                        <li><h3>Astrid JONATHAN</h3></li>
-                        <li><h6>Chef de projet technique, designer, back-end</h6></li>
-                        <li>@mail: astrid.jonathan@gmail.com</li>
-                        <li><b><i>Que la force soit avec toi ! </i></b></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="col-5 mx-auto">
-                    <img class="rounded-circle" src="{{ asset('img/clients-img/avatar/avatar1.jpg') }}" alt="astrid">
-                </div>
-                <div class="col-7 mx-auto">
-                    <ul class="text-center">
-                        <li><h3>Léna BOISSERON</h3></li>
-                        <li><h6>Chef de projet fonctionnel, communication, front-end</h6></li>
-                        <li>@mail: astrid.jonathan@gmail.com</li>
-                        <li><b><i>Infini et au delà ! </i></b></li>
-                    </ul>
-                </div>
-
-            </div>
-    </div>
-
-</div>
-<!-- ***** Text Area End ***** -->
+    <!-- ***** Text Area End ***** -->
 
 {% endblock %}

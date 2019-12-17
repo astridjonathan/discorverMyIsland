@@ -97,6 +97,9 @@ class Course
 
         return $this;
     }
+    public function __toString(){
+        return $this->name;
+    }
 
     public function getAlias(): ?string
     {

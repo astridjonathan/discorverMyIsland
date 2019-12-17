@@ -1,5 +1,6 @@
 @media (min-width: 992px) and (max-width: 1199px) {
     .header_area {
+        max-width: 100%;
         padding: 0;
     }
     .navbar-brand {
@@ -12,8 +13,8 @@
     }
 
     .navbar-expand-lg .navbar-nav .nav-link {
-        padding-right: 14px;
-        padding-left: 14px;
+        padding-right: 16px;
+        padding-left: 16px;
         font-size: 18px;
     }
     .hero-content h2 {
@@ -85,13 +86,13 @@
     .dorne-btn {
         min-width: 150px;
     }
-    .single-catagory-area .catagory-content h6 {
+    .single-category-area .category-content h6 {
         font-size: 13px;
     }
     .about-content h2 {
         font-size: 36px;
     }
-    .single-catagory-area {
+    .single-category-area {
         padding: 40px 15px;
     }
     .clients-logo img {
@@ -145,6 +146,7 @@
 @media (min-width: 320px) and (max-width: 767px) {
     .header_area {
         padding: 0;
+        width: 100%;
     }
     .navbar-brand {
         margin-right: 0;
@@ -152,7 +154,7 @@
     .navbar-toggler {
         border: 2px solid #fff;
         color: #fff;
-        margin: 37px 0;
+        margin: 30px 0;
         -webkit-transition-duration: 500ms;
                 transition-duration: 500ms;
     }
@@ -160,9 +162,11 @@
         margin: 17px 0
     }
     #dorneNav {
-        padding: 15px;
+        margin: auto;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
         background-color: #CC6600;
-        box-shadow: 1px 9px 10px rgba(255, 255, 255, 0.15);
         border-radius: 0 0 3px 3px
     }
     .dorne-search-btn > a,
@@ -183,9 +187,9 @@
         margin-right: 5px;
     }
     .dorne-btn {
-        min-width: 150px;
+       width: 100%;
     }
-    .all-catagories {
+    .all-categories {
         top: 0;
         padding: 30px 0;
     }
@@ -203,9 +207,9 @@
         padding: 0 50px 0 20px;
         margin-right: 0;
         margin-bottom: 5px;
-        width: 100%;
+        max-width: 100%;
     }
-    .single-catagory-area {
+    .single-category-area {
         margin-bottom: 30px;
     }
     .about-content h2 {
@@ -226,7 +230,7 @@
     .dorne-features-restaurant-area {
         padding: 100px 15px;
     }
-    .single-catagory-area {
+    .single-category-area {
         padding: 40px 15px;
     }
     .feature-events-thumb {
@@ -242,11 +246,49 @@
         padding: 30px;
     }
     .dorne-footer-area {
-        padding: 50px 0;
-        text-align: center;
+        margin: auto;
+        max-width: 100%;
+
     }
     .footer-text {
-        margin-bottom: 30px;
+        margin-bottom: 10px;
+    }
+  #contactB{
+      margin: auto;
+      width: 100%;
+      text-align: center;
+
+    }
+    #contactB p{
+        text-align: justify;
+    }
+    .footer-social-btns{
+        margin: auto;
+        max-width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+    #partner{
+        margin: auto;
+        width: 100%;
+        text-align: center;
+        padding: 40px;
+    }
+    #partner img{
+        width: 50%;
+        justify-content: center;
+        padding: 10px;
+    }
+    .img-course{
+        padding: 10px;
+        width: 100%;
+        height: auto;
+    }
+
+    #middleContact .dorne-btn{
+        width: 50%;
+        margin-top: 10px;
+
     }
     .explore-search-area,
     .explore-map-area,
@@ -267,10 +309,10 @@
         margin-bottom: 15px;
     }
     .explore-search-area {
-        height: 1500px;
+        height: auto;
     }
     .explore-map-area {
-        height: 800px;
+        height: 500px;
     }
     .explore-search-result {
         padding: 0 30px;
@@ -303,6 +345,7 @@
     .dorne-map-area {
         height: 500px;
     }
+
 }
 
 @media (min-width: 576px) and (max-width: 767px) {

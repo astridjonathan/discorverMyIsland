@@ -32,15 +32,16 @@
     {{ parent() }}
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.js"></script>
     <script>
+
         var geojson = {
-            type: 'FeatureCollection',
+            type: 'Feature',
             features: [
                 {% for site in sites %}
                     {
                         type: 'Feature',
                         geometry: {
                             type: 'Point',
-                            coordinates: ['{{ site.long }}, {{ site.lat }}']
+                            coordinates: ['{{ site.long }}', '{{ site.lat }}']
                         },
                         properties: {
                             title: "{{ site.name }}"
@@ -70,6 +71,8 @@
             // make a marker for each feature and add to the map
             new mapboxgl.Marker(el)
                 .setLngLat(marker.geometry.coordinates)
+                .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+                    .setHTML('<h6>' + marker.properties.title + '</h6>'))
                 .addTo(map);
         });
 
