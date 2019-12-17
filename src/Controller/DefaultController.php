@@ -130,7 +130,7 @@ class DefaultController extends AbstractController
             ->add('title', TextType::class, [
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'Titre de du commentaire'
+                    'placeholder' => 'Titre du commentaire'
                 ]
             ])
             #Comment's content
