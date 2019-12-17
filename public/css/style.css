@@ -49,7 +49,10 @@ p {
     line-height: 1.5;
     font-weight: 400;
 }
-
+.section-padding-50 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
 .section-padding-150 {
     padding-top: 150px;
     padding-bottom: 150px;
@@ -95,7 +98,26 @@ img {
     height: 275px !important;
     object-fit: cover !important;
 }
+.img-icon {
+    max-width: 100% !important;
+    height: 50px !important;
+    object-fit: cover !important;
+}
 
+.img-avatar {
+    max-width: 100% !important;
+    height: 150px !important;
+    object-fit: cover !important;
+}
+#avatarNav {
+    max-width: 100% !important;
+    height: 60px !important;
+    object-fit: cover !important;
+    border-radius: 50%;
+    margin-right: 10px;
+    border-color: white;
+    border:5px;
+}
 .mt-15 {
     margin-top: 15px;
 }
@@ -205,6 +227,9 @@ li {
     height: 800px!important;
 }
 
+.text-dmi{
+    color: #FF9900;
+}
 .dorne-table {
     display: table;
     height: 100%;
@@ -223,7 +248,7 @@ li {
 .section-heading {
     position: relative;
     z-index: 1;
-    margin-bottom: 150px;
+    margin-bottom: 90px;
 }
 
 .section-heading span {
@@ -311,7 +336,7 @@ li {
 
 .dorne-btn {
     min-width: 123px;
-    height: 50px;
+
     background-color: #FF9900;
     border-radius: 0;
     padding: 0 15px;
@@ -322,6 +347,19 @@ li {
     -webkit-transition-duration: 500ms;
             transition-duration: 500ms;
 }
+.dmi-btn {
+    min-width: 60px;
+    height: 50px;
+    background-color: #FF9900;
+    border-radius: 0;
+    padding: 0 15px;
+    line-height: 40px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
 
 .dorne-btn:hover,
 .dorne-btn:focus {
@@ -329,7 +367,16 @@ li {
     background-color: #FF6600;
     font-weight: 600;
 }
-
+.dmi-btn:hover,
+.dmi-btn:focus {
+    color: #fff;
+    background-color: #FF6600;
+    font-weight: 600;
+}
+#logoW{
+    max-width: 100% !important;
+    height: 100px !important;
+}
 /* Search Area CSS */
 
 .dorne-search-form {
@@ -414,6 +461,7 @@ li {
 }
 
 .sticky .header_area {
+    width: 100%;
     background-color: rgba(14, 2, 35, 0.9);
     height: 115px;
     z-index: 9999;
@@ -431,14 +479,16 @@ li {
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
+    width: 100%;
     padding-right: 18px;
     padding-left: 18px;
     color: #fff;
-    font-size: 16px;
+    font-size: 18px;
 
 
 }
 .navbar-expand-lg .navbar-nav .nav-link {
+    width: 100%;
     padding-right: 30px;
     padding-left: 30px;
     font-size: 18px;
@@ -464,6 +514,7 @@ li {
 .dropdown-menu {
     border: none;
 }
+
 
 .dropdown-item {
     font-weight: 600;
@@ -598,8 +649,10 @@ li {
     display: block;
     margin-top: 30px;
 }
-
-/* Catagory Area CSS */
+.hero-social-btn .social-btns > a:hover{
+    color: #cc6908;
+}
+/* Category Area CSS */
 
 .dorne-category-area {
     position: relative;
@@ -685,11 +738,20 @@ li {
 }
 
 .single-editors-pick-area {
-    position: relative;
-    z-index: 1;
-    margin-bottom: 20px;
+     position: relative;
+     z-index: 1;
+     margin-bottom: 20px;
+ }
+.img-course1{
+    max-width: 100% !important;
+    height: 600px !important;
+    object-fit: cover !important;
 }
-
+.img-course{
+    max-width: 100% !important;
+    height: 290px !important;
+    object-fit: cover !important;
+}
 .editors-pick-info {
     position: absolute;
     top: 25px;
@@ -915,9 +977,8 @@ li {
 /* Footer Area CSS */
 
 .dorne-footer-area {
-    padding: 30px 0 0 0;
+    padding: 15px 0 0 0;
     border-top: 1px solid #cc6908;
-
 
 }
 
@@ -928,14 +989,13 @@ li {
     margin-bottom: 0;
     color:white;
 
-
 }
 
 .footer-social-btns > a {
     display: inline-block;
-    color: #464646;
+    color: #111111;
     padding: 0 15px;
-    font-size: 14px;
+    font-size: 18px;
 }
 .footer-social-btns > a:hover{
 
@@ -1241,7 +1301,6 @@ li {
     font-size: 18px;
 }
 
-
 .listing-title {
     margin-bottom: 30px;
 }
@@ -1295,11 +1354,11 @@ li {
 
 .overview-content p {
     line-height: 2;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .overview-content .custom-control-description {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 22px;
     font-weight: 600;
 }
@@ -1372,3 +1431,45 @@ li {
     width: 100%;
     height: 380px;
 }
+
+/*Video */
+
+#videoDmi {
+    position: relative;
+    background-color: black;
+    height: 65vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+#videoDmi video {
+    position: absolute;
+
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+#videoDmi .container {
+    position: relative;
+    z-index: 2;
+}
+
+#videoDmi .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 1;
+}
+

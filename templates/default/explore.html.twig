@@ -7,19 +7,75 @@
 {% block stylesheets %}
     {{ parent() }}
     <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css" rel="stylesheet"/>
+    <style>
+        .marker {
+            background-image: url({{ asset('img/core-img/mapbox-icon.png') }});
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .mapboxgl-popup {
+            max-width: 200px;
+        }
+
+        .mapboxgl-popup-content {
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+        }
+    </style>
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.js"></script>
     <script>
+
+        var geojson = {
+            type: 'Feature',
+            features: [
+                {% for site in sites %}
+                    {
+                        type: 'Feature',
+                        geometry: {
+                            type: 'Point',
+                            coordinates: ['{{ site.long }}', '{{ site.lat }}']
+                        },
+                        properties: {
+                            title: "{{ site.name }}"
+
+                        }
+                    },
+                {% endfor %}
+            ]
+        };
+
         mapboxgl.accessToken = 'pk.eyJ1IjoiY2hhYmluZXZpYnoiLCJhIjoiY2szenk4enAxMjAxaDNscWx5MjFtYTE4ZyJ9.2mxGbAQIffpHKpGUphvYVA';
+        // Add popups : https://docs.mapbox.com/help/tutorials/custom-markers-gl-js/
         var map = new mapboxgl.Map({
             container: 'exploreGoogleMap',
             style: 'mapbox://styles/mapbox/streets-v11',
-            center: [-74.5, 40], // starting position [lng, lat]
+            center: [-61.546921, 16.236802], // starting position [lng, lat]
             zoom: 9 // starting zoom
         });
+
+        // add markers to map
+        geojson.features.forEach(function (marker) {
+
+            // create a HTML element for each feature
+            var el = document.createElement('div');
+            el.className = 'marker';
+
+            // make a marker for each feature and add to the map
+            new mapboxgl.Marker(el)
+                .setLngLat(marker.geometry.coordinates)
+                .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+                    .setHTML('<h6>' + marker.properties.title + '</h6>'))
+                .addTo(map);
+        });
+
     </script>
 {% endblock %}
 
@@ -37,12 +93,6 @@
             <!-- Explore Search Form -->
             <div class="explore-search-form">
                 <h6>Que recherchez-vous?</h6>
-                <!-- Tabs -->
-                {#                    <div class="nav nav-tabs" id="heroTab" role="tablist">#}
-                {#                        <a class="nav-item nav-link active" id="nav-places-tab" data-toggle="tab" href="#nav-places" role="tab" aria-controls="nav-places" aria-selected="true">Sites</a>#}
-                {#                        <a class="nav-item nav-link" id="nav-events-tab" data-toggle="tab" href="#nav-events" role="tab" aria-controls="nav-events" aria-selected="false">Events</a>#}
-                {#                    </div>#}
-                <!-- Tabs Content -->
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-places" role="tabpanel"
                          aria-labelledby="nav-places-tab">

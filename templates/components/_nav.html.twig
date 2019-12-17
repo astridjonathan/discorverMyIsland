@@ -3,29 +3,19 @@
         <div class="row h-100">
             <div class="col-12 h-100">
                 <nav class="h-100 navbar navbar-expand-lg">
-                    <a class="navbar-brand" href="{{ path('/') }}"><img src="{{ asset('img/core-img/logo.png') }} " alt="logo.png"></a>
+                    <a class="navbar-brand" href="{{ path('/') }}"><img id="logoW" src="{{ asset('img/core-img/logo.png') }} " alt="logo.png"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dorneNav" aria-controls="dorneNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
                     <!-- Nav -->
                     <div class="collapse navbar-collapse" id="dorneNav">
-                        <ul class="navbar-nav mx-auto" id="dorneMenu">
-                            <li class="nav-item active">
+                        <ul class="navbar-nav mx-auto text-uppercase " id="dorneMenu">
+                            <li class="nav-item ">
                                 <a class="nav-link" href="{{ path('/') }}">Accueil</a>
                             </li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item ">
                                 <a class="nav-link " href="{{ path('default_explore') }}"  role="button" aria-haspopup="true" aria-expanded="false">Explore</a>
-                                <!--<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        a class="dropdown-item" href=""></a>
-                                </div>-->
+
                             </li>
-                            <!--<li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rallye <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                                    <a class="dropdown-item" href="listing.html">How it Works</a>
-                                    <a class="dropdown-item" href="index.html">A Venir</a>
-                                    <a class="dropdown-item" href="explore.html">S'inscrire</a>
-                                    <a class="dropdown-item" href="listing.html">How it Works</a>
-                                </div>
-                            </li>-->
+
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ path('default_concept') }}">Concept</a>
                             </li>
@@ -36,16 +26,19 @@
 
                             <!-- LogIn LogOut Register-->
                             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                                <span class="text-white"> Bonjour {{ app.user.pseudo}}  </span>
-                                <a class="nav-link dropdown"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown"></a>
-                                <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="{{ path('app_logout') }}">Déconnexion</a></li>
-                                    {% if is_granted('ROLE_ADMIN') %}
-                                        <li><a class="dropdown-item" href="{{path('easyadmin')}}">Administration</a></li>
-                                    {% elseif is_granted('ROLE_USER') %}
-                                    <li> <a class="dropdown-item" href="#">Mon Profil</a></li>
-                                    <li><a class="dropdown-item" href="#">Mon Panier</a></li>
-                                </ul>
+                                <span class="text-white"> Bienvenue {{ app.user.pseudo}}  </span>
+                                <div class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <img id="avatarNav" class="rounded-circle border border-white" src="{{ asset('img/clients-img/avatar/' ~ app.user.avatar) }}" alt="{{app.user.pseudo}}">
+                                    </a>
+                                    <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="{{ path('app_logout') }}">Déconnexion</a></li>
+                                        {% if is_granted('ROLE_ADMIN') %}
+                                            <li><a class="dropdown-item" href="{{path('easyadmin')}}">Administration</a></li>
+                                        {% elseif is_granted('ROLE_USER') %}
+                                        <li> <a class="dropdown-item" href="#">Mon Profil</a></li>
+                                    </ul>
+                                </div>
                                 {% endif %}
 
                             {% else %} <!-- ANONYMOUS USER-->
@@ -57,12 +50,9 @@
                                 <div class="dorne-signin-btn">
                                     <a href="{{ path('user_register') }}" class="btn dorne-btn">ENREGISTREMENT</a>
                                 </div>
-
                         {% endif %}
-
                     </div>
                 </nav>
-
             </div>
         </div>
     </div>

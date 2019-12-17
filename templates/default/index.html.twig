@@ -8,6 +8,7 @@
     <!-- ***** Welcome Area Start ***** -->
     <section class="dorne-welcome-area bg-img bg-overlay"
              style="background-image: url( {{ asset('img/bg-img/hero-1.jpg') }});">
+
         <div class="container h-100">
             <div class="row h-100 align-items-center justify-content-center">
                 <div class="col-12 col-md-10">
@@ -17,12 +18,6 @@
                     </div>
                     <!-- Hero Search Form -->
                     <div class="hero-search-form">
-                        <!-- Tabs -->
-                        <div class="nav nav-tabs" id="heroTab" role="tablist">
-                            {#                           role="tab" aria-controls="nav-places" aria-selected="true">Sites</a>#}
-                            {#                            <a class="nav-item nav-link" id="nav-events-tab" data-toggle="tab" href="#nav-events"#}
-                            {#                               role="tab" aria-controls="nav-events" aria-selected="false">Events</a>#}
-                        </div>
                         <!-- Tabs Content -->
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="nav-places" role="tabpanel"
@@ -52,11 +47,10 @@
                 <span></span>
             </div>
             <div class="social-btns">
-                <a href="#"><i class="fa fa-linkedin" aria-haspopup="true"></i></a>
-                <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-twitter" aria-haspopup="true"></i></a>
+                <a href="#"><i class="fa  fa-instagram" aria-hidden="true"></i></a>
                 <a href="#"><i class="fa fa-facebook" aria-haspopup="true"></i></a>
+                <a href="#"><i class="fa fa-twitter" aria-haspopup="true"></i></a>
+                <a href="#"><i class="fa fa-linkedin" aria-haspopup="true"></i></a>
             </div>
         </div>
     </section>
@@ -75,7 +69,7 @@
                                     <div class="single-category-area wow fadeInUpBig" data-wow-delay="0.2s">
                                         <div class="category-content">
                                             <a href="{{ path('default_category', {alias : category.alias}) }}">
-                                                <img src="{{ asset('img/core-img/' ~ category.icon) }}"
+                                                <img class="img-icon" src="{{ asset('img/core-img/' ~ category.icon) }}"
                                                      alt="{{ category.name }}">
                                                 <h6>{{ category.name }}</h6>
                                             </a>
@@ -83,8 +77,6 @@
                                     </div>
                                 </div>
                             {% endfor %}
-
-
                         </div>
                     </div>
                 </div>
@@ -100,16 +92,13 @@
                 <div class="col-12">
                     <div class="about-content text-center">
                         <h2>Découvre la Guadeloupe avec <br><span>DiscoverMyIsland</span></h2>
-                        <p>s tempus elit. Sed efficitur tortor neque, vitae aliquet urna varius sit amet. Ut rhoncus,
-                            nunc nec tincidunt volutpat, ex libero.</p>
+                        <p>A pied… en voiture… en ville ou dans des contrées lointaines
+                            Un parcours à thème pour vous aiguiller dans votre déambulation !
+                            Cher DMIste, en piste !</p>
                     </div>
                     <div class="row">
-                        <div id="donwloadApp" class="col-12 text-center mt-2">
-                            <div>
-                                <span> Télécharger  notre application</span>
-                                <a href="#" class="btn btn-dark">GoogleStore</a>
-                                <a href="#" class="btn btn-dark">AppleStore</a>
-                            </div>
+                        <div  class="col-12 text-center mt-2">
+                           <h5>STAY CONNECTED ! - La nouvelle application sortira bientôt !</h5>
                         </div>
                     </div>
                 </div>
@@ -118,6 +107,112 @@
     </section>
     <!-- ***** About Area End ***** -->
 
+    <!-- ***** Editor Pick Area Start ***** -->
+    <section class="dorne-editors-pick-area bg-img bg-overlay-9 section-padding-100" style="background-image: url({{ asset('img/bg-img/hero-2.jpg') }});">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading text-center">
+                        <span></span>
+                        <h4>Nos parcours</h4>
+                        <p>A pied… en voiture… en ville ou dans des contrées lointaines
+                            Un parcours à thème pour vous aiguiller dans votre déambulation !
+                            Cher DMIste, en piste !</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% if courses is not empty %}
+                <div class="col-12 col-lg-6">
+                    <div class="single-editors-pick-area wow fadeInUp" data-wow-delay="0.2s">
+                            {% for course in courses %}
+                                {% if course.id == 2 %}
+                                    <img class="img-course1"
+                                         src="{{ asset('img/sites-img/' ~ course.visits.0.site.image) }}" alt="{{ course.name }}">
+
+                                    <div class="editors-pick-info">
+                                        <div class="places-total-destinations d-flex">
+                                            <a href="#">{{course.visits.0.site.category.name}}</a>
+                                            <a href="{{ path('default_course', {
+                                                alias : course.alias}
+                                            )}}">{{course.name | upper}}</a>
+                                        </div>
+                                        <div class="add-more">
+                                            <a href="{{ path('default_course', {
+                                                alias : course.alias}
+                                            )}}">+</a>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="single-editors-pick-area wow fadeInUp" data-wow-delay="0.4s">
+                        {% for course in courses %}
+                            {% if course.id == 3 %}
+                                <img class="img-course"
+                                     src="{{ asset('img/sites-img/' ~ course.visits.0.site.image) }}" alt="{{ course.name }}">
+                                <div class="editors-pick-info">
+                                    <div class="places-total-destinations d-flex">
+                                        <a href="#">{{course.visits.0.site.category.name}}</a>
+                                        <a href="{{ path('default_course', {
+                                            alias : course.alias}
+                                        )}}">{{course.name | upper}}</a>
+                                    </div>
+                                    <div class="add-more">
+                                        <a href="{{ path('default_course', {
+                                            alias : course.alias}
+                                        )}}">+</a>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="single-editors-pick-area wow fadeInUp" data-wow-delay="0.6s">
+                        {% for course in courses %}
+                            {% if course.id == 4 %}
+                            <img class="img-course"
+                                 src="{{ asset('img/sites-img/' ~ course.visits.1.site.image) }}" alt="{{ course.name }}">
+                            <div class="editors-pick-info">
+                                <div class="places-total-destinations d-flex">
+                                    <a href="#">{{course.visits.1.site.category.name}}</a>
+                                    <a href="{{ path('default_course', {
+                                        alias : course.alias}
+                                    )}}">{{course.name | upper}}</a>
+                                </div>
+                                <div class="add-more">
+                                    <a href="{{ path('default_course', {
+                                        alias : course.alias}
+                                    )}}">+</a>
+                                </div>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    <!-- ***** Editor Pick Area End ***** -->
+
+    <!-- ***** Contact Info ***** -->
+    <div id="middleContact" class="dorne-clients-area section-padding-50">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div>
+                        <h5>CONTACTEZ-NOUS !
+                            <small class="ml-2">Une nouvelle proposition de site, ou de parcours. Ou encore devenir un partenaire.</small>
+                        <a href="{{ path('default_contact')}}" class="btn dorne-btn ml-3">C'EST ICI</a>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Contact Info ***** -->
 
     <!-- ***** POPULAR SITE ***** -->
     <section class="dorne-features-restaurant-area bg-default">
@@ -126,7 +221,8 @@
                 <div class="col-12">
                     <div class="section-heading text-center">
                         <span></span>
-                        <h4>Nos sites ou parcours préférés </h4>
+                        <h4>Nos sites</h4>
+                        <p>Vous pouvez manuellement parcourir un site. N'hésitez pas cher DMIste! </p>
                     </div>
                 </div>
             </div>
@@ -134,21 +230,28 @@
                 <div class="col-12">
                     <div class="features-slides owl-carousel">
                         <!-- Single Site Area -->
-                        {% for course in courses %}
+                        {% for site in sites %}
                             <div class="single-features-area">
-                                <img class="img-dmi"
-                                     src="{{ asset('img/sites-img/' ~ course.visits.0.site.image) }}" alt="{{ course.name }}">
-                                <!-- Rating & Map Area -->
+                                <img class="img-dmi" src="{{ asset('img/sites-img/' ~ site.image) }}" alt="{{ site.name }}">
+                                <!-- Rating & Map -->
                                 <div class="ratings-map-area d-flex">
-                                    <a href="#">8.5</a>
+                                    <a href="#">{{site.category.alias}}</a>
                                     <a href="#"><img src="{{ asset('img/core-img/map.png') }}" alt=""></a>
                                 </div>
                                 <div class="feature-content d-flex align-items-center justify-content-between">
                                     <div class="feature-title">
-                                        <h5>{{ course.name }}</h5>
+                                        <a href="{{ path('default_site', {
+                                            alias : site.alias,
+                                            id : site.id,
+                                            category : site.category.alias}
+                                        )}}"><h5>{{ site.name }}</h5></a>
                                     </div>
                                     <div class="feature-favourite">
-                                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                                        <a href="{{ path('default_site', {
+                                            alias : site.alias,
+                                            id : site.id,
+                                            category : site.category.alias}
+                                        )}}"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -162,15 +265,15 @@
 
 
     <!-- ***** Clients Area Start ***** -->
-    <div class="dorne-clients-area section-padding-100">
+    <div id="partner" class="dorne-clients-area section-padding-100">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
                     <div class="clients-logo d-md-flex align-items-center justify-content-around">
-                        <img style=" height:80px;" src="{{ asset('img/clients-img/1.png') }}" alt="">
-                        <img style=" height:80px;" src="{{ asset('img/clients-img/2.png') }}" alt="">
-                        <img style=" height:80px;" src="{{ asset('img/clients-img/3.png') }}" alt="">
-                        <img style=" height:80px;" src="{{ asset('img/clients-img/4.png') }}" alt="">
+                        <a href="https://www.regionguadeloupe.fr"><img style=" height:80px;" src="{{ asset('img/clients-img/1.png') }}" alt=""></a>
+                        <a href="https://restaurant.michelin.fr/"><img style=" height:80px;" src="{{ asset('img/clients-img/2.png') }}" alt=""></a>
+                        <a href="https://caraibe.orange.fr/"><img style=" height:80px;" src="{{ asset('img/clients-img/3.png') }}" alt=""></a>
+                        <a href="http://www.lesilesdeguadeloupe.com"><img style=" height:80px;" src="{{ asset('img/clients-img/4.png') }}" alt=""></a>
                     </div>
                 </div>
             </div>

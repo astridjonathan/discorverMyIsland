@@ -97,6 +97,16 @@ class Site
      */
     private $updatedAt;
 
+    /**
+     * @ORM\Column(type="string", length=255,  nullable=true)
+     */
+    private $lat;
+
+    /**
+     * @ORM\Column(type="string", length=255,  nullable=true)
+     */
+    private $long;
+
 
     public function __construct()
     {
@@ -104,7 +114,9 @@ class Site
         $this->visits = new ArrayCollection();
     }
 
-
+    public function __toString(){
+        return $this->name;
+    }
 
     public function getId(): ?int
     {
@@ -321,5 +333,31 @@ class Site
         return $this;
     }
 
+    public function getLat(): ?string
+    {
+        return $this->lat;
+    }
 
+    public function setLat(string $lat): self
+    {
+        $this->lat = $lat;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLong()
+    {
+        return $this->long;
+    }
+
+    /**
+     * @param mixed $long
+     */
+    public function setLong($long): void
+    {
+        $this->long = $long;
+    }
 }

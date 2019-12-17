@@ -33,6 +33,10 @@ class Visit
      */
     private $site;
 
+    public function __toString(){
+        return $this->priority;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -73,4 +77,5 @@ class Visit
 
         return $this;
     }
+
 }

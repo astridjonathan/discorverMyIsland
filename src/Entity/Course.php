@@ -27,6 +27,15 @@ class Course
      * @ORM\Column(type="string", length=255)
      */
     private $duration;
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $alias;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $content;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="courses")
@@ -35,12 +44,20 @@ class Course
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Visit", mappedBy="course")
+     *
      */
     private $visits;
+
+
 
     public function __construct()
     {
         $this->visits = new ArrayCollection();
+
+    }
+
+    public function __toString(){
+        return $this->name;
     }
 
     public function getId(): ?int
@@ -84,6 +101,29 @@ class Course
         return $this;
     }
 
+    public function getAlias(): ?string
+    {
+        return $this->alias;
+    }
+
+    public function setAlias(string $alias): self
+    {
+        $this->alias = $alias;
+
+        return $this;
+    }
+
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
+
+    public function setContent(string $content): self
+    {
+        $this->content = $content;
+
+        return $this;
+    }
     /**
      * @return Collection|Visit[]
      */
@@ -114,4 +154,5 @@ class Course
 
         return $this;
     }
+
 }

@@ -39,7 +39,7 @@ easy_admin:
             label: 'Parcours'
             list:
                 title: "Liste parcours"
-                fields: ['id', 'category_id', 'name', 'duration', 'priority', 'steps']
+                fields: ['id', 'category_id', 'name', 'duration']
 
         #------ USER ENTITY -------#
         User:

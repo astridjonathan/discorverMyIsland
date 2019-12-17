@@ -52,6 +52,7 @@ class Category
         $this->courses = new ArrayCollection();
     }
 
+
     public function __toString(){
         return $this->name;
     }

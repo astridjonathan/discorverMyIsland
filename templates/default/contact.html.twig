@@ -1,11 +1,84 @@
 {% extends "base.html.twig" %}
 
 {% block title %}
-    Inscription
+   Contact
 {% endblock %}
 
 {% block content %}
-    
+        {% block stylesheets %}
+            {{ parent() }}
+            <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css" rel="stylesheet"/>
+            <style>
+                .marker {
+                    background-image: url({{ asset('img/core-img/mapbox-icon.png') }});
+                    background-size: cover;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+
+                .mapboxgl-popup {
+                    max-width: 200px;
+                }
+
+                .mapboxgl-popup-content {
+                    text-align: center;
+                    font-family: 'Open Sans', sans-serif;
+                }
+            </style>
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ parent() }}
+            <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.js"></script>
+            <script>
+                var geojson = {
+                    type: 'Feature',
+                    features: [
+                        {
+                            type: 'Feature',
+                            geometry: {
+                                type: 'Point',
+                                coordinates: [ -61.297016 , 16.245372  ]
+                            },
+                            properties: {
+                                title: "QG DiscoverMyIsland"
+
+                            }
+                        },
+                    ]
+                };
+
+                mapboxgl.accessToken = 'pk.eyJ1IjoiY2hhYmluZXZpYnoiLCJhIjoiY2szenk4enAxMjAxaDNscWx5MjFtYTE4ZyJ9.2mxGbAQIffpHKpGUphvYVA';
+
+                var map = new mapboxgl.Map({
+                    container: 'googleMap',
+                    style: 'mapbox://styles/mapbox/streets-v11',
+                    center: [-61.297016 ,16.245372], // starting position [lng, lat]
+                    zoom: 12// starting zoom
+                });
+
+                // add markers to map
+                geojson.features.forEach(function (marker) {
+
+                    // create a HTML element for each feature
+                    var el = document.createElement('div');
+                    el.className = 'marker';
+
+                    // make a marker for each feature and add to the map
+                    new mapboxgl.Marker(el)
+                        .setLngLat(marker.geometry.coordinates)
+                        .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+                            .setHTML('<h6>' + marker.properties.title + '</h6>'))
+                        .addTo(map);
+                });
+
+            </script>
+            {% endblock %}
+
+
+
 
 
 <!-- ***** Breadcumb Area Start ***** -->
@@ -22,7 +95,7 @@
                 <p>Un avis ? Une suggestion, qui pourrait nous permettre de développer notre concept pour des expériences plus extraordinaires ? Ou tout simplement nous féliciter ;-D ? N'hésitez pas à nous laisser un message ! </p>
                 <div class="contact-info d-lg-flex">
                     <div class="single-contact-info">
-                        <h6><i class="fa fa-map-signs" aria-hidden="true"></i> Boulevard de la mer, Saint-François</h6>
+                        <h6><i class="fa fa-map-signs" aria-hidden="true"></i> Résidence des Alizés, 97118 Saint-François</h6>
                         <h6><i class="fa fa-map-signs" aria-hidden="true"></i> No. 25-33</h6>
                     </div>
                     <div class="single-contact-info">
@@ -56,10 +129,4 @@
     </div>
     <!-- ***** Contact Area End ***** -->
 
-{% endblock %}
-{% block scripts %}
-    {{ parent() }}
-    <!-- Google Maps js -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk9KNSL1jTv4MY9Pza6w8DJkpI_nHyCnk"></script>
-    <script src="{{ asset('js/google-map/location-map-active.js') }}"></script>
 {% endblock %}

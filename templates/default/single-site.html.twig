@@ -1,183 +1,116 @@
 {% extends "base.html.twig" %}
 
 {% block title %}
-  {{site.name}}
+    {{ site.name }}
 {% endblock %}
 {% block stylesheets %}
     {{ parent() }}
-    <!-- MAPBOX Stylesheet -->
-    <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
     <!-- Dropify -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css"
-          integrity="sha256-AWdeVMUYtwLH09F6ZHxNgvJI37p+te8hJuSMo44NVm0=" crossorigin="anonymous" />
+          integrity="sha256-AWdeVMUYtwLH09F6ZHxNgvJI37p+te8hJuSMo44NVm0=" crossorigin="anonymous"/>
+    <!-- MAPBOX Stylesheet -->
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css" rel="stylesheet"/>
     <style>
-        .custom-file-label{display:none;}
+        .custom-file-label {
+            display: none;
+        }
 
-         #menuMap {
+        .marker {
+            background-image: url({{ asset('img/core-img/mapbox-icon.png') }});
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
 
-             top: 0;
-             background: #fff;
-             padding: 10px;
-         }
+        .mapboxgl-popup {
+            max-width: 200px;
+        }
+
+        .mapboxgl-popup-content {
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+        }
 
     </style>
 {% endblock %}
+
 {% block javascripts %}
     {{ parent() }}
     <!-- Mapbox-->
-    <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.js"></script>
     <script>
+        var geojson = {
+            type: 'Feature',
+            features: [
+                {% if site is not null %}
+                {
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [{{ site.long }}, {{ site.lat }}]
+                    },
+                    properties: {
+                        title: "{{ site.name }}"
+                    }
+                },
+                {% endif %}
+            ]
+        };
+
         mapboxgl.accessToken = 'pk.eyJ1IjoiY2hhYmluZXZpYnoiLCJhIjoiY2szenk4enAxMjAxaDNscWx5MjFtYTE4ZyJ9.2mxGbAQIffpHKpGUphvYVA';
         var map = new mapboxgl.Map({
             container: 'locationMap',
-            zoom: 1.5,
-            style: 'mapbox://styles/mapbox/streets-v11'
-        });
-        /***
-         * change style map
-         * ****/
-        var layerList = document.getElementById('menuMap');
-        var inputs = layerList.getElementsByTagName('input');
-
-        function switchLayer(layer) {
-            var layerId = layer.target.id;
-            map.setStyle('mapbox://styles/mapbox/' + layerId);
-        }
-
-        for (var i = 0; i < inputs.length; i++) {
-            inputs[i].onclick = switchLayer;
-        }
-/***
- * Add animate marker
- * ****/
-        var size = 100;
-
-        var pulsingDot = {
-            width: size,
-            height: size,
-            data: new Uint8Array(size * size * 4),
-
-// get rendering context for the map canvas when layer is added to the map
-            onAdd: function() {
-                var canvas = document.createElement('canvas');
-                canvas.width = this.width;
-                canvas.height = this.height;
-                this.context = canvas.getContext('2d');
-            },
-
-// called once before every frame where the icon will be used
-            render: function() {
-                var duration = 1000;
-                var t = (performance.now() % duration) / duration;
-
-                var radius = (size / 2) * 0.3;
-                var outerRadius = (size / 2) * 0.7 * t + radius;
-                var context = this.context;
-
-// draw outer circle
-                context.clearRect(0, 0, this.width, this.height);
-                context.beginPath();
-                context.arc(
-                    this.width / 2,
-                    this.height / 2,
-                    outerRadius,
-                    0,
-                    Math.PI * 2
-                );
-                context.fillStyle = 'rgba(255, 200, 200,' + (1 - t) + ')';
-                context.fill();
-
-// draw inner circle
-                context.beginPath();
-                context.arc(
-                    this.width / 2,
-                    this.height / 2,
-                    radius,
-                    0,
-                    Math.PI * 2
-                );
-                context.fillStyle = 'rgba(255, 100, 100, 1)';
-                context.strokeStyle = 'white';
-                context.lineWidth = 2 + 4 * (1 - t);
-                context.fill();
-                context.stroke();
-
-// update this image's data with data from the canvas
-                this.data = context.getImageData(
-                    0,
-                    0,
-                    this.width,
-                    this.height
-                ).data;
-
-// continuously repaint the map, resulting in the smooth animation of the dot
-                map.triggerRepaint();
-
-// return `true` to let the map know that the image was updated
-                return true;
-            }
-        };
-
-        map.on('load', function() {
-            map.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
-
-            map.addLayer({
-                'id': 'points',
-                'type': 'symbol',
-                'source': {
-                    'type': 'geojson',
-                    'data': {
-                        'type': 'FeatureCollection',
-                        'features': [
-                            {
-                                'type': 'Feature',
-                                'geometry': {
-                                    'type': 'Point',
-                                    'coordinates': [-61.551,16.265 ],
-                                    'zoom': 0.3
-                                }
-                            }
-                        ]
-                    }
-                },
-                'layout': {
-                    'icon-image': 'pulsing-dot'
-                }
-            });
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [{{ site.long }}, {{ site.lat }}], // starting position [lng, lat]
+            zoom: 15// starting zoom
         });
 
+        // add markers to map
+        geojson.features.forEach(function (marker) {
+
+            // create a HTML element for each feature
+            var el = document.createElement('div');
+            el.className = 'marker';
+
+            // make a marker for each feature and add to the map
+            new mapboxgl.Marker(el)
+                .setLngLat(marker.geometry.coordinates)
+                .setPopup(new mapboxgl.Popup({offset: 25}) // add popups
+                    .setHTML('<h6>' + marker.properties.title + '</h6>'))
+                .addTo(map);
+        });
     </script>
 
     <!-- Dropify -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js" integrity="sha256-SUaao5Q7ifr2twwET0iyXVy0OVnuFJhGVi5E/dqEiLU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"
+            integrity="sha256-SUaao5Q7ifr2twwET0iyXVy0OVnuFJhGVi5E/dqEiLU=" crossorigin="anonymous"></script>
     <script>
         $('.dropify').dropify({
             messages: {
                 default: 'Glissez-d&eacute;posez un fichier ici ou cliquez',
                 replace: 'Glissez-d&eacute;posez un fichier ou cliquez pour remplacer',
-                remove:  'Supprimer',
-                error:   'D&eacute;sol&eacute;, le fichier est trop volumineux'
+                remove: 'Supprimer',
+                error: 'D&eacute;sol&eacute;, le fichier est trop volumineux'
             }
         });
     </script>
 {% endblock %}
 
 
-
-
-
-
 {% block content %}
 
-
     <!-- ***** Breadcumb Area Start ***** -->
-    <div class="breadcumb-area height-700 bg-img bg-overlay" style="background-image: url({{ asset('img/sites-img/' ~ site.image) }})">
+    <div class="breadcumb-area height-700 bg-img bg-overlay"
+         style="background-image: url({{ asset('img/sites-img/' ~ site.image) }})">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="breadcumb-content">
                         <div class="map-ratings-review-area d-flex">
-                            <a href="#" class="d-flex align-items-center justify-content-center"><img src="{{ asset('img/core-img/map.png') }}" alt="map"></a>
+                            <a href="#" class="d-flex align-items-center justify-content-center"><img
+                                        src="{{ asset('img/core-img/map.png') }}" alt="map"></a>
                             <a href="#">8.7</a>
                             <a href="#addreviews"> Ajouter un Commentaire</a>
                         </div>
@@ -197,8 +130,8 @@
                     <div class="single-listing-content">
 
                         <div class="listing-title">
-                            <h4>{{ site.name}}</h4>
-                            <h6>{{ site.address}}</h6>
+                            <h4>{{ site.name }}</h4>
+                            <h6>{{ site.address }}</h6>
                         </div>
 
                         <div class="single-listing-nav">
@@ -213,46 +146,15 @@
 
                         <div class="overview-content mt-50" id="overview">
                             <p>{{ site.content }}</p>
-                            <div class="row mt-5">
-                                <div class="col-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Accepts Credit Cards</span>
-                                    </label>
-                                </div>
-                                <div class="col-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Wireless Internet</span>
-                                    </label>
-                                </div>
-                                <div class="col-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Paiement en ligne</span>
-                                    </label>
-                                </div>
-                                <div class="col-6">
-                                    <label class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Privat Parking</span>
-                                    </label>
-                                </div>
+                            <a href="{{ site.siteWeb }}" class="btn btn-block dorne-btn mt-3"> En savoir plus</a>
 
-
-
+                            <div class="listing-menu-area mt-100" id="menu">
+                                {% if site.visiteType is not empty %}
+                                    <h5>Idées de visites</h5><p>
+                                    {{ site.visiteType | striptags }}
+                                </p>
+                                {% endif %}
                             </div>
-                        </div>
-
-                        <div class="listing-menu-area mt-100" id="menu">
-                            <p>
-                                {{ site.visiteType | striptags }}
-                            </p>
-                            <a href="{{site.siteWeb}}" class="btn dorne-btn mt-50">+ En savoir plus</a>
                         </div>
 
                         <div class="listing-reviews-area mt-100" id="review">
@@ -264,36 +166,34 @@
                             {% endfor %}
                             {% if comments is not empty %}
                                 {% for comment in comments %}
-                                <div class=" row single-review-area col-12">
-                                    <div class="col-8">
-                                        <div class="reviewer-meta d-flex align-items-center ">
+                                    <div class=" row single-review-area col-12">
+                                        <div class="col-8">
+                                            <div class="reviewer-meta d-flex align-items-center ">
 
-                                            <img src="{{ asset('img/clients-img/avatar/' ~ comment.user.avatar) }}" alt="{{comment.user.pseudo}}">
-                                            <div class="reviewer-content">
-                                                <div class="review-title-ratings d-flex justify-content-between">
-                                                    <h5>“{{comment.title}}”</h5>
-                                                    <div class="ratings">
-                                                        <img src="{{ asset('img/clients-img/star-fill.png') }}" alt="starRating">
+                                                <img src="{{ asset('img/clients-img/avatar/' ~ comment.user.avatar) }}"
+                                                     alt="{{ comment.user.pseudo }}">
+                                                <div class="reviewer-content">
+                                                    <div class="review-title-ratings d-flex justify-content-between">
+                                                        <h5>“{{ comment.title }}”</h5>
+                                                    </div>
+                                                    <div class="">
+                                                        <p>{{ comment.content | striptags }}</p>
                                                     </div>
                                                 </div>
-                                                <div class="">
-                                                    <p>{{ comment.content | striptags }}</p>
-                                                </div>
-
                                             </div>
+                                            <div class="reviewer-name">
+                                                <h6>{{ comment.user.pseudo }}</h6>
+                                                <p>{{ comment.createdDate| date('Y-F-d') }}</p>
+                                            </div>
+                                        </div> <!-- fin div col-8-->
+                                        <div class="col-4 ">
+                                            {% if comment.image  is defined %}
+                                                <img class="rounded-circle" width="320" height="250"
+                                                     src="{{ asset('img/com-img/' ~ comment.image) }}"
+                                                     alt="{{ comment.image }}">
+                                            {% endif %}
                                         </div>
-                                        <div class="reviewer-name">
-                                            <h6>{{comment.user.pseudo}}</h6>
-                                            <p>{{comment.createdDate| date('Y-F-d')}}</p>
-                                        </div>
-                                    </div> <!-- fin div col-8-->
-                                    <div class="col-4 ">
-                                        {% if comment.image  is defined %}
-                                            <img class="rounded-circle" width="320" height="250" src="{{ asset('img/com-img/' ~ comment.image) }}" alt="{{ comment.image }}">
-                                        {% endif %}
                                     </div>
-
-                                </div>
                                 {% endfor %}
                             {% else %}
                                 <div class="col alert alert-warning text-center">
@@ -302,30 +202,10 @@
                             {% endif %}
                         </div> <!-- Review End -->
 
-
-
                         <div class="location-on-map mt-50" id="lomap">
                             <h4>Nous localiser</h4>
                             <div class="location-map">
                                 <div id="locationMap">
-                                    <div id="menuMap">
-                                        <input
-                                                id="streets-v11"
-                                                type="radio"
-                                                name="rtoggle"
-                                                value="streets"
-                                                checked="checked"
-                                        />
-                                        <label for="streets">streets</label>
-                                        <input id="light-v10" type="radio" name="rtoggle" value="light" />
-                                        <label for="light">light</label>
-                                        <input id="dark-v10" type="radio" name="rtoggle" value="dark" />
-                                        <label for="dark">dark</label>
-                                        <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors" />
-                                        <label for="outdoors">outdoors</label>
-                                        <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" />
-                                        <label for="satellite">satellite</label>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -336,47 +216,63 @@
                 <!-- Listing Sidebar -->
                 <div class="col-12 col-md-8 col-lg-4">
                     <div class="listing-sidebar">
-
                         <!-- Contact  -->
                         <div class="contact-form contact-form-widget mt-50">
                             <h6>Contact</h6>
-
-                                <div class="row">
-                                    <div class="col-12">
-                                        {{site.name}}
-                                    </div>
-                                    <div class="col-12">
-                                        {{site.address | striptags}}
-                                    </div>
-                                    <div class="col-12">
-                                       {{site.tel}}
-                                    </div>
-                                    <div class="col-12">
-                                        {{site.siteWeb}}
-                                    </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    {{ site.name }}
                                 </div>
+                                <div class="col-12">
+                                    {{ site.address | striptags }}
+                                </div>
+                                <div class="col-12">
+                                    {{ site.tel }}
+                                </div>
+                                <div class="col-12">
+                                    {{ site.siteWeb }}
+                                </div>
+                            </div>
                         </div> <!-- END Contact  -->
 
                         <!-- Opening Hours Widget -->
                         <div class="opening-hours-widget mt-50">
                             <h6>Horaires d'ouvertures</h6>
                             <div class="opening-hours">
-                                <ul>
-                                    <li> {{ site.openHour | striptags}}</li>
-                                </ul>
-
+                                <div> {{ site.openHour | striptags }}</div>
                             </div>
                         </div>
 
+                        <!-- Courses  -->
+                        <div class="contact-form contact-form-widget mt-50">
+                            <h6>Parcours conseillés</h6>
+                            <ul class="row">
+                                {% for course in courses %}
+                                    <li class="col-12">
+                                        <div class="add-more">
+                                            <a href="{{ path('default_course', {
+                                                alias : course.alias}
+                                            ) }}">{{ course.name }}</a>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
                     </div>
+                    <!-- Reviews -->
                     <div class="row mt-50" id="addreviews">
                         <div class="col-12 mx-auto ">
                             <h3 class="text-center mt-4">
                                 Ajouter un Commentaire
                             </h3>
                             <div class=" mt-4 ">
-
-                                {{ form(form) }}
+                                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                    {{ form(form) }}
+                                {% else %}
+                                    <div class="alert alert-info">
+                                        Connectez-vous pour laisser un commentaire.
+                                    </div>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -386,6 +282,6 @@
     </section>
     <!-- ***** Single Listing Area End ***** -->
 
-    
+
 {% endblock %}
    

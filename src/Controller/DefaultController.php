@@ -27,6 +27,9 @@ use Tightenco\Collect\Support\Collection;
 
 class DefaultController extends AbstractController
 {
+
+    use HelperTrait;
+
     /**
      * @return Response
      * @Route("/", name="/",methods={"GET|POST"})
@@ -34,34 +37,15 @@ class DefaultController extends AbstractController
      */
     public function index()
     {
-
-        /*# Get course
-        $course = $this->getDoctrine()
-            ->getRepository(Course::class)
-            ->find(1);
-
-        # Get associated visits
-        $visits = new Collection($course->getVisits());
-        $visits = $visits->sortBy(function ($visit) {
-            return $visit->getPriority();
-        });*/
-
-        #/** @var Visit $visit */
-        #foreach ($visits as $visit) {
-        #    # Get site name for each visit by priority
-        #    dump($visit->getSite()->getName());
-        #    dump($visit->getPriority());
-        #}
-
-        #die;
+        #Get Sites
         $sites = $this->getDoctrine()
             ->getRepository(Site::class)
             ->findAll();
-
+        #Get Categories
         $categories = $this->getDoctrine()
             ->getRepository(Category::class)
             ->findAll();
-
+        ##Get Courses
         $courses = $this->getDoctrine()
             ->getRepository(Course::class)
             ->findAll();
@@ -73,6 +57,7 @@ class DefaultController extends AbstractController
         ]);
 
     }
+
     /****************************************************************************************************************/
     /**
      * @param Request $request
@@ -105,6 +90,7 @@ class DefaultController extends AbstractController
             'categories' => $categories
         ]);
     }
+
     /****************************************************************************************************************/
     /**
      * @param Category $category
@@ -121,14 +107,14 @@ class DefaultController extends AbstractController
             ['sites' => $category->getSites(),
                 'category' => $category]);
     }
+
     /****************************************************************************************************************/
     /**
      * @param Site $site
+     * @param Request $request
      * @return Response
      * @Route("/{category}/{alias}_{id}.html", name="default_site", methods={"GET|POST"})
      */
-    use HelperTrait;
-
     public function addComment(Site $site, Request $request)
     {
         #Ajout d'un commentaire
@@ -207,12 +193,19 @@ class DefaultController extends AbstractController
         $user = $this->getDoctrine()
             ->getRepository(User::class)
             ->findBy(['id' => $user]);
+
+        $courses=$this->getDoctrine()
+           ->getRepository(Course::class)
+           ->findBySite($site);
+
         #Transmission du formulaire à la vue
         return $this->render('default/single-site.html.twig', [
             'site' => $site,
             'user' => $user,
             'comments' => $comments,
+            'courses'=> $courses,
             'form' => $form->createView()
+
         ]);
     }
 
@@ -228,6 +221,7 @@ class DefaultController extends AbstractController
             'categories' => $categories
         ]);
     }
+
     /****************************************************************************************************************/
     /**
      * @return Response
@@ -315,6 +309,7 @@ class DefaultController extends AbstractController
             ]);
 
     }
+    /****************************************************************************************************************/
     /**
      * @return Response
      * @Route("/mentions-legales.html", name="default_mlegales", methods={"GET"})
@@ -324,5 +319,31 @@ class DefaultController extends AbstractController
         return $this->render('default/mentions-legales.html.twig');
     }
 
+    /****************************************************************************************************************/
+    /**
+     * @return Response
+     * @Route("/parcours-{alias}.html", name="default_course", methods={"GET"})
+     */
 
+    public function course($alias)
+    {
+        # Get course
+        $course = $this->getDoctrine()
+            ->getRepository(Course::class)
+            ->findOneBy(['alias' => $alias]);
+
+        # Get associated visits
+        $visits = new Collection($course->getVisits());
+        $visits = $visits->sortBy(function ($visit) {
+            return $visit->getPriority();
+        });
+
+
+        return $this->render('default/course.html.twig',
+            [
+                'alias'=>$alias,
+                'course' => $course,
+                'visits' => $visits
+            ]);
+    }
 }

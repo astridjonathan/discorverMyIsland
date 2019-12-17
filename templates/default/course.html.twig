@@ -1,0 +1,63 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Inscription
+{% endblock %}
+
+{% block content %}
+
+
+    <!-- ***** Breadcumb Area Start ***** -->
+    <div class="breadcumb-area height-700 bg-img bg-overlay" style="background-image: url({{ asset('img/sites-img/' ~ course.visits.0.site.image) }})">
+    </div>
+    <!-- ***** Breadcumb Area End ***** -->
+
+    <!-- ***** Single Listing Area Start ***** -->
+    <section class="dorne-single-listing-area section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- Single Listing Content -->
+
+                    <div class="single-listing-content">
+
+                        <div class="listing-title">
+                            <h4>{{ course.name}}</h4>
+                        </div>
+                        <div class="single-listing-nav">
+                            <nav>
+                                <ul id="listingNav">
+                                    <li class="active"><a href="#contentCourse">Descriptif</a></li>
+                                    <li><a href="#menu">Les étapes à suivre</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="feature-title mt-3">
+                            <p id="contentCourse">{{ course.content }}</p>
+                        </div>
+                        <div class="listing-menu-area mt-100" id="menu">
+                            <h4>Voici les étapes du parcours</h4>
+                            <!-- Single Listing Menu -->
+                            {% for visit in visits %}
+                            <div class="single-listing-menu d-flex justify-content-between">
+                                <!-- listing SITES -->
+                                <div class="listing-menu-title">
+                                    <h6>{{visit.site.name | upper}}</h6>
+                                    <p>{{visit.site.content  | u.truncate(150, '...')}}</p>
+                                </div>
+                                <!-- GO BUTTON  -->
+                                <div class="listing-menu-price">
+                                    <a href="{{ path('default_site', {
+                                        alias : visit.site.alias,
+                                        id : visit.site.id,
+                                        category : visit.site.category.alias
+                                       }
+                                    )}}" class="btn btn-block dmi-btn ml-3">GO</a>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
