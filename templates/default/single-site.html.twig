@@ -270,7 +270,7 @@
                                     {{ form(form) }}
                                 {% else %}
                                     <div class="alert alert-info">
-                                        Connectez-vous pour laisser un commentaire.
+                                        <a href="{{ path('app_login') }}" >Connectez-vous</a> ou  <a href="{{ path('user_register') }}" >Inscrivez-vous</a> pour laisser un commentaire.
                                     </div>
                                 {% endif %}
                             </div>
