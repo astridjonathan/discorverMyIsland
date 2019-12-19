@@ -1,0 +1,80 @@
+easy_admin:
+    entities:
+        #------ SITE ENTITY -------#
+        Site:
+            class: App\Entity\Site
+            label: 'Sites'
+            file_base_path: '%site_directory%'
+            list:
+                title: "Liste sites"
+                fields:
+                    - id
+                    - name
+                    - alias
+                    - content
+                    - image
+                    - address
+                    - { property: 'siteWeb', type: 'url' }
+                    - { property: 'tel', type: 'tel' }
+                    - openHour
+                    - visiteType
+                    -  { property: 'category', type_options: { class: 'App\Entity\Category', multiple: false } }
+
+            form:
+                fields:
+                    - name
+                    - alias
+                    - { property: 'content', type: 'text_editor' }
+                    - { property: 'imageFile', type: 'file', base_path: 'site_directory'}
+                    - address
+                    - { property: 'siteWeb', type: 'url' }
+                    - { property: 'tel', type: 'tel' }
+                    - { property: 'openHour', type: 'text_editor' }
+                    - { property: 'visiteType', type: 'text_editor' }
+                    - { property: 'category', type: 'entity', type_options: { class: 'App\Entity\Category', multiple: false } }
+
+        #------ COURSE ENTITY -------#
+        Course:
+            class: App\Entity\Course
+            label: 'Parcours'
+            list:
+                title: "Liste parcours"
+                fields: ['id', 'category_id', 'name', 'duration']
+
+        #------ USER ENTITY -------#
+        User:
+
+            class: App\Entity\User
+            label: 'Utilisateurs'
+            list:
+                title: "Liste utilisateurs"
+                list:
+                    fields:
+                        - id
+                        - { property: 'pseudo', type: 'avatar' }
+                        - email
+                        - password
+
+
+
+    site_name: 'DiscoverMyIsland'
+
+    user:
+        display_name: true
+        display_avatar: false
+        name_property_path: 'pseudo'
+        avatar_property_path: 'avatar'
+
+
+
+    design:
+        form_theme:
+            - "@EasyAdmin/form/bootstrap_4.html.twig"
+
+
+    formats:
+        date: 'd/m/Y'
+        time: 'H:i'
+        datetime: 'd/m/Y H:i:s'
+
+

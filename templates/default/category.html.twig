@@ -1,0 +1,64 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+{{ category.name }}
+{% endblock %}
+
+{% block content %}
+
+<!-- ***** Breadcumb Area Start ***** -->
+<div class="breadcumb-area bg-img bg-overlay" style="background-image: url({{ asset('img/bg-img/hero-1.jpg') }})"></div>
+<!-- ***** Breadcumb Area End ***** -->
+    <!-- ***** Listing Destinations Area Start ***** -->
+    <section class="dorne-listing-destinations-area section-padding-100-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading dark text-center">
+                        <span></span>
+                        <h4>Sites de la  catégorie: {{ category.name}}</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Single Features Area -->
+                {% if sites is not empty %}
+                    {% for site in sites %}
+                    <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="single-features-area mb-50">
+                                <img class="img-dmi" src="{{ asset('img/sites-img/' ~ site.image) }}"  alt="{{ site.name }}">
+                                <!-- Category -->
+                                <div class="price-start">
+                                    <p>{{ category.name}}</p>
+                                </div>
+                                <div class="feature-content d-flex align-items-center justify-content-between">
+                                    <div class="feature-title">
+                                        <h5>{{ site.name }}</h5>
+
+                                        <p>{{ site.content|striptags | u.truncate(80, '...')}}</p>
+                                    </div>
+                                    <div class="feature-favourite">
+                                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <a href="{{ path('default_site', {
+                                        alias : site.alias,
+                                        id : site.id,
+                                        category : site.category.alias}
+                                    )}}" class="btn btn-block dmi-btn">J'y go</a>
+                                </div>
+                            </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="col-12 alert alert-warning text-center">
+                        Aucun site pour le moment pour cette catégorie !
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    <!-- ***** Listing Destinations Area End ***** -->
+
+{% endblock %}

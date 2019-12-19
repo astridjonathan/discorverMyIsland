@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block content %}
+
+    <!-- ***** Breadcumb Area Start ***** -->
+    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url({{ asset('img/bg-img/hero-1.jpg') }})">
+    </div>
+    <!-- ***** Breadcumb Area End ***** -->
+    <div class="container">
+        <div class="row">
+            <div class="col-4 mx-auto">
+                <form method="post">
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+
+                    <h1 class="text-center mt-4">Connexion</h1>
+
+                    <label class="my-2" for="inputPseudo">Pseudo</label>
+                    <input type="text" value="{{ last_username }}" name="pseudo" id="inputPseudo" class="form-control" required autofocus>
+                    <label class="my-2" for="inputPassword">Mot de passe</label>
+                    <input type="password" name="password" id="inputPassword" class="form-control" required>
+
+                    <input type="hidden" name="_csrf_token"
+                           value="{{ csrf_token('authenticate') }}"
+                    >
+
+
+                        <div class="checkbox mb-3 mt-2">
+                            <label>
+                                <input type="checkbox" name="_remember_me"> Se souvenir de moi
+                            </label>
+                        </div>
+
+
+                    <button class="btn btn-block dorne-btn my-4" type="submit">
+                        Connexion
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

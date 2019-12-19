@@ -1,0 +1,174 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Explore
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css" rel="stylesheet"/>
+    <style>
+        .marker {
+            background-image: url({{ asset('img/core-img/mapbox-icon.png') }});
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .mapboxgl-popup {
+            max-width: 200px;
+        }
+
+        .mapboxgl-popup-content {
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+        }
+    </style>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.js"></script>
+    <script>
+
+        var geojson = {
+            type: 'Feature',
+            features: [
+                {% for site in sites %}
+                    {
+                        type: 'Feature',
+                        geometry: {
+                            type: 'Point',
+                            coordinates: ['{{ site.long }}', '{{ site.lat }}']
+                        },
+                        properties: {
+                            title: "{{ site.name }}"
+
+                        }
+                    },
+                {% endfor %}
+            ]
+        };
+
+        mapboxgl.accessToken = 'pk.eyJ1IjoiY2hhYmluZXZpYnoiLCJhIjoiY2szenk4enAxMjAxaDNscWx5MjFtYTE4ZyJ9.2mxGbAQIffpHKpGUphvYVA';
+        // Add popups : https://docs.mapbox.com/help/tutorials/custom-markers-gl-js/
+        var map = new mapboxgl.Map({
+            container: 'exploreGoogleMap',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [-61.546921, 16.236802], // starting position [lng, lat]
+            zoom: 9 // starting zoom
+        });
+
+        // add markers to map
+        geojson.features.forEach(function (marker) {
+
+            // create a HTML element for each feature
+            var el = document.createElement('div');
+            el.className = 'marker';
+
+            // make a marker for each feature and add to the map
+            new mapboxgl.Marker(el)
+                .setLngLat(marker.geometry.coordinates)
+                .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+                    .setHTML('<h6>' + marker.properties.title + '</h6>'))
+                .addTo(map);
+        });
+
+    </script>
+{% endblock %}
+
+
+{% block content %}
+    <!-- ***** Breadcumb Area Start ***** -->
+    <div class="breadcumb-area bg-img bg-overlay"
+         style="background-image: url({{ asset('img/bg-img/hero-1.jpg') }})"></div>
+    <!-- ***** Breadcumb Area End ***** -->
+
+    <!-- Explore Area -->
+    <section class="dorne-explore-area d-md-flex">
+        <!-- Explore Search Area -->
+        <div class="explore-search-area d-md-flex">
+            <!-- Explore Search Form -->
+            <div class="explore-search-form">
+                <h6>Que recherchez-vous?</h6>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-places" role="tabpanel"
+                         aria-labelledby="nav-places-tab">
+                        <form method="get">
+
+                            <select name="q" class="custom-select" id="categories">
+                                <option value="" selected>Toutes les Catégories</option>
+                                {% for category in categories %}
+                                    <option value="{{ category.alias }}">{{ category.name }}</option>
+                                {% endfor %}
+                            </select>
+                            <button type="submit" class="btn dorne-btn mt-50 bg-white text-dark">
+                                <i class="fa fa-search pr-2" aria-hidden="true"></i> Rechercher
+                            </button>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
+                        <form action="#" method="get">
+                            <select class="custom-select" id="events-catagories">
+                                <option selected>Toutes les Catégories</option>
+                                {% for category in categories %}
+                                    <option value="{{ category.id }}">{{ category.name }}</option>
+                                {% endfor %}
+                            </select>
+
+                            {#                                <select class="custom-select" id="events-proximity">#}
+                            {#                                    <option selected>Communes</option>#}
+                            {#                                    <option value="1">Proximity 1</option>#}
+                            {#                                    <option value="2">Proximity 2</option>#}
+
+                            {#                                </select>#}
+                            <button type="submit" class="btn dorne-btn mt-50 bg-white text-dark"><i
+                                        class="fa fa-search pr-2" aria-hidden="true"></i> Search
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Explore Search Result -->
+            <div class="explore-search-result">
+                <!-- Single Features Area -->
+                {% for site in sites %}
+                    <div class="single-features-area">
+                        <img class="img-fluid" src="{{ asset('img/sites-img/' ~ site.image) }}" alt="{{ site.name }}">
+                        <!-- Category -->
+                        <div class="price-start">
+                            <p>{{ site.category.name }}</p>
+                        </div>
+                        <div class="feature-content d-flex align-items-center justify-content-between">
+                            <div class="feature-title">
+                                <h5>{{ site.name }}</h5>
+
+                                <p>{{ site.content|striptags | u.truncate(100, '...') }}</p>
+                            </div>
+                            <div class="feature-favourite">
+                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                        <div class="">
+                            <a href="{{ path('default_site', {
+                                alias : site.alias,
+                                id : site.id,
+                                category : site.category.alias}
+                            ) }}" class="btn btn-block dorne-btn">J'Y GO</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <!-- END Explore Search Result -->
+        <!-- Explore Map Area -->
+        <div class="explore-map-area">
+            <div id="exploreGoogleMap"></div>
+        </div>
+
+    </section>
+
+{% endblock %}
+
