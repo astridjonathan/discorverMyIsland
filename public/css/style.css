@@ -19,6 +19,7 @@
 @import 'others/font-awesome.min.css';
 @import 'others/pe-icon-7-stroke.css';
 
+
 /* Base CSS */
 
 * {
@@ -345,7 +346,7 @@ li {
     font-weight: 600;
     font-size: 15px;
     -webkit-transition-duration: 500ms;
-            transition-duration: 500ms;
+    transition-duration: 500ms;
 }
 .dmi-btn {
     min-width: 60px;
@@ -469,7 +470,7 @@ li {
 }
 
 .navbar-brand {
-	margin-right: 20px;
+    margin-right: 20px;
 }
 
 .navbar-brand:hover,
@@ -621,7 +622,7 @@ li {
 
 .hero-social-btn .social-title {
     -webkit-transform: rotate(90deg);
-            transform: rotate(90deg);
+    transform: rotate(90deg);
     margin-left: -102px;
 }
 
@@ -664,7 +665,7 @@ li {
     text-align: center;
     padding: 60px 15px;
     -webkit-transition-duration: 500ms;
-            transition-duration: 500ms;
+    transition-duration: 500ms;
 }
 
 .single-category-area:hover {
@@ -738,10 +739,10 @@ li {
 }
 
 .single-editors-pick-area {
-     position: relative;
-     z-index: 1;
-     margin-bottom: 20px;
- }
+    position: relative;
+    z-index: 1;
+    margin-bottom: 20px;
+}
 .img-course1{
     max-width: 100% !important;
     height: 600px !important;
@@ -773,7 +774,7 @@ li {
     z-index: 1;
     background-color: #f4f6f8;
     -webkit-transition-duration: 500ms;
-            transition-duration: 500ms;
+    transition-duration: 500ms;
 }
 
 .single-features-area .price-start p {
@@ -801,14 +802,14 @@ li {
     text-transform: uppercase;
     margin-bottom: 0;
     -webkit-transition-duration: 500ms;
-            transition-duration: 500ms;
+    transition-duration: 500ms;
 }
 
 .feature-content .feature-title p {
     font-size: 14px;
     margin-bottom: 0;
     -webkit-transition-duration: 500ms;
-            transition-duration: 500ms;
+    transition-duration: 500ms;
 }
 
 .feature-favourite > a {
@@ -843,13 +844,13 @@ li {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -webkit-transition-duration: 500ms;
-            transition-duration: 500ms;
+    transition-duration: 500ms;
 }
 
 .ratings-map-area {
@@ -871,7 +872,7 @@ li {
     background-color: #fff;
     margin-bottom: 50px;
     -webkit-transition-duration: 500ms;
-            transition-duration: 500ms;
+    transition-duration: 500ms;
 }
 
 .single-feature-events-area .feature-events-thumb {
@@ -903,20 +904,20 @@ li {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -webkit-transition-duration: 500ms;
-            transition-duration: 500ms;
+    transition-duration: 500ms;
 }
 
 .feature-events-thumb {
     width: 170px;
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 170px;
-            flex: 0 0 170px;
+    -ms-flex: 0 0 170px;
+    flex: 0 0 170px;
 }
 
 .feature-events-content {
@@ -946,7 +947,7 @@ li {
     font-weight: 800;
     margin-bottom: 5px;
     -webkit-transition-duration: 500ms;
-            transition-duration: 500ms;
+    transition-duration: 500ms;
 }
 
 .feature-events-content h6 {
@@ -955,13 +956,13 @@ li {
     color: #FF9966;
     margin-bottom: 15px;
     -webkit-transition-duration: 500ms;
-            transition-duration: 500ms;
+    transition-duration: 500ms;
 }
 
 .feature-events-content p {
     font-size: 14px;
     -webkit-transition-duration: 500ms;
-            transition-duration: 500ms;
+    transition-duration: 500ms;
     margin-bottom: 0;
 }
 
@@ -1014,16 +1015,16 @@ li {
 /* Contact Area CSS */
 
 .contact-form-area {
-	position: relative;
-	z-index: 1;
-	padding: 100px 40px 100px 50px;
+    position: relative;
+    z-index: 1;
+    padding: 100px 40px 100px 50px;
 }
 
 .contact-form-area,
 .dorne-map-area {
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 50%;
-            flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
     width: 50%;
 }
 
@@ -1102,8 +1103,8 @@ li {
 .explore-search-form,
 .explore-search-result {
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 50%;
-            flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
     width: 50%;
     height: 80vh;
 }
@@ -1256,8 +1257,8 @@ li {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
 }
 
 .opening-hours li:first-child p {
@@ -1324,8 +1325,8 @@ li {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 .single-listing-nav li a {
@@ -1441,6 +1442,18 @@ li {
     min-height: 25rem;
     width: 100%;
     overflow: hidden;
+}
+
+#videoHome{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#videoHome iframe{
+    min-width:100% !important;
+    min-height: 400px !important;
+    max-width: 100% !important ;
+    max-height: 100% !important;
 }
 
 #videoDmi video {
